@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{A050C23E-2AA9-42C2-B477-B235BE34DF0E}</ProjectGuid>
+    <RootNamespace>engine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <TargetName>$(ProjectName)</TargetName>
+    <TargetExt>.lib</TargetExt>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <TargetName>$(ProjectName)</TargetName>
+    <TargetExt>.lib</TargetExt>
+    <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;ZZ_LUA500;ZZ_STATIC_USE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)src\triggervfs\include;$(SolutionDir)thirdparty\dx9-sdk;$(SolutionDir)thirdparty\lua-5.0\include</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;ZZ_LUA500;ZZ_STATIC_USE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)src\triggervfs\include;$(SolutionDir)thirdparty\dx9-sdk;$(SolutionDir)thirdparty\lua-5.0\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\zz_algebra.cpp" />
+    <ClCompile Include="src\zz_animatable.cpp" />
+    <ClCompile Include="src\zz_assert.cpp" />
+    <ClCompile Include="src\zz_bone.cpp" />
+    <ClCompile Include="src\zz_bvolume.cpp" />
+    <ClCompile Include="src\zz_bvolume_obb.cpp" />
+    <ClCompile Include="src\zz_camera.cpp" />
+    <ClCompile Include="src\zz_camera_follow.cpp" />
+    <ClCompile Include="src\zz_channel.cpp" />
+    <ClCompile Include="src\zz_channel_position.cpp" />
+    <ClCompile Include="src\zz_channel_rotation.cpp" />
+    <ClCompile Include="src\zz_channel_x.cpp" />
+    <ClCompile Include="src\zz_channel_xy.cpp" />
+    <ClCompile Include="src\zz_cursor.cpp" />
+    <ClCompile Include="src\zz_db.cpp" />
+    <ClCompile Include="src\zz_dx_version.cpp" />
+    <ClCompile Include="src\zz_error.cpp" />
+    <ClCompile Include="src\zz_event.cpp" />
+    <ClCompile Include="src\zz_font.cpp" />
+    <ClCompile Include="src\zz_font_d3d.cpp" />
+    <ClCompile Include="src\zz_font_texture.cpp" />
+    <ClCompile Include="src\zz_font_texture_d3d.cpp" />
+    <ClCompile Include="src\zz_gamma.cpp" />
+    <ClCompile Include="src\zz_ik_limb.cpp" />
+    <ClCompile Include="src\zz_index_buffer.cpp" />
+    <ClCompile Include="src\zz_interface.cpp" />
+    <ClCompile Include="src\zz_light.cpp" />
+    <ClCompile Include="src\zz_light_direct.cpp" />
+    <ClCompile Include="src\zz_light_omni.cpp" />
+    <ClCompile Include="src\zz_light_point.cpp" />
+    <ClCompile Include="src\zz_lod.cpp" />
+    <ClCompile Include="src\zz_log.cpp" />
+    <ClCompile Include="src\zz_main.cpp" />
+    <ClCompile Include="src\zz_manager.cpp" />
+    <ClCompile Include="src\zz_manager_font.cpp" />
+    <ClCompile Include="src\zz_manager_mesh_ishared.cpp" />
+    <ClCompile Include="src\zz_manager_sound.cpp" />
+    <ClCompile Include="src\zz_manager_texture.cpp" />
+    <ClCompile Include="src\zz_manager_visible.cpp" />
+    <ClCompile Include="src\zz_material.cpp" />
+    <ClCompile Include="src\zz_material_colormap.cpp" />
+    <ClCompile Include="src\zz_material_ocean.cpp" />
+    <ClCompile Include="src\zz_material_sky.cpp" />
+    <ClCompile Include="src\zz_material_terrain.cpp" />
+    <ClCompile Include="src\zz_mem.cpp" />
+    <ClCompile Include="src\zz_mesh.cpp" />
+    <ClCompile Include="src\zz_mesh_ishared.cpp" />
+    <ClCompile Include="src\zz_mesh_ocean.cpp" />
+    <ClCompile Include="src\zz_mesh_terrain.cpp" />
+    <ClCompile Include="src\zz_mesh_tool.cpp" />
+    <ClCompile Include="src\zz_misc.cpp" />
+    <ClCompile Include="src\zz_model.cpp" />
+    <ClCompile Include="src\zz_morpher.cpp" />
+    <ClCompile Include="src\zz_motion.cpp" />
+    <ClCompile Include="src\zz_motion_controller.cpp" />
+    <ClCompile Include="src\zz_motion_mixer.cpp" />
+    <ClCompile Include="src\zz_motion_tool.cpp" />
+    <ClCompile Include="src\zz_node.cpp" />
+    <ClCompile Include="src\zz_node_type.cpp" />
+    <ClCompile Include="src\zz_ocean_block.cpp" />
+    <ClCompile Include="src\zz_octree.cpp" />
+    <ClCompile Include="src\zz_os.cpp" />
+    <ClCompile Include="src\zz_particle.cpp" />
+    <ClCompile Include="src\zz_particle_emitter.cpp" />
+    <ClCompile Include="src\zz_particle_event.cpp" />
+    <ClCompile Include="src\zz_particle_event_sequence.cpp" />
+    <ClCompile Include="src\zz_path.cpp" />
+    <ClCompile Include="src\zz_primitive.cpp" />
+    <ClCompile Include="src\zz_profiler.cpp" />
+    <ClCompile Include="src\zz_renderer.cpp" />
+    <ClCompile Include="src\zz_renderer_d3d.cpp" />
+    <ClCompile Include="src\zz_render_state.cpp" />
+    <ClCompile Include="src\zz_scene.cpp" />
+    <ClCompile Include="src\zz_scene_octree.cpp" />
+    <ClCompile Include="src\zz_script.cpp" />
+    <ClCompile Include="src\zz_script_lua.cpp" />
+    <ClCompile Include="src\zz_script_simple.cpp" />
+    <ClCompile Include="src\zz_sfx.cpp" />
+    <ClCompile Include="src\zz_shader.cpp" />
+    <ClCompile Include="src\zz_skeleton.cpp" />
+    <ClCompile Include="src\zz_sky.cpp" />
+    <ClCompile Include="src\zz_sound.cpp" />
+    <ClCompile Include="src\zz_string.cpp" />
+    <ClCompile Include="src\zz_system.cpp" />
+    <ClCompile Include="src\zz_targa.cpp" />
+    <ClCompile Include="src\zz_terrain.cpp" />
+    <ClCompile Include="src\zz_terrain_block.cpp" />
+    <ClCompile Include="src\zz_texture.cpp" />
+    <ClCompile Include="src\zz_thread.cpp" />
+    <ClCompile Include="src\zz_timer.cpp" />
+    <ClCompile Include="src\zz_trail.cpp" />
+    <ClCompile Include="src\zz_unit_test.cpp" />
+    <ClCompile Include="src\zz_vertex_buffer.cpp" />
+    <ClCompile Include="src\zz_vfs.cpp" />
+    <ClCompile Include="src\zz_vfs_local.cpp" />
+    <ClCompile Include="src\zz_vfs_mem.cpp" />
+    <ClCompile Include="src\zz_vfs_pkg.cpp" />
+    <ClCompile Include="src\zz_vfs_thread.cpp" />
+    <ClCompile Include="src\zz_view.cpp" />
+    <ClCompile Include="src\zz_view_d3d.cpp" />
+    <ClCompile Include="src\zz_visible.cpp" />
+    <ClCompile Include="src\zz_waiting_line.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\zz_algebra.h" />
+    <ClInclude Include="include\zz_animatable.h" />
+    <ClInclude Include="include\zz_array.h" />
+    <ClInclude Include="include\zz_assert.h" />
+    <ClInclude Include="include\zz_autolock.h" />
+    <ClInclude Include="include\zz_bone.h" />
+    <ClInclude Include="include\zz_bvolume.h" />
+    <ClInclude Include="include\zz_bvolume_obb.h" />
+    <ClInclude Include="include\zz_camera.h" />
+    <ClInclude Include="include\zz_camera_follow.h" />
+    <ClInclude Include="include\zz_channel.h" />
+    <ClInclude Include="include\zz_channel_position.h" />
+    <ClInclude Include="include\zz_channel_rotation.h" />
+    <ClInclude Include="include\zz_channel_x.h" />
+    <ClInclude Include="include\zz_channel_xy.h" />
+    <ClInclude Include="include\zz_critical_section.h" />
+    <ClInclude Include="include\zz_cursor.h" />
+    <ClInclude Include="include\zz_db.h" />
+    <ClInclude Include="include\zz_device_resource.h" />
+    <ClInclude Include="include\zz_dx_version.h" />
+    <ClInclude Include="include\zz_error.h" />
+    <ClInclude Include="include\zz_event.h" />
+    <ClInclude Include="include\zz_fast_reader.h" />
+    <ClInclude Include="include\zz_font.h" />
+    <ClInclude Include="include\zz_font_d3d.h" />
+    <ClInclude Include="include\zz_font_texture.h" />
+    <ClInclude Include="include\zz_font_texture_d3d.h" />
+    <ClInclude Include="include\zz_gamma.h" />
+    <ClInclude Include="include\zz_hash_table.h" />
+    <ClInclude Include="include\zz_ik_limb.h" />
+    <ClInclude Include="include\zz_index_buffer.h" />
+    <ClInclude Include="include\zz_interface.h" />
+    <ClInclude Include="include\zz_light.h" />
+    <ClInclude Include="include\zz_light_direct.h" />
+    <ClInclude Include="include\zz_light_omni.h" />
+    <ClInclude Include="include\zz_light_point.h" />
+    <ClInclude Include="include\zz_list.h" />
+    <ClInclude Include="include\zz_lod.h" />
+    <ClInclude Include="include\zz_log.h" />
+    <ClInclude Include="include\zz_macro.h" />
+    <ClInclude Include="include\zz_manager.h" />
+    <ClInclude Include="include\zz_manager_font.h" />
+    <ClInclude Include="include\zz_manager_mesh_ishared.h" />
+    <ClInclude Include="include\zz_manager_sound.h" />
+    <ClInclude Include="include\zz_manager_texture.h" />
+    <ClInclude Include="include\zz_manager_visible.h" />
+    <ClInclude Include="include\zz_material.h" />
+    <ClInclude Include="include\zz_material_colormap.h" />
+    <ClInclude Include="include\zz_material_ocean.h" />
+    <ClInclude Include="include\zz_material_sky.h" />
+    <ClInclude Include="include\zz_material_terrain.h" />
+    <ClInclude Include="include\zz_mem.h" />
+    <ClInclude Include="include\zz_mesh.h" />
+    <ClInclude Include="include\zz_mesh_ishared.h" />
+    <ClInclude Include="include\zz_mesh_ocean.h" />
+    <ClInclude Include="include\zz_mesh_terrain.h" />
+    <ClInclude Include="include\zz_mesh_tool.h" />
+    <ClInclude Include="include\zz_minmax.h" />
+    <ClInclude Include="include\zz_misc.h" />
+    <ClInclude Include="include\zz_mode.h" />
+    <ClInclude Include="include\zz_model.h" />
+    <ClInclude Include="include\zz_morpher.h" />
+    <ClInclude Include="include\zz_motion.h" />
+    <ClInclude Include="include\zz_motion_controller.h" />
+    <ClInclude Include="include\zz_motion_mixer.h" />
+    <ClInclude Include="include\zz_motion_tool.h" />
+    <ClInclude Include="include\zz_node.h" />
+    <ClInclude Include="include\zz_node_type.h" />
+    <ClInclude Include="include\zz_ocean_block.h" />
+    <ClInclude Include="include\zz_octree.h" />
+    <ClInclude Include="include\zz_os.h" />
+    <ClInclude Include="include\zz_oskernel.h" />
+    <ClInclude Include="include\zz_particle.h" />
+    <ClInclude Include="include\zz_particle_emitter.h" />
+    <ClInclude Include="include\zz_particle_event.h" />
+    <ClInclude Include="include\zz_particle_event_sequence.h" />
+    <ClInclude Include="include\zz_path.h" />
+    <ClInclude Include="include\zz_pointer.h" />
+    <ClInclude Include="include\zz_pool.h" />
+    <ClInclude Include="include\zz_primitive.h" />
+    <ClInclude Include="include\zz_profiler.h" />
+    <ClInclude Include="include\zz_recycling_array.h" />
+    <ClInclude Include="include\zz_refcount.h" />
+    <ClInclude Include="include\zz_renderer.h" />
+    <ClInclude Include="include\zz_renderer_d3d.h" />
+    <ClInclude Include="include\zz_render_state.h" />
+    <ClInclude Include="include\zz_scene.h" />
+    <ClInclude Include="include\zz_scene_octree.h" />
+    <ClInclude Include="include\zz_script.h" />
+    <ClInclude Include="include\zz_script_lua.h" />
+    <ClInclude Include="include\zz_script_simple.h" />
+    <ClInclude Include="include\zz_sfx.h" />
+    <ClInclude Include="include\zz_shader.h" />
+    <ClInclude Include="include\zz_skeleton.h" />
+    <ClInclude Include="include\zz_sky.h" />
+    <ClInclude Include="include\zz_sound.h" />
+    <ClInclude Include="include\zz_string.h" />
+    <ClInclude Include="include\zz_system.h" />
+    <ClInclude Include="include\zz_targa.h" />
+    <ClInclude Include="include\zz_terrain.h" />
+    <ClInclude Include="include\zz_terrain_block.h" />
+    <ClInclude Include="include\zz_texture.h" />
+    <ClInclude Include="include\zz_thread.h" />
+    <ClInclude Include="include\zz_tier0.h" />
+    <ClInclude Include="include\zz_timer.h" />
+    <ClInclude Include="include\zz_trail.h" />
+    <ClInclude Include="include\zz_tree.h" />
+    <ClInclude Include="include\zz_type.h" />
+    <ClInclude Include="include\zz_unit_test.h" />
+    <ClInclude Include="include\zz_vertex_buffer.h" />
+    <ClInclude Include="include\zz_vertex_format.h" />
+    <ClInclude Include="include\zz_vfs.h" />
+    <ClInclude Include="include\zz_vfs_local.h" />
+    <ClInclude Include="include\zz_vfs_mem.h" />
+    <ClInclude Include="include\zz_vfs_pkg.h" />
+    <ClInclude Include="include\zz_vfs_thread.h" />
+    <ClInclude Include="include\zz_view.h" />
+    <ClInclude Include="include\zz_viewfrustum.h" />
+    <ClInclude Include="include\zz_view_d3d.h" />
+    <ClInclude Include="include\zz_visible.h" />
+    <ClInclude Include="include\zz_waiting_line.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\zz_error_trans.inc" />
+    <None Include="include\zz_script_lua.inc" />
+    <None Include="include\zz_script_lua.lua" />
+    <None Include="include\zz_version_info.inc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
