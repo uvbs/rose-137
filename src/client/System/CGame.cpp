@@ -19,7 +19,6 @@
 #include "CGameStateReLogin.h"
 #include "SqliteDB.h"
 
-#include "Country.h"
 #include "Debug.h"
 #include "Network/CNetwork.h"
 #include "IO_Event.h"
@@ -551,8 +550,8 @@ bool CGame::Load_BasicDATA2()
 	g_SkillList.LoadSkillTable	( "3DData\\STB\\LIST_SKILL.STB" );
 
 	///NEW VERSION Loading data for
-	//if( IsApplyNewVersion() )
-	if( IsApplyNewVersion() )
+	//if( true )
+	if( true )
 	{
 		Load_NewVersionData();
 	}
@@ -1892,9 +1891,6 @@ void	CGame::ResetAutoRun()
 //-------------------------------------------------------------------------------------------
 bool CGame::IsActiveRouteComboBox()
 {
-	if( CCountry::GetSingleton().IsCountry( CCountry::COUNTRY_JPN ) && !g_GameDATA.m_is_NHN_JAPAN )
-		return true;
-
 	return false;
 }
 void CGame::SetJapanPartnerString( const char* str )

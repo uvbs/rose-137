@@ -15,7 +15,7 @@
 #include "Common/CItem.h"
 #include "IO_Event.h"
 #include "IO_Terrain.h"
-#include "Country.h"
+
 
 
 //Item base command에서 필요한 글로벌 함수들
@@ -478,7 +478,7 @@ bool CTCmdItemUseInInventory::Exec( CTObject* pObj )
 	
 	// 허용된 국가만이 New Delay type을 적용 할수 있음. 
 	// 현재 아이템의 딜레이 타입을 가져온다. 
-	if(CCountry::GetSingleton().IsUseItemDelayNewVersion())
+	if(true)
 	{
 		short iItem = Item.GetItemNO();
 		int iDelayType	 = USEITME_DELAYTIME_TYPE( iItem );

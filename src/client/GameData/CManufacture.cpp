@@ -5,7 +5,7 @@
 #include "Common/CEconomy.h"
 #include "Event/CTEventItem.h"
 #include "Event/CTEventManufacture.h"
-#include "Country.h"
+
 
 
 
@@ -144,7 +144,7 @@ int CManufacture::GetEstimateProbability(int iItemDif, int iItemQuality, int iMa
 
 	double fSucProb1, fSucProb2, fSucProb3, fSucProb4;
 
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		int avatar_lv = g_pAVATAR->Get_LEVEL();
 

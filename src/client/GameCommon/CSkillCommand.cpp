@@ -11,7 +11,7 @@
 #include "GameData/CExchange.h"
 #include "GameData/CPrivateStore.h"
 #include "io_terrain.h"
-#include "Country.h"
+
 #include "System/CGame.h"
 #include "GameProc/UseItemDelay.h"
 
@@ -417,7 +417,7 @@ bool CBasicCommand::Execute()
 					return false;
 				}			
 
-				if( IsApplyNewVersion() )
+				if( true )
 				{
 					switch( ZONE_RIDING_REFUSE_FLAG( g_pTerrain->GetZoneNO() ) )
 					{

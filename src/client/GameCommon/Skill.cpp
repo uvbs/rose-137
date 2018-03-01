@@ -17,7 +17,7 @@
 #include "IO_Terrain.h"
 #include "GameProc/SkillCommandDelay.h"
 
-#include "Country.h"
+
 #include "GameProc/UseItemDelay.h"
 
 CSkillManager	g_SkillManager;
@@ -167,7 +167,7 @@ void CSkill::DrawIcon( int iX, int iY, DWORD dwColor )
 
 //-----------------------------------------------------------------------------------------------------
 /////////2005. 5. 30.  박 지호 
-	if(CCountry::GetSingleton().IsUseItemDelayNewVersion())
+	if(true)
 	{
 		//스킬 딜레이 타입을 가져온다. 
 		int iDelayType = SKILL_RELOAD_TYPE( GetSkillIndex() );
@@ -1123,7 +1123,7 @@ bool CSkillManager::FireSkill( int iSkillSlotIDX, int iTargetObj, D3DXVECTOR3 &P
 	//------------------------------------------------------------------------------------------------
 //2005 5. 30 박 지호
 	//스킬 딜레이 타입 체크 후 재설정 만약 딜레이 중이라면 리턴 
- 	if(CCountry::GetSingleton().IsUseItemDelayNewVersion())
+ 	if(true)
 	{
 		int iDelayType = SKILL_RELOAD_TYPE( pSkill->GetSkillIndex() );
 		int iSkill	   = pSkill->GetSkillIndex();

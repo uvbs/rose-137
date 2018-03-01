@@ -15,7 +15,7 @@
 #include ".\CObjNewRide.h"
 #endif
 #include "CObjCHAR_Collision.h"
-#include "Country.h"
+
 
 // get the difference between first-frame COM position z and m_vCurrent-frame COM position z
 #define GET_MOTION_DIFF_Z (m_vCOM.z - m_vCurrent.z - m_vInitCOM.z)

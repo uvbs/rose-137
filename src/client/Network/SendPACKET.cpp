@@ -15,7 +15,7 @@
 #include "GameData/CPrivateStore.h"
 #include "GameProc/preventduplicatedcommand.h"
 #include "Common/IO_STB.H"
-#include "Country.h"
+
 #include "System/CGame.h"
 #include "System/GameStateMovePlanet.h"
 

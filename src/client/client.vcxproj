@@ -60,7 +60,6 @@
     <ClCompile Include="Common\IO_Quest.cpp" />
     <ClCompile Include="Common\IO_Skill.cpp" />
     <ClCompile Include="Common\IO_STB.cpp" />
-    <ClCompile Include="Country.cpp" />
     <ClCompile Include="CPunk.cpp" />
     <ClCompile Include="CSkyDOME.cpp" />
     <ClCompile Include="CViewMSG.cpp" />
@@ -463,7 +462,6 @@
     <ClInclude Include="Common\IO_Skill.h" />
     <ClInclude Include="Common\IO_STB.H" />
     <ClInclude Include="Common\MileageInv.h" />
-    <ClInclude Include="Country.h" />
     <ClInclude Include="CPunk.h" />
     <ClInclude Include="CSkyDOME.h" />
     <ClInclude Include="CViewMSG.h" />
@@ -995,7 +993,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)bin\$(Configuration)\;$(SolutionDir)bin\$(Configuration)\thirdparty;$(SolutionDir)thirdparty\dx9-sdk\lib;$(SolutionDir)thirdparty\zlib-1.2.3\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Link>
-      <AdditionalDependencies>d3d9.lib;engine.lib;expat.lib;ijl15.lib;legacy_stdio_definitions.lib;lua401.lib;onig.lib;sqlite3.lib;tgamectrl.lib;triggerinfo.lib;triggervfs.lib;version.lib;Wininet.lib;winmm.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d9.lib;engine.lib;expat.lib;ijl15.lib;legacy_stdio_definitions.lib;lua401.lib;NvTriStrip.lib;onig.lib;sqlite3.lib;tgamectrl.lib;triggerinfo.lib;triggervfs.lib;version.lib;Wininet.lib;winmm.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -1019,7 +1017,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)bin\$(Configuration)\;$(SolutionDir)bin\$(Configuration)\thirdparty;$(SolutionDir)thirdparty\dx9-sdk\lib;$(SolutionDir)thirdparty\zlib-1.2.3\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>d3d9.lib;engine.lib;expat.lib;ijl15.lib;legacy_stdio_definitions.lib;lua401.lib;onig.lib;sqlite3.lib;tgamectrl.lib;triggerinfo.lib;triggervfs.lib;version.lib;Wininet.lib;winmm.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d9.lib;engine.lib;expat.lib;ijl15.lib;legacy_stdio_definitions.lib;lua401.lib;NvTriStrip.lib;onig.lib;sqlite3.lib;tgamectrl.lib;triggerinfo.lib;triggervfs.lib;version.lib;Wininet.lib;winmm.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

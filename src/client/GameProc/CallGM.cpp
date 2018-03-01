@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include ".\callgm.h"
 #include "System/SystemProcScript.h"
-#include "Country.h"
+
 
 CCallGM::CCallGM(void)
 {
@@ -15,7 +15,7 @@ void CCallGM::CallGM( std::string& strServerName, std::string& strChannelName, s
 {
 	std::string strSendedString = strServerName + "_" + strChannelName + "_" + strMsg;
 
-	DWORD dwCountryCode = CCountry::GetSingleton().GetCountryCode();
+	DWORD dwCountryCode = 6; // Legacy: This means USA, country code logic was removed from source code (3/1/2018 - Ralph)
 
 	CSystemProcScript::GetSingleton().CallLuaFunction( "SendGMCall", 
 												ZZ_PARAM_INT,

@@ -17,7 +17,7 @@
 #include "../CommandFilter.h"
 
 #include "IO_Terrain.h"
-#include "Country.h"
+
 #include "JCommandState.h"
 
 bool g_bStickMode = false;
@@ -119,7 +119,7 @@ int	CObjAI::Get_WorldTIME(void)
 
 int	CObjAI::Cal_AtkAniSPEED( short nRightWeaponItemNO )
 {
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		/// 100을 기준으로 계산됨.
 		float fWeaponSpeed = (int) ( 1500.f / ( WEAPON_ATTACK_SPEED( nRightWeaponItemNO ) + 5 ) );
@@ -800,7 +800,7 @@ void CObjAI::SetCMD_MOVE ( WORD wSrvDIST, const D3DVECTOR& PosTO, int iServerTar
 	if(pDestOBJ 
 		&& pDestOBJ->Get_TYPE() == OBJ_ITEM 
 		&& g_pAVATAR->GetPetMode() > 0 
-		&& !IsApplyNewVersion() )
+		&& !true )
 	{
 		return;
 	}
@@ -2000,7 +2000,7 @@ short CObjAI::Get_RecoverHP( short nRecoverMODE )
 	{
 		case CMD_SIT :
 			{
-				if( IsApplyNewVersion() )
+				if( true )
 					//nRecoverHP = this->GetAdd_RecoverHP() + this->Get_MaxHP() / 12.f + 1;
 					nRecoverHP = this->GetAdd_RecoverHP() + this->GetOri_MaxHP() / 12.f + 1;
 					
@@ -2010,7 +2010,7 @@ short CObjAI::Get_RecoverHP( short nRecoverMODE )
 			break;
 		default:
 			{
-				if( IsApplyNewVersion() )
+				if( true )
 					//nRecoverHP = this->GetAdd_RecoverHP() + this->Get_MaxHP() / 50 + 1;
 					nRecoverHP = this->GetAdd_RecoverHP() + this->GetOri_MaxHP() / 50 + 1;
 				else
@@ -2032,14 +2032,14 @@ short CObjAI::Get_RecoverMP( short nRecoverMODE )
 	switch( Get_COMMAND() )
 	{
 	case CMD_SIT:
-		if( IsApplyNewVersion() )
+		if( true )
 			//nRecoverMP = this->GetAdd_RecoverMP() + this->Get_MaxMP() / 12.f + 1;
 			nRecoverMP = this->GetAdd_RecoverMP() + this->GetOri_MaxMP() / 12.f + 1;
 		else
 			nRecoverMP = ( this->GetAdd_RecoverMP() + ( this->Get_CON()+20 ) / 10 * nRecoverMODE / 7 );
 		break;
 	default:
-		if( IsApplyNewVersion() )
+		if( true )
 		{
 			//nRecoverMP = this->GetAdd_RecoverMP() + this->Get_MaxMP() / 35.f + 1;
 			nRecoverMP = this->GetAdd_RecoverMP() + this->GetOri_MaxMP() / 35.f + 1;

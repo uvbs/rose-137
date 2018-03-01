@@ -3,7 +3,7 @@
 #include "CUserDATA.h"
 #include "Object.h"
 #include "Calculation.h"
-#include "Country.h"
+
 #include "Util/classTIME.h"
 
 #ifndef __SERVER
@@ -204,7 +204,7 @@ void CUserDATA::Cal_BattleAbility ()
 	//if ( GetCur_HP() > GetCur_MaxHP() ) SetCur_HP( GetCur_MaxHP() );
 	//if ( GetCur_MP() > GetCur_MaxMP() ) SetCur_MP( GetCur_MaxMP() );
 
-	if ( IsApplyNewVersion() && this->GetCur_MOVE_MODE() <= MOVE_MODE_RUN ) {
+	if ( true && this->GetCur_MOVE_MODE() <= MOVE_MODE_RUN ) {
 		// 대만 보행모드면...
 		int iCurAbility;
 		for (nI=0; nI<BA_MAX; nI++) {
@@ -218,7 +218,7 @@ void CUserDATA::Cal_BattleAbility ()
 	
 	//PY: this whole switch is now useless since we want the values that come from the client to be displayed as they are
 	/*
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		SetDef_IMMUNITY( 0 );
 		switch( GetCur_JOB() )
@@ -360,7 +360,7 @@ int CUserDATA::Cal_MaxHP ()
 		
 #else
 	int iM2 = 0;
-	if ( IsApplyNewVersion() ) 
+	if ( true ) 
 	{
 		float fC;
 		switch( this->GetCur_JOB() ) {
@@ -740,7 +740,7 @@ int CUserDATA::Cal_ATTACK ()
 			// 소모탄에 따른 공격력 계산...
 			switch( ShotTYPE ) {
 				case SHOT_TYPE_ARROW :
-					if ( IsApplyNewVersion() ) {
+					if ( true ) {
 						// 화살장착:[  (DEX*0.52 + STR*0.1 + LV*0.1+총알품질*0.5)+{(무기공격력+ 무기등급추가치) * (DEX*0.04+SEN*0.03+29) / 30} ] + 아이템 증가치
 						iAP = (int)( ( GetCur_DEX()*0.52f + GetCur_STR()*0.1f + GetCur_LEVEL()*0.1f + nItemQ*0.5f ) +
 									( Cal_NEWKRAttack(iWeaponAP ,pRightWPN->GetGrade())  * ( GetCur_DEX()*0.04f + GetCur_SENSE()*0.03f+29 ) / 30 ) ) ;
@@ -754,7 +754,7 @@ int CUserDATA::Cal_ATTACK ()
 					//iAP = (int)( ( GetCur_DEX()*0.4f + GetCur_CON()*0.5f + GetCur_LEVEL()*0.2f + nItemQ ) +
 					//			( ( (iWeaponAP+ITEMGRADE_ATK(pRightWPN->GetGrade()) )+nItemQ*0.6f+8 ) * ( GetCur_CON()*0.03f + GetCur_SENSE()*0.05f+29) / 30 ) );
 					// 2005/ 6 / 29일 필리핀 버젼부터 국내와 대만 버젼계산식 분리
-					if( IsApplyNewVersion() )
+					if( true )
 						iAP = (int)( ( GetCur_DEX()*0.3f + GetCur_CON()*0.47f + GetCur_LEVEL()*0.1f + nItemQ * 0.8f) +
 						( Cal_NEWKRAttack(iWeaponAP ,pRightWPN->GetGrade()) * ( GetCur_CON()*0.04f + GetCur_SENSE()*0.05f+29) / 30 ) );
 					else
@@ -765,7 +765,7 @@ int CUserDATA::Cal_ATTACK ()
 					//iAP = (int)( ( GetCur_STR()*0.52f + GetCur_CON()*0.5f + GetCur_LEVEL()*0.2f + nItemQ ) +
 					//			( ( (iWeaponAP+ITEMGRADE_ATK(pRightWPN->GetGrade()) )+nItemQ+12 ) * ( GetCur_CON()*0.04f + GetCur_SENSE()*0.05f+29) / 30 ) );
 					// 2005/ 6 / 29일 필리핀 버젼부터 국내와 대만 버젼계산식 분리
-					if( IsApplyNewVersion() )
+					if( true )
 						iAP = (int)( ( GetCur_STR()*0.32f + GetCur_CON()*0.45f + GetCur_LEVEL()*0.1f + nItemQ * 0.8f ) +
 						( Cal_NEWKRAttack(iWeaponAP ,pRightWPN->GetGrade()) * ( GetCur_CON()*0.04f + GetCur_SENSE()*0.05f+29) / 30 ) );
 					else
@@ -1129,7 +1129,7 @@ float CUserDATA::Cal_RunSPEED ()
 			nItemSpeed += BACKITEM_MOVE_SPEED( nItemNo );
 		}
 		nItemSpeed += 20;
-		if ( IsApplyNewVersion() ) {
+		if ( true ) {
 			// SPE = {(신발 이동력 + 등장착 이동력+20)*5
 			fMoveSpeed = nItemSpeed * 5 + this->m_iAddValue[ AT_SPEED ];
 		} else {
@@ -1158,7 +1158,7 @@ float CUserDATA::Cal_RunSPEED ()
 
 
 		//20050817 홍근 카트 탑승시 무게가 100% 이상이면 이동속도 300으로 규정.
-		if ( IsApplyNewVersion() )
+		if ( true )
 		{
 			if( g_pAVATAR->GetWeightRate()>=100 )
 			{
@@ -2769,7 +2769,7 @@ bool CUserDATA::Reward_InitSKILLType ( int iInitType, int iSkillSlot )
 //////////////////////////////////////////////////////////////////////////
 bool CUserDATA::Reward_InitSKILL()
 {		
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		short nSkillIDX, n1LevSkillIDX;
 		int iRecoverySP = 0;

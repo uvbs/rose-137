@@ -16,7 +16,7 @@
 #include "Interface/it_mgr.h"
 #include "../CSkillDlg.h"
 #include "../../../GameCommon/Skill.h"
-#include "Country.h"
+
 
 #include "interface/dlgs/CItemDlg.h"
 #include "../../command/uicommand.h"

@@ -4,7 +4,7 @@
 #ifndef	__CClientSOCKET_H
 #define	__CClientSOCKET_H
 #include "DLLIST.h"
-#include "CRawSOCKET.h"
+#include "Util/CRawSOCKET.h"
 #include "PacketHEADER.h"
 //-------------------------------------------------------------------------------------------------
 

@@ -21,14 +21,12 @@
 #include "Network\\CNetwork.h"
 #include "Util\\VFSManager.h"
 #include "Util\\SystemInfo.h"
-#include "Util\\classCRC.h"
 #include "CClientStorage.h"
 #include "System/CGame.h"
 #include "Interface/ExternalUI/CLogin.h"
 #include "Debug.h"
 #include "TriggerInfo.h"
 
-#include "Country.h"
 #include "MiniDumper.h"
 #include "Util/Cencryptdecrypt.h"
 #include "Hasher.h"
@@ -287,12 +285,6 @@ int APIENTRY WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmd
 	_CRTDBG_LEAK_CHECK_DF);
 	_CrtSetReportMode ( _CRT_ERROR,
 	_CRTDBG_MODE_DEBUG);*/
-
-
-	//-------------------------------------------------------------------------------
-	/// Country code recognition Country code recognition
-	//-------------------------------------------------------------------------------
-	CCountry::GetSingleton().CheckCountry();
 
 	//KeyCrypt Execution
 	//if( !m_npKeyCrypt.InitKeyCrypt() )

@@ -7,7 +7,7 @@
 #include "subclass/CChatRoomListItem.h"
 #include "Interface/Command/UICommand.h"
 #include "../../SqliteDB.h"
-#include "Country.h"
+
 #include "System/CGame.h"
 #include "tgamectrl/tradiobutton.h"
 #include "tgamectrl/tabbedpane.h"

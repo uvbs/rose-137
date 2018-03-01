@@ -14,7 +14,7 @@
 #include "gamecommon/item.h"
 #include "common/io_pat.h"
 #include "IO_Terrain.h"
-#include "Country.h"
+
 #include "CommandFilter.h"
 #include "interface/command/UICommand.h"
 
@@ -1103,7 +1103,7 @@ int CObjUSER::GetOri_MaxMP()
 //------------------------------------------------------------------------------------
 void CObjUSER::Calc_AruaAddAbility()		//PY: adding the fairy. We need to disable this
 {
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		if( m_IsAroa )
 		{
@@ -1210,11 +1210,6 @@ void CObjUSER::SetPatGuageCurrent( int guage )
 //------------------------------------------------------------------------------------------------------
 BOOL CObjUSER::SetCoolTimeUseItem(char* uName,short iItem)
 {
- 
-	//Allowing national recognition ...
-	if(!CCountry::GetSingleton().IsUseItemDelayNewVersion())
-		return FALSE;
-
 	//It is checked whether the avatar.
 	if(lstrcmp(this->Get_NAME(),uName) != 0)
 		return FALSE;
@@ -1260,11 +1255,6 @@ BOOL CObjUSER::SetCoolTimeUseItem(char* uName,short iItem)
 //------------------------------------------------------------------------------------------------------
 BOOL CObjUSER::SetCoolTimeSkill(char* uName,int iSkill)
 {
-
-	//Allowing national recognition ...
-	if(!CCountry::GetSingleton().IsUseItemDelayNewVersion())
-		return FALSE;
-
 	//It is checked whether the avatar.
 	if(lstrcmp(this->Get_NAME(),uName) != 0)
 		return FALSE;

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "CRestartDLG.h"
 #include "..\\..\\NetWork\\CNetwork.h"
-#include "Country.h"
+
 #include "../../IO_Terrain.h"
 #include "tgamectrl/tlistbox.h"
 
@@ -91,7 +91,7 @@ void CRestartDLG::Show()
 	}
 #endif
 
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		//홍근 : 클랜 필드에서는 저장된 장소 부활만 가능.
 		if( pCtrl = Find( BTN_RESTART_CURRENT_FIELD ) )

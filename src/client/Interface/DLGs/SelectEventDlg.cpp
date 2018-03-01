@@ -5,7 +5,7 @@
 #include "subclass/CDialogNpcScriptAnswerItem.h"
 
 #include "Object.h"
-#include "Country.h"
+
 #include "interface/it_mgr.h"
 
 
@@ -37,7 +37,7 @@ void CSelectEventDlg::SetTitle( const char* pszTitle )
 
 void CSelectEventDlg::AddEvent( char* pszScript, int iEventID, void (*fpEventHandle)(int iEventID) )
 {
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		CWinCtrl* pCtrl = Find( IID_ZLISTBOX_EVENT );
 		assert( pCtrl ); if( pCtrl == NULL ) return;
@@ -107,7 +107,7 @@ void CSelectEventDlg::Hide()
 	if( pCaption )
 		SetHeight( pCaption->GetHeight() );
 
-	if( IsApplyNewVersion() )
+	if( true )
 		g_itMGR.ChangeState( IT_MGR::STATE_NORMAL );
 
 	//m_strTitle.clear();
@@ -118,7 +118,7 @@ void CSelectEventDlg::Show()
 {
 	///NPC Object가 없거나 있는데 거리가 일정 거리 이상이라면 
 
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 
 		CTDialog::Show();
@@ -199,7 +199,7 @@ void CSelectEventDlg::Draw()
 
 	DWORD text_color = g_dwBLACK;
 	int	  font       = FONT_NORMAL_BOLD;
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		text_color	=	g_dwWHITE;
 		font		= FONT_OUTLINE_11_BOLD;
@@ -232,7 +232,7 @@ bool CSelectEventDlg::Create( const char* IDD )
 {
 	if( CTDialog::Create( IDD ) )
 	{
-		if( IsApplyNewVersion() )
+		if( true )
 		{
 			CWinCtrl* pCtrl = Find( IID_BG_IMAGE );
 			if( NULL != pCtrl && CTRL_IMAGE == pCtrl->GetControlType() )

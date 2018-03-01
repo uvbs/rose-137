@@ -21,7 +21,7 @@
 #include "Interface/Command/dragcommand.h"
 
 #include "GameData/Event/CTEventItem.h"
-#include "Country.h"
+
 
 #include "tgamectrl/tpane.h"
 #include "tgamectrl/teditbox.h"
@@ -232,7 +232,7 @@ unsigned int CQuickBAR::Process( UINT uiMsg, WPARAM wParam, LPARAM lParam )
 			case '3':
 			case '4':
 				{
-					if( IsApplyNewVersion() 
+					if( true 
 						&& CTControlMgr::GetInstance()->GetKeyboardInputType() == CTControlMgr::INPUTTYPE_NORMAL 
 						&& NULL == CTEditBox::s_pFocusEdit
 						&& GetQuickBarType() == QUICKBAR_TYPE_NORMAL )

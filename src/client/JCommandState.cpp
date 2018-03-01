@@ -6,7 +6,7 @@
 #include "CCamera.h"
 #include "IO_Terrain.h"
 #include "GameData/CParty.h"
-#include "Country.h"
+
 
 #include "Interface/it_mgr.h"
 

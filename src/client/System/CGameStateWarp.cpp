@@ -12,7 +12,6 @@
 #include "interface/it_mgr.h"
 #include "interface/CUIMediator.h"
 #include "interface/Dlgs/CMinimapDlg.h"
-#include "Country.h"
 
 #include "CGame.h"
 #include <crtdbg.h>
@@ -131,7 +130,7 @@ int CGameStateWarp::Enter( int iPrevStateID )
 
 
 
-	if( IsApplyNewVersion() && g_pTerrain )
+	if( true && g_pTerrain )
 	{
 		//int iZoneNum = TELEPORT_ZONE(nWarpIDX);
 		///야외 필드에서 던전으로 입장시 부활존이 지정되어 있다면
@@ -199,7 +198,7 @@ int CGameStateWarp::Leave( int iNextStateID )
 
 /*
 	///카트, 캐슬기어 이용불가 지역에 카트, 캐슬기어 탑승하고 입장시 강제로 내리게 한다.
-	if( IsApplyNewVersion() && g_pAVATAR->GetPetMode() >= 0 )
+	if( true && g_pAVATAR->GetPetMode() >= 0 )
 	{
 		int iItemType = g_pAVATAR->m_Inventory.m_ItemRIDE[ 0 ].GetTYPE();
 		int iItemNo   = g_pAVATAR->m_Inventory.m_ItemRIDE[ 0 ].GetItemNO();
@@ -242,7 +241,7 @@ int CGameStateWarp::Leave( int iNextStateID )
 		//홍근 이동속도 계산이 안되어서 고블린동굴에서 속도 적용이 안되었다. 이동불가에서 어빌 한번더 계산해줘서 적당히 해결.
 		g_pAVATAR->UpdateAbility();///이동속도 재계산
 
-		if( IsApplyNewVersion() &&
+		if( true &&
 			g_pAVATAR->GetCur_MOVE_MODE() >= MOVE_MODE_DRIVE )
 		{
 			int iItemType = g_pAVATAR->m_Inventory.m_ItemRIDE[ 0 ].GetTYPE();

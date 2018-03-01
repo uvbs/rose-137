@@ -87,7 +87,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;ZZ_LUA500;ZZ_STATIC_USE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)src\triggervfs\include;$(SolutionDir)thirdparty\dx9-sdk;$(SolutionDir)thirdparty\lua-5.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)src\triggervfs\include;$(SolutionDir)thirdparty\dx9-sdk;$(SolutionDir)thirdparty\lua-5.0\include;$(SolutionDir)thirdparty\nvtristrip\include;$(SolutionDir)thirdparty\zlib-1.2.3\contrib\minizip;$(SolutionDir)thirdparty\zlib-1.2.3\</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -105,7 +105,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;ZZ_LUA500;ZZ_STATIC_USE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)src\triggervfs\include;$(SolutionDir)thirdparty\dx9-sdk;$(SolutionDir)thirdparty\lua-5.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)src\triggervfs\include;$(SolutionDir)thirdparty\dx9-sdk;$(SolutionDir)thirdparty\lua-5.0\include;$(SolutionDir)thirdparty\nvtristrip\include;$(SolutionDir)thirdparty\zlib-1.2.3\contrib\minizip;$(SolutionDir)thirdparty\zlib-1.2.3\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

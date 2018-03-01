@@ -18,7 +18,7 @@
 #include "Util/clipboardutil.h"
 #include "System/CGame.h"
 
-#include "Country.h"
+
 #include "Game.h"
 #include "Object.h"
 #include "../Bullet.h"
@@ -433,8 +433,8 @@ void CGameStateMain::Render_GameMENU()
 			);
 
 		y += 20;
-		::drawFontf( g_GameDATA.m_hFONT[ FONT_NORMAL ], false, 10, y, g_dwYELLOW, "( WorldRATE: %d, WorldPROD:%d, Country Code:%d )",
-			Get_WorldRATE(), Get_WorldPROD (), CCountry::GetSingleton().GetCountryCode() );
+		::drawFontf( g_GameDATA.m_hFONT[ FONT_NORMAL ], false, 10, y, g_dwYELLOW, "( WorldRATE: %d, WorldPROD:%d )",
+			Get_WorldRATE(), Get_WorldPROD ());
 
 		y += 20;
 		::drawFontf( g_GameDATA.m_hFONT[ FONT_NORMAL ],
@@ -512,7 +512,7 @@ int CGameStateMain::ProcKeyboardInput(UINT uiMsg, WPARAM wParam, LPARAM lParam )
 				g_GameDATA.m_bShowDropItemInfo = false;
 				break;
 			case 0x5A://z : 앉기/서기 토글
-				if( IsApplyNewVersion() 
+				if( true 
 					&& CTControlMgr::GetInstance()->GetKeyboardInputType() == CTControlMgr::INPUTTYPE_NORMAL 
 					&& NULL == CTEditBox::s_pFocusEdit )
 				{
@@ -528,7 +528,7 @@ int CGameStateMain::ProcKeyboardInput(UINT uiMsg, WPARAM wParam, LPARAM lParam )
 				break;
 #pragma message("Changing the folder path that was entered")
 			case 192://` : 줍기
-				if( IsApplyNewVersion() && 
+				if( true && 
 					CTControlMgr::GetInstance()->GetKeyboardInputType() == CTControlMgr::INPUTTYPE_NORMAL &&
 					NULL == CTEditBox::s_pFocusEdit )
 				{
@@ -544,7 +544,7 @@ int CGameStateMain::ProcKeyboardInput(UINT uiMsg, WPARAM wParam, LPARAM lParam )
 				}
 				break;
 				case VK_SHIFT://
-				if( IsApplyNewVersion() && 
+				if( true && 
 					CTControlMgr::GetInstance()->GetKeyboardInputType() == CTControlMgr::INPUTTYPE_NORMAL && 
 					NULL == CTEditBox::s_pFocusEdit )
 				{

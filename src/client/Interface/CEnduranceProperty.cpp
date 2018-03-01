@@ -10,7 +10,7 @@
 #include "OBJECT.h"
 #include "tgamectrl/resourcemgr.h"
 #include "GameCommon/Item.h"
-#include "Country.h"
+
 
 #include "Interface/DLGs/ChattingDlg.h"
 #include "System/CGame.h"

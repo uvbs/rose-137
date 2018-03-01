@@ -6,7 +6,7 @@
 #include "subclass/CDialogNpcScriptAnswerItem.h"
 #include "subclass/CDialogNpcScriptAnswerItemNew.h"
 #include "Interface/IO_ImageRes.h"
-#include "Country.h"
+
 #include "CMinimapDlg.h"
 #include "tgamectrl/resourcemgr.h"
 #include "tgamectrl/tcaption.h"
@@ -34,7 +34,7 @@ void CDialogDlg::SetScript( char* pszScript )
 	assert( pszScript ); if( pszScript == NULL ) return;
 
 
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		SetHeight( BG_IMAGE_HEIGHT );	
 		m_strTempScript.clear();	
@@ -118,7 +118,7 @@ void CDialogDlg::SetScript( char* pszScript )
 
 void CDialogDlg::AddAnswerExample( char* pszScript , int iEventID , void (*fpEventHandle)(int iEventID))
 {
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		CWinCtrl* pCtrl = Find( IID_ZLISTBOX_ANSWER_EXAMPLE );
 		assert( pCtrl ); if( pCtrl == NULL ) return;
@@ -218,7 +218,7 @@ unsigned CDialogDlg::Process(unsigned uiMsg, WPARAM wParam, LPARAM lParam )
 		return uiMsg;
 	}
 
-	if( IsApplyNewVersion() )
+	if( true )
 		return uiMsg;
 
 	return 0;
@@ -255,7 +255,7 @@ void CDialogDlg::SetTargetNpcClientObjectIndex( short iIndex )
 		}
 
 
-		if( IsApplyNewVersion() )
+		if( true )
 		{
 			if( m_hNpcFace )
 			{
@@ -324,7 +324,7 @@ void CDialogDlg::Hide()
 	if( pCaption )
 		SetHeight( pCaption->GetHeight() );
 
-	if( IsApplyNewVersion() )
+	if( true )
 		g_itMGR.ChangeState( IT_MGR::STATE_NORMAL );
 
 	if( m_hNpcFace )
@@ -350,7 +350,7 @@ void CDialogDlg::Draw()
 
 	CTDialog::Draw();
 
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 
 		if( m_hNpcFace )
@@ -423,7 +423,7 @@ void CDialogDlg::Show()
 {
 	CTDialog::Show();
 
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		POINT pt = { 0, g_pCApp->GetHEIGHT() * 2 / 5 - GetHeight()  };
 		MoveWindow( pt );
@@ -435,7 +435,7 @@ bool CDialogDlg::Create( const char* IDD )
 {
 	if( CTDialog::Create( IDD ) )
 	{
-		if( IsApplyNewVersion() )
+		if( true )
 		{
 			
 			CWinCtrl* pCtrl = Find( IID_BG_IMAGE );

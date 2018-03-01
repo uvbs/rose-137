@@ -12,7 +12,6 @@
 #include "../CSkyDOME.H"
 #include "GameData/CGameDataCreateAvatar.h"
 #include "CJustModelAVT.h"
-#include "Country.h"
 
 
 //조성현 2005 12 - 12 Test 카메라...
@@ -111,7 +110,7 @@ int CGameStateSelectAvatar::Enter( int iPrevStateID )
 	g_EUILobby.CreateAvataListDlg();
 
 	//박지호::아로아 데이터 초기화 
-	if(IsApplyNewVersion())
+	if(true)
 	{
 		goddessMgr.Release();
 	} 

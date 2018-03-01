@@ -14,7 +14,7 @@
 
 
 #include "CJustModelAVT.h"
-#include "Country.h"
+
 
 #include "tgamectrl/tmsgbox.h"
 
@@ -85,90 +85,15 @@ UINT CSelectAvata::Process( UINT uiMsg, WPARAM wParam, LPARAM lParam )
 void CSelectAvata::SendSelectAvataReq( )
 {
 	CGameDataCreateAvatar& refData = CGameDataCreateAvatar::GetInstance();
-#ifdef _KOREAFREEDAY
-	// 05.12. 22 - ±èÁÖÇö : WS¶û LS¶û DB¶û »ðÁúÇØ¼­..-_- ÇÑ±¹Àº ÇÊÅÍ¸µ ¾øÀÌ °Á ¼­¹ö¿¡ ¸Ã±ä´Ù.
-	if( CCountry::GetSingleton().IsKorea())
-	{
-		if( CJustModelAVT* pSelectedAvt = refData.GetSelectedAvatar() )
-		{
-			CGame::GetInstance().ClearWndMsgQ();
-			g_EUILobby.ShowWaitMsgBox();	
-			g_pNet->Send_cli_SELECT_CHAR( refData.GetSelectedAvatarIndex(), (char*)refData.GetSelectedAvatarName() );
-			LogString( LOG_NORMAL,"Send_cli_SELECT_CHAR\n");
-			m_bWaitServerReply = true;
-		}
-	}
-	else
-	{
-		if( CJustModelAVT* pSelectedAvt = refData.GetSelectedAvatar() )
-		{
-			//È«±Ù : ÀÏº» ºô¸µ ¼öÁ¤
-#ifdef __JAPAN_BILL
-			if( pSelectedAvt->IsPlatinum() 
-				&& !(CGame::GetInstance().GetPayType() & PLAY_FLAG_EXTRA_CHAR) )
-			{			
-				g_EUILobby.ShowMsgBox( STR_JP_BILL_CANT_SELECT_CHARACTER ,CTMsgBox::BT_OK , true , GetDialogType() );
-				return;
-			}
-			//È«±Ù : ÇÊ¸®ÇÉ, ¹Ì±¹Àº ÇÃ·¹Æ¼³Ñ ÄÉ¸¯ÅÍ ±¸ºÐÀ» ¾ø¾Ø´Ù.
-			if( pSelectedAvt->IsPlatinum() 			
-				&& !CCountry::GetSingleton().IsPhilipplines()				
-				&& !CCountry::GetSingleton().IsUsa()
-				&& CGame::GetInstance().GetPayType() != CGame::PAY_PLATINUM )
-			{
 
-				g_EUILobby.ShowMsgBox( STR_ONLY_PLATINUM_SELECT_CHAR ,CTMsgBox::BT_OK , true , GetDialogType() );
-				return;
-			}			
-#endif		
-			else if( !m_bWaitServerReply )	
-			{
-				if( pSelectedAvt->GetDeleteRemainSEC() )
-				{
-					CTCommand* pCmd = new CTCmdReviveCharacter( refData.GetSelectedAvatarIndex(),  refData.GetSelectedAvatarName() );
-					g_EUILobby.ShowMsgBox( STR_QUERY_REVIVE_CHARACTER,
-						CTMsgBox::BT_OK | CTMsgBox::BT_CANCEL, true , GetDialogType() , pCmd );
-				}
-				else
-				{
-					CGame::GetInstance().ClearWndMsgQ();
-					g_EUILobby.ShowWaitMsgBox();	
-					g_pNet->Send_cli_SELECT_CHAR( refData.GetSelectedAvatarIndex(), (char*)refData.GetSelectedAvatarName() );
-					LogString( LOG_NORMAL,"Send_cli_SELECT_CHAR\n");
-					m_bWaitServerReply = true;
-				}
-			}
-		}
-		else
-		{
-			g_EUILobby.ShowMsgBox( STR_REQUEST_SELECT_CHARACTER, CTMsgBox::BT_OK, true , GetDialogType() );
-		}
-	}
-#else
 	if( CJustModelAVT* pSelectedAvt = refData.GetSelectedAvatar() )
 	{
-
-		//È«±Ù : ÀÏº» ºô¸µ ¼öÁ¤
-#ifdef __JAPAN_BILL
-		if( pSelectedAvt->IsPlatinum() 		
-			&& !(CGame::GetInstance().GetPayType() & PLAY_FLAG_EXTRA_CHAR) )
-		{			
-			g_EUILobby.ShowMsgBox( STR_JP_BILL_CANT_SELECT_CHARACTER ,CTMsgBox::BT_OK , true , GetDialogType() );
-			return;
-		}
-
-		//È«±Ù : ÇÊ¸®ÇÉ, ¹Ì±¹Àº ÇÃ·¹Æ¼³Ñ ÄÉ¸¯ÅÍ ±¸ºÐÀ» ¾ø¾Ø´Ù.
-#else
-
 		if( pSelectedAvt->IsPlatinum() 			
-			&& !CCountry::GetSingleton().IsPhilipplines()
-			&& !CCountry::GetSingleton().IsUsa()
 			&& CGame::GetInstance().GetPayType() != CGame::PAY_PLATINUM )
 		{
 			g_EUILobby.ShowMsgBox( STR_ONLY_PLATINUM_SELECT_CHAR ,CTMsgBox::BT_OK , true , GetDialogType() );
 			return;
 		}
-#endif
 		if( !m_bWaitServerReply )	
 		{
 			if( pSelectedAvt->GetDeleteRemainSEC() )
@@ -192,7 +117,6 @@ void CSelectAvata::SendSelectAvataReq( )
 		//g_EUILobby.ShowMsgBox( STR_REQUEST_SELECT_CHARACTER, CTMsgBox::BT_OK | CTMsgBox::BT_CANCEL, true , GetDialogType() );
 		g_EUILobby.ShowMsgBox( STR_REQUEST_SELECT_CHARACTER, CTMsgBox::BT_OK, true , GetDialogType() );
 	}
-#endif
 }
 
 void CSelectAvata::RecvAvataList( t_PACKET* recvPacket )

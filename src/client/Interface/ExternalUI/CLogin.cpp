@@ -12,7 +12,7 @@
 #include "System/CGame.h"
 #include "Util/Localizing.h"
 #include "CClientStorage.h"
-#include "Country.h"
+
 
 #include "tgamectrl/teditbox.h"
 #include "tgamectrl/tmsgbox.h"

@@ -16,7 +16,7 @@
 #include "Interface/Command/UICommand.h"
 #include "../../IO_Terrain.h"
 #include "../ClanMarkTransfer.h"
-#include "Country.h"
+
 #include "Misc/gameutil.h"
 
 #include "tgamectrl/teditbox.h"
@@ -88,7 +88,7 @@ void CClanDlg::Draw()
 		break;
 
 	case TAB_SKILL:		
-		if( !IsApplyNewVersion() )
+		if( !true )
 		{
 			CClanMarkView::Draw( g_pAVATAR, vCharPos );		
 			DrawSkills2();			

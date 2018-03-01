@@ -8,7 +8,7 @@
 #include "interface/TypeResource.h"
 #include "System/SystemProcScript.h"
 
-#include "Country.h"
+
 
 
 CGameDataCreateAvatar::CGameDataCreateAvatar(void)

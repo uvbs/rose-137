@@ -4,7 +4,7 @@
 #include "Network/CNetwork.h"
 
 #include "System/CGame.h"
-#include "Country.h"
+
 #include "interface/it_MGR.h"
 
 CChatMember::CChatMember(WORD wServerIdx, const char* pszName )

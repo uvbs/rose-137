@@ -4,7 +4,8 @@
 #ifndef	__CLASSSTB_H
 #define	__CLASSSTB_H
 #include <stdio.h>
-#include "classSTR.h"
+#include "Util/classSTR.h"
+
 //-------------------------------------------------------------------------------------------------
 #ifndef	MAX_PATH
 #define	MAX_PATH	260
@@ -29,7 +30,7 @@ private :
 		int		m_iColIndex;
 	#endif
 	
-	CStrVAR*m_RowNAME;
+	CStrVAR* m_RowNAME;
 	char	m_szValue[ 4096 ];
 	
 

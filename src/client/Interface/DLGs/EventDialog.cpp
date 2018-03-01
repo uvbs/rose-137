@@ -6,7 +6,7 @@
 #include "subclass/CDialogNpcScriptAnswerItem.h"
 #include "subclass/CDialogNpcScriptAnswerItemNew.h"
 #include "Interface/IO_ImageRes.h"
-#include "Country.h"
+
 
 #include "tgamectrl/resourcemgr.h"
 #include "tgamectrl/tcaption.h"
@@ -30,7 +30,7 @@ void CEventDialog::SetScript( char* pszScript )
 {
 	assert( pszScript ); if( pszScript == NULL ) return;
 
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		SetHeight( BG_IMAGE_HEIGHT );	
 		m_strTempScript.clear();	
@@ -112,7 +112,7 @@ void CEventDialog::SetScript( char* pszScript )
 
 void CEventDialog::AddAnswerExample( char* pszScript , int iEventID , void (*fpEventHandle)(int iEventID))
 {
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		CWinCtrl* pCtrl = Find( IID_ZLISTBOX_ANSWER_EXAMPLE );
 		assert( pCtrl ); if( pCtrl == NULL ) return;
@@ -221,7 +221,7 @@ void CEventDialog::SetTargetNpcClientObjectIndex( short iIndex )
 
 #pragma message("list_npc.stb의 데이타 카운트보다 큰지도 체크해야 한다")
 
-	if( IsApplyNewVersion() && iIndex > 0  )
+	if( true && iIndex > 0  )
 	{
 		if( m_hNpcFace )
 		{
@@ -238,7 +238,7 @@ void CEventDialog::SetTargetNpcClientObjectIndex( short iIndex )
 	}
 
 	
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		m_Script.Clear();
 		if( !m_strTempScript.empty() )
@@ -295,7 +295,7 @@ void CEventDialog::Hide()
 	if( pCaption )
 		SetHeight( pCaption->GetHeight() );
 
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		g_itMGR.ChangeState( IT_MGR::STATE_NORMAL );
 	}
@@ -315,7 +315,7 @@ void CEventDialog::Draw()
 	if( !IsVision() ) return;
 	CTDialog::Draw();
 
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		if( m_hNpcFace )
 		{
@@ -383,7 +383,7 @@ void CEventDialog::Show()
 {
 	CTDialog::Show();
 
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		//홍근 : 해상도 변경 했을경우 수정.
 		CWinCtrl* pCtrl = Find( IID_BG_IMAGE );
@@ -420,7 +420,7 @@ bool CEventDialog::Create( const char* IDD )
 {
 	if( CTDialog::Create( IDD ) )
 	{
-		if( IsApplyNewVersion() )
+		if( true )
 		{
 			
 			CWinCtrl* pCtrl = Find( IID_BG_IMAGE );

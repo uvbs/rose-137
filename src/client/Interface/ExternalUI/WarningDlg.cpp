@@ -12,7 +12,7 @@
 #include "System/CGame.h"
 #include "Util/Localizing.h"
 #include "CClientStorage.h"
-#include "Country.h"
+
 
 //resource
 #include "Interface/IO_ImageRes.h"

@@ -7,7 +7,7 @@
 #include "interface/it_mgr.h"
 #include "Network//CNetwork.h"
 #include "GameCommon/CFilterWord.h"
-#include "Country.h"
+
 #include "tgamectrl/teditbox.h"
 #include "tgamectrl/TImage.h"
 
@@ -177,18 +177,7 @@ void CClanOrganizeDlg::OrganizeClan()
 	//2. 돈이나..레벨등의 조건에 만족한다.
 
 	bool bCheckMakeClan = false;
-/*
-	if(CCountry::GetSingleton().IsJapan())
-	{
-	// 05.11.02 : 김주현 - 일본일 경우엔 100000 내면 된다~!
-        if(g_pAVATAR->Get_LEVEL() >= 30 && g_pAVATAR->Get_MONEY() >= 100000 )
-		{
-			bCheckMakeClan = true;
-		}
-	}
-	else
-	{
-*/
+
 	// 클랜 창설 비용.
 	if(g_pAVATAR->Get_LEVEL() >= 30 && g_pAVATAR->Get_MONEY() >= 1000000)
 	{

@@ -15,7 +15,7 @@
 #include "../../GameProc/UseItemDelay.h"
 #include "GameCommon/ReloadProcess.h"
 #include "IO_Event.h"
-#include "Country.h"
+
 
 
 #include "tgamectrl/resourcemgr.h"
@@ -101,7 +101,7 @@ void CIconItem::Draw()
 	{
 		//2005. 6. 30 박 지호 
 		//새로운 Delay Type이 허용한 국가들이라면 설정... 
-		if( CCountry::GetSingleton().IsUseItemDelayNewVersion() )
+		if( true )
 		{
 			//아이템 딜레이 타입을 가져온다. 
 			int iItem	   = Item.GetItemNO();

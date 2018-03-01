@@ -167,9 +167,6 @@
     <ClCompile Include="CommandFilter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Country.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CPunk.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -1367,9 +1364,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="CommandFilter.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Country.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="CPunk.h">

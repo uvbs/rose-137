@@ -1,7 +1,7 @@
 #include "stdAFX.h"
 #include "CItem.h"
 #include "IO_STB.h"
-#include "Country.h"
+
 
 #ifndef	__SERVER
 	#include "CInventory.h"

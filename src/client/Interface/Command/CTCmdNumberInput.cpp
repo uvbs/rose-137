@@ -27,7 +27,7 @@
 #include "../../misc/gameutil.h"
 #include "UICommand.h"
 
-#include "Country.h"
+
 #include "System/CGame.h"
 
 #include "GameData/CClan.h"

@@ -12,7 +12,7 @@ $Header: /Client/Network/RecvPACKET.cpp 822   07-05-14 1:48p Raning $
 #include "CClientStorage.h"
 #include "CJustModelAVT.h"
 #include "../SqliteDB.h"
-#include "Country.h"
+
 
 #include "System/CGame.h"
 #include "GameData/ServerList.h"
@@ -1419,7 +1419,7 @@ void CRecvPACKET::Recv_gsv_MOB_CHAR ()  //spawn a monster
 					int iMaxHP = 0;
 
 					///2005.06.29 Taiwan applied to expressions separated
-					if( IsApplyNewVersion() )
+					if( true )
 					{
 						/// Depending on the type of pet HP Separate calculation 2005/8/26 Choejongjin
 						switch( NPC_SUMMONMOB_TYPE( m_pRecvPacket->m_gsv_MOB_CHAR.m_nCharIdx ) )
@@ -2788,7 +2788,7 @@ void CRecvPACKET::Recv_gsv_SKILL_LEVELUP_REPLY ()
 				g_pAVATAR->Skill_LevelUp( m_pRecvPacket->m_gsv_SKILL_LEVELUP_REPLY.m_wSkillSLOT, m_pRecvPacket->m_gsv_SKILL_LEVELUP_REPLY.m_nSkillINDEX );
 				SE_SkillLevelUp( g_pAVATAR->Get_INDEX() );
 
-				if( IsApplyNewVersion() )
+				if( true )
 				{
 					int skill_index = m_pRecvPacket->m_gsv_SKILL_LEARN_REPLY.m_nSkillIDX;			
 

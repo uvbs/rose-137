@@ -1,7 +1,7 @@
 
 #include <windows.h>
 #include "PacketHEADER.h"
-#include "classSTR.h"
+#include "Util/classSTR.h"
 
 struct t_PACKET;
 

@@ -16,7 +16,7 @@
 #include "System/CGame.h"
 #include "Network//CNetwork.h"
 #include "../../misc/gameutil.h"
-#include "Country.h"
+
 #include "tgamectrl/tradiobox.h"
 #include "tgamectrl/actionevent.h"
 #include "tgamectrl/tpane.h"

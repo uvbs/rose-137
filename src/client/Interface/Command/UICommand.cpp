@@ -30,7 +30,7 @@
 #include "Network//CNetwork.h"
 #include "../Dlgs/CCommDlg.h"
 #include "../ClanMarkTransfer.h"
-#include "Country.h"
+
 #include "JCommandState.h"
 #include "../dlgs/subclass/CSlot.h"
 #include "interface/icon/ciconskill.h"

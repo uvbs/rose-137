@@ -35,7 +35,7 @@
 #include "Misc/GameUtil.h"
 #include "CommandFilter.h"
 #include "GameProc/DelayedExp.h"
-#include "Country.h"
+
 #include "Common/CInventory.h"
 #include "system/System_Func.h"
 
@@ -2511,7 +2511,7 @@ bool CObjCHAR::Hitted (CObjCHAR *pFromOBJ, int iEffectIDX, int iSkillIDX, bool b
 #define HIT_AROA_EFF 1613
 
 	BOOL IsAcceptAroa = FALSE;
-   if(IsApplyNewVersion())
+   if(true)
    {
 	   if(pFromOBJ->IsUSER() || pFromOBJ->IsPET())
 			IsAcceptAroa = TRUE;
@@ -4528,7 +4528,7 @@ void CObjCHAR::SetReviseMP( int mp )
 //-----------------------------------------------------------------------------
 void CObjCHAR::Calc_AruaAddAbility()
 {
-	if( IsApplyNewVersion() )
+	if( true )
 	{
 		if( m_IsAroa )
 			m_AruaAddMoveSpeed   = GetOri_RunSPEED(); // * 0.2;
@@ -5000,7 +5000,7 @@ int CObjNPC::GetEventValue()
 
 int CObjNPC::Proc ()
 {
-	if( IsApplyNewVersion() && ( this->m_nQuestSignal < 0 || g_pAVATAR->m_bQuestUpdate ) )
+	if( true && ( this->m_nQuestSignal < 0 || g_pAVATAR->m_bQuestUpdate ) )
 	{
 		// The status of the update my avatar's quests, or you have previously determined the status of the quest...
 		this->m_nQuestSignal = SC_QF_GetNpcQuestStatus( this->m_nCharIdx );
@@ -5375,7 +5375,7 @@ void CObjAVT::Set_RareITEM_Glow(void)
 {
 
 	//Taiwan and the Republic of the Philippines. Fix 2005.6.20 nAvy
-	if( !IsApplyNewVersion() )
+	if( !true )
 		return;
 
 	CInventory	m_Inventory;
@@ -5779,16 +5779,16 @@ int CObjAVT::Proc ()
 	int iRecoverStateStopWalk    = RECOVER_STATE_STOP_OR_WALK_NEW;
 #else
 		int	iRecoverStateCheckTime = RECOVER_STATE_CHECK_TIME_OLD;
-		if( IsApplyNewVersion() )
+		if( true )
 			iRecoverStateCheckTime = RECOVER_STATE_CHECK_TIME_NEW;
 
 		int iRecoverStateSitOnGround = RECOVER_STATE_SIT_ON_GROUND_OLD;
-		if( IsApplyNewVersion() )
+		if( true )
 			iRecoverStateSitOnGround = RECOVER_STATE_SIT_ON_GROUND_NEW;
 
 
 		int iRecoverStateStopWalk    = RECOVER_STATE_STOP_OR_WALK_OLD;
-		if( IsApplyNewVersion() )
+		if( true )
 			iRecoverStateStopWalk = RECOVER_STATE_STOP_OR_WALK_NEW;
 
 #endif
@@ -6585,7 +6585,7 @@ BOOL CGoddessMgr::Permission_Country(void)
 {
 
 	//After checking the results the country settings.
-	if( IsApplyNewVersion())
+	if( true)
 		return TRUE;
 
 

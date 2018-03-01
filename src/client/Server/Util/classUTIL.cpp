@@ -3,7 +3,6 @@
 #include <wininet.h>
 #include <IO.h>
 #include <stdio.h>
-#include "classSTR.h"
 #include "classUTIL.h"
 
 #pragma comment (lib, "Wininet.lib")

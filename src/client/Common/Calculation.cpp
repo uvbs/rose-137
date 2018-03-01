@@ -8,7 +8,7 @@
 #endif
 
 #include "Calculation.h"
-#include "Country.h"
+
 
 #ifdef	__SERVER
 #include "ZoneLIST.H"
@@ -31,8 +31,6 @@ short Get_WorldREWARD ()
 }
 #endif
 
-extern bool IsApplyNewVersion();
-
 //-------------------------------------------------------------------------------------------------
 int CCal::Get_NeedRawEXP (int iLevel)
 {
@@ -42,7 +40,7 @@ int CCal::Get_NeedRawEXP (int iLevel)
 		iLevel = MAX_LEVEL;
 	}
 
-	if ( IsApplyNewVersion() ) 
+	if ( true ) 
 	{
 		// [레벨 15이하일 경우]   필요 경험치 = { (LV + 3) * (LV + 5 ) * (LV + 10) * 0.7 }
 		if ( iLevel <= 15 )
@@ -216,7 +214,7 @@ bool CCal::Get_DropITEM (int iLevelDiff, CObjMOB *pMobCHAR, tagITEM &sITEM, int 
 	{
 		// 소켓 갯수 :: 05.05.25 대만 오베이후에는 드롭 아이템에 소켓 없다.		
 		short nRareType = ITEM_RARE_TYPE( sITEM.GetTYPE(), sITEM.GetItemNO() );
-		if ( IsApplyNewVersion() && nRareType < 3 ) 
+		if ( true && nRareType < 3 ) 
 		{
 			nRareType = 0;
 		}
@@ -242,7 +240,7 @@ bool CCal::Get_DropITEM (int iLevelDiff, CObjMOB *pMobCHAR, tagITEM &sITEM, int 
 					// 장비는 각 stb의 기본 품질 값을 설정.
 					int iITEM_OP = (int)( ( ( pMobCHAR->Get_LEVEL()*0.4f + ( NPC_DROP_ITEM( pMobCHAR->Get_CharNO() )-35 )*4 + 80 - iTEMP + iCharm ) * 24 / ( iTEMP + 13 ) ) - 100 );
 					if ( iITEM_OP > 0 ) {
-						if ( IsApplyNewVersion() ) {
+						if ( true ) {
 							int iOption = RANDOM(100);
 							if ( iOption <= 35 ) {	// 1-6
 								iOption = 1 + RANDOM(7-1);
@@ -284,7 +282,7 @@ bool CCal::Get_DropITEM (int iLevelDiff, CObjMOB *pMobCHAR, tagITEM &sITEM, int 
 		if ( iTEMP > MAX_ITEM_LIFE ) iTEMP = MAX_ITEM_LIFE;
 		sITEM.m_nLife = iTEMP;
 
-		if ( IsApplyNewVersion() ) 
+		if ( true ) 
 		{
 			// 05.05.25 대만 오베 이후에는 재련 없다
 			sITEM.m_cGrade = 0;
@@ -324,7 +322,7 @@ int CCal::Get_EXP (CObjCHAR *pAtkCHAR, CObjCHAR *pDefCHAR, int iGiveDamage)
 	int iGAB, iEXP;
 
 	iGAB = pAtkCHAR->Get_LEVEL() - pDefCHAR->Get_LEVEL();
-	if( IsApplyNewVersion() ) // 대만 6-13 kchs
+	if( true ) // 대만 6-13 kchs
 	{
 		if( iGiveDamage  > pDefCHAR->Get_MaxHP() * 1.15f )
 			iGiveDamage  = (int)(pDefCHAR->Get_MaxHP() * 1.15f); 
@@ -396,7 +394,7 @@ int CCal::Get_SuccessRATE( CObjCHAR *pATK, CObjCHAR *pDEF )	// , int &iCriticalS
 			iRAND1 = 1+RANDOM(100);
 			//iSuccess = (int)( 270 - ((pATK->Get_HIT()+pDEF->Get_AVOID() )/pATK->Get_HIT() ) * 140.f + iRAND1 );	// (IROSE2005.05.13)
 
-			if( IsApplyNewVersion() )
+			if( true )
 			{
 				// 대만 2005.06.08 kchs
 				iSuccess = (int)( 90 - ((pATK->Get_HIT()+pDEF->Get_AVOID() )/pATK->Get_HIT() ) * 40.f + iRAND1 );
@@ -418,7 +416,7 @@ int CCal::Get_SuccessRATE( CObjCHAR *pATK, CObjCHAR *pDEF )	// , int &iCriticalS
 		}
 	} else 
 	{
-		if ( IsApplyNewVersion() ) 
+		if ( true ) 
 		{
 			// 공격 성공도(SUC)= 104-{(A_HIT+D_AVO)/A_HIT}*50+RAN(1~100)
 			// 공격 성공도(SUC)= 180-{(A_HIT+D_AVO)/A_HIT}*100+RAN(1~100) 대만 6.15
@@ -447,7 +445,7 @@ DWORD CCal::Get_BasicDAMAGE (CObjCHAR *pATK, CObjCHAR *pDEF, WORD wHitCNT, int i
 {
 	int iDamage, iCriSuc;
 
-	if ( IsApplyNewVersion() ) 
+	if ( true ) 
 	{
 		// 대만적용 (4/23~) * CRIT_SUC = { ( RAN(1~100) * 3 + A_LV + 60 } * 25 / (CRITICAL + 150)
 		// CRIT_SUC = (28-{( CRITICAL /2+ A_LV)/( A_LV +8)}*20)+ RAN(1~100) (대만 2005.06.01)
@@ -463,7 +461,7 @@ DWORD CCal::Get_BasicDAMAGE (CObjCHAR *pATK, CObjCHAR *pDEF, WORD wHitCNT, int i
 		// Critical damage !!!
 		if ( pATK->IsUSER() && pDEF->IsUSER() ) {
 			// PVP :: 크리티컬 물리 데미지 
-			if ( IsApplyNewVersion() ) 
+			if ( true ) 
 			{
 				// DMG = A_ATT*(D_LV/A_LV) * ( SUC * 0.05+29)*(2.4* A_ATT - D_DEF +180)/(1.1 * D_DEF + D_AVO * 0.3 + 50)/100 (대만 2005.06.01)
 				iDamage = (int)( pATK->Get_ATK() * (pDEF->Get_LEVEL()/pATK->Get_LEVEL()) * ( iSuc*0.05f+29)*(2.4f * pATK->Get_ATK() - pDEF->Get_DEF() + 180 ) / (1.1f * pDEF->Get_DEF() + pDEF->Get_AVOID() * 0.3f + 50 ) / 85.f );	// (IROSE 2005.05.13)1
@@ -472,7 +470,7 @@ DWORD CCal::Get_BasicDAMAGE (CObjCHAR *pATK, CObjCHAR *pDEF, WORD wHitCNT, int i
 			}
 		} else {
 			// 몬스터 :: 크리티컬 물리 데미지
-			if ( IsApplyNewVersion() ) 
+			if ( true ) 
 			{
 				// [크리티컬 데미지 계산식]  * DMG = A_ATT * (SUC*0.05 + 29) * (A_ATT - D_DEF + 250) / (D_DEF+ D_AVO *0.3+20) /90
 				// DMG = A_ATT * ( SUC * 0.05+29)*(2.4 * A_ATT - D_DEF +180)/(1.1 * D_DEF + D_AVO * 0.3 + 50)/100  (대만 2005.06.01)
@@ -503,7 +501,7 @@ DWORD CCal::Get_BasicDAMAGE (CObjCHAR *pATK, CObjCHAR *pDEF, WORD wHitCNT, int i
 		// Normal damage
 		if ( pATK->IsUSER() && pDEF->IsUSER() ) {
 			// PVP :: 일반 물리 데미지
-			if ( IsApplyNewVersion() ) 
+			if ( true ) 
 			{
 				// DMG = A_ATT*(D_LV/A_LV) * ( SUC*0.03+26)*(1.8* A_ATT - D_DEF +150) / (1.1* D_DEF + D_AVO *0.4+50)/145 (대만 2005.06.01)
 				iDamage = (int)( pATK->Get_ATK() * ( pDEF->Get_LEVEL()/pATK->Get_LEVEL() ) * ( iSuc*0.03f + 26 ) * ( 1.8f * pATK->Get_ATK() - pDEF->Get_DEF() +150 ) / 
@@ -513,7 +511,7 @@ DWORD CCal::Get_BasicDAMAGE (CObjCHAR *pATK, CObjCHAR *pDEF, WORD wHitCNT, int i
 			}
 		} else {
 			// 몬스터 :: 일반 물리 데미지
-			if ( IsApplyNewVersion() ) 
+			if ( true ) 
 			{
 				// [일반 데미지 계산식] * DMG = A_ATT * (SUC*0.03 + 26) * (A_ATT - D_DEF + 300) / (D_DEF+ D_AVO *0.3+30) /180 
 				// DMG = A_ATT * ( SUC*0.03+26)*(1.8* A_ATT - D_DEF +150) / (1.1* D_DEF + D_AVO *0.4+50)/145  (대만 2005.06.01)
@@ -560,7 +558,7 @@ DWORD CCal::Get_MagicDAMAGE (CObjCHAR *pATK, CObjCHAR *pDEF, WORD wHitCNT, int i
 		// Critical damage !!!
 		if ( pATK->IsUSER() && pDEF->IsUSER() ) {	// 마법 크리티컬 PVP
 			// PVP :: 크리티컬 마법 데미지
-			if ( IsApplyNewVersion() ) {
+			if ( true ) {
 				// DMG = A_ATT* (D_LV/A_LV) *( SUC *0.05+25)*(2.4* A_ATT - D_DEF +180)/(1.1* D_RES + D_AVO *0.3+50)/110  (대만 2005.06.01)
 				iDamage = (int)( pATK->Get_ATK() * (pDEF->Get_LEVEL()/pATK->Get_LEVEL()) * ( iSuc*0.05f+25 ) * (2.4f * pATK->Get_ATK() - pDEF->Get_DEF() + 180 ) / ( 1.1f * pDEF->Get_RES() + pDEF->Get_AVOID() * 0.3f + 50 ) / 90.f );	//  (IROSE 2005.05.13)
 			} else {
@@ -568,7 +566,7 @@ DWORD CCal::Get_MagicDAMAGE (CObjCHAR *pATK, CObjCHAR *pDEF, WORD wHitCNT, int i
 			}
 		} else {
 			// 몬스터 :: 크리티컬 마법 데미지
-			if ( IsApplyNewVersion() ) {
+			if ( true ) {
 				// [크리티컬 데미지 계산식] * DMG = A_ATT * (SUC*0.05 + 33) * (A_ATT - D_DEF + 360) / (D_RES+ D_AVO *0.3+20) /170
 				// DMG = A_ATT *( SUC *0.05+25)*(2.4* A_ATT - D_DEF +180)/(1.1* D_RES + D_AVO *0.3+50)/110 (대만 2005.06.01)
 				iDamage = (int)( pATK->Get_ATK() * ( iSuc * 0.05f + 25 ) * (2.4f* pATK->Get_ATK() - pDEF->Get_DEF() +180)/(1.1f* pDEF->Get_RES() + pDEF->Get_AVOID() *0.3f+50 ) / 90.f );	//  (IROSE 2005.05.13)
@@ -600,7 +598,7 @@ DWORD CCal::Get_MagicDAMAGE (CObjCHAR *pATK, CObjCHAR *pDEF, WORD wHitCNT, int i
 		// Normal damage
 		if ( pATK->IsUSER() && pDEF->IsUSER() ) {	// 마법 일반 PVP
 			// PVP :: 일반 마법 데미지
-			if ( IsApplyNewVersion() ) {
+			if ( true ) {
 				// DMG = A_ATT*(D_LV/A_LV)  *( SUC *0.03+25)*(1.8 *A_ATT - D_DEF +150)/(1.1* D_RES + D_AVO *0.4+50)/180  (대만 2005.06.01)
 				iDamage = (int)( pATK->Get_ATK() * (pDEF->Get_LEVEL()-pATK->Get_LEVEL() ) * ( iSuc*0.03f+25 )*( 1.8f * pATK->Get_ATK() - pDEF->Get_DEF() + 150 ) / ( 1.1f* pDEF->Get_RES() + pDEF->Get_AVOID() * 0.4f + 50 ) / 120.f );	// (IROSE 2005.05.13)
 			} else {
@@ -608,7 +606,7 @@ DWORD CCal::Get_MagicDAMAGE (CObjCHAR *pATK, CObjCHAR *pDEF, WORD wHitCNT, int i
 			}
 		} else {
 			// 몬스터 :: 일반 마법 데미지
-			if ( IsApplyNewVersion() ) {
+			if ( true ) {
 				// [일반 데미지 계산식] * DMG = A_ATT * (SUC*0.03 + 25) * (A_ATT - D_DEF + 300) / (D_RES+ D_AVO * 0.3 + 30) /200 
 				// DMG = A_ATT *( SUC *0.03+25)*(1.8 *A_ATT - D_DEF +150)/(1.1* D_RES + D_AVO *0.4+50)/140  (대만 2005.06.01)
 				iDamage = (int)( pATK->Get_ATK() * ( iSuc *0.03f+25) * (1.8f *pATK->Get_ATK() - pDEF->Get_DEF() +150)/(1.1f* pDEF->Get_RES() + pDEF->Get_AVOID() * 0.4f + 50 ) / 120.f );		// (IROSE 2005.05.13)
@@ -649,7 +647,7 @@ DWORD CCal::Get_DAMAGE (CObjCHAR *pATK, CObjCHAR *pDEF, WORD wHitCNT)
 			return 0;
 	}
 
-	if ( IsApplyNewVersion() ) {
+	if ( true ) {
 		// 공격 모션에 타점은 무조건 1개로 취급~
 		wHitCNT = 1;
 	}
@@ -714,7 +712,7 @@ DWORD CCal::Get_SkillDAMAGE (CObjCHAR *pATK, CObjCHAR *pDEF, short nSkillIDX, WO
 {
 	int iDamage;
 	
-	if ( IsApplyNewVersion() ) {
+	if ( true ) {
 		// 공격 모션에 타점은 무조건 1개로 취급~
 		wHitCNT = 1;
 	}
@@ -726,7 +724,7 @@ DWORD CCal::Get_SkillDAMAGE (CObjCHAR *pATK, CObjCHAR *pDEF, short nSkillIDX, WO
 			int iRAND1 = 1+RANDOM(60);
 			int iRAND2 = 1+RANDOM(70);
 			iSuccess = (int)( ( (pATK->Get_LEVEL()+20) - pDEF->Get_LEVEL() + (iRAND1 /* *0.6f */) ) * (pATK->Get_HIT() - pDEF->Get_AVOID()*0.6f + iRAND2 /* *0.7f */ + 10 ) / 110.f );
-			if ( IsApplyNewVersion() ) {
+			if ( true ) {
 				if ( iSuccess < 20 )
 					return 0;
 
@@ -764,7 +762,7 @@ DWORD CCal::Get_SkillDAMAGE (CObjCHAR *pATK, CObjCHAR *pDEF, short nSkillIDX, WO
 			int iRAND1 = 1+RANDOM(50);
 			int iRAND2 = 1+RANDOM(70);
 			iSuccess = (int)( ( (pATK->Get_LEVEL()+30) - pDEF->Get_LEVEL() + (iRAND1) ) * (pATK->Get_HIT() - pDEF->Get_AVOID()*0.56f + iRAND2 + 10 ) / 110.f );
-			if ( IsApplyNewVersion() ) 
+			if ( true ) 
 			{
 				iDamage = Get_MagicSkillDAMAGE( pATK, pDEF, nSkillIDX, iSuccess );
 			}
@@ -838,7 +836,7 @@ DWORD CCal::Get_SkillDAMAGE (CObjCHAR *pATK, CObjCHAR *pDEF, short nSkillIDX, WO
 										( (1+RANDOM(30)) + pATK->Get_CRITICAL()*0.32f + 35 ) ) * 0.01f * ( 350-pDEF->Get_LEVEL()+pATK->Get_LEVEL() ) /
 										( pDEF->Get_DEF() + pDEF->Get_RES()*0.3f + pDEF->Get_AVOID()*0.4f + 35 ) / 400 + 20 );
 				} else {
-					if ( IsApplyNewVersion() ) 
+					if ( true ) 
 					{
 						// [모션 스킬형] 데미지 계산식
 							//* DMG = { (SKILL_POW+A_CRI*0.15 + 40) * (A_ATT+70) * { RAN(1~30) + A_CRI*0.34 + 35 } * 0.01
