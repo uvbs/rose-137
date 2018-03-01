@@ -6,7 +6,7 @@
 #include "Interface/CTDrawImpl.h"
 #include "Interface/IO_ImageRes.h"
 #include "Util/Localizing.h"
-#include "ResourceMgr.h"
+#include "tgamectrl/resourcemgr.h"
 #include "zz_interface.h"
 CSystemMsgDlg::CSystemMsgDlg(void)
 {

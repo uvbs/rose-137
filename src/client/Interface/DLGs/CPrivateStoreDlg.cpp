@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include ".\cprivatestoredlg.h"
-#include "TRadioBox.h"
-#include "TEditBox.h"
+#include "tgamectrl/tradiobox.h"
+#include "tgamectrl/teditbox.h"
 #include "CGoodsDlg.h"
 #include "interface/it_mgr.h"
 #include "Object.h"
@@ -10,7 +10,7 @@
 #include "Interface/Command/DragCommand.h"
 #include "GameCommon/item.h"
 #include "GameData/Event/CTEventPrivateStore.h"
-#include "TImage.h"
+#include "tgamectrl/TImage.h"
 
 CPrivateStoreDlg::CPrivateStoreDlg( int iDlgType )
 {

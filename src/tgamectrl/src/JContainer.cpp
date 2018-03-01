@@ -2,7 +2,7 @@
 #include ".\jcontainer.h"
 #include "WinCtrl.h"
 #include <algorithm> 
-
+#include <functional>
 
 
 CJContainer::CJContainer(void)

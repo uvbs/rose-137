@@ -19,14 +19,14 @@
 #include "Country.h"
 #include "Misc/gameutil.h"
 
-#include "TEditBox.h"
-#include "TButton.h"
-#include "TabbedPane.h"
-#include "ZListBox.h"
-#include "JContainer.h"
-#include "ResourceMgr.h"
+#include "tgamectrl/teditbox.h"
+#include "tgamectrl/tbutton.h"
+#include "tgamectrl/tabbedpane.h"
+#include "tgamectrl/zlistbox.h"
+#include "tgamectrl/jcontainer.h"
+#include "tgamectrl/resourcemgr.h"
 #include "../CClanMarkView.h"
-#include "TListBox.h"
+#include "tgamectrl/tlistbox.h"
 
 
 

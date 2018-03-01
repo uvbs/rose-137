@@ -8,7 +8,7 @@
 #include "Object.h"
 
 #include "JCommandState.h"
-#include "../../TGameCtrl/ResourceMgr.h"
+#include "tgamectrl/ResourceMgr.h"
 #include "interface/CNameBox.h"
 
 

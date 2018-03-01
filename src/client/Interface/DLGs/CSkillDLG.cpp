@@ -10,15 +10,15 @@
 #include "GameCommon/item.h"
 #include "subclass/CSkillListItem.h"
 
-#include "TPane.h"
-#include "JContainer.h"
-#include "TabbedPane.h"
-#include "TContainer.h"
-#include "JListBox.h"
-#include "TButton.h"
-#include "TImage.h"
-#include "TListBox.h"
-#include "TCaption.h"
+#include "tgamectrl/tpane.h"
+#include "tgamectrl/jcontainer.h"
+#include "tgamectrl/tabbedpane.h"
+#include "tgamectrl/tcontainer.h"
+#include "tgamectrl/jlistbox.h"
+#include "tgamectrl/tbutton.h"
+#include "tgamectrl/TImage.h"
+#include "tgamectrl/tlistbox.h"
+#include "tgamectrl/tcaption.h"
 
 
 #define SKILL_SLOT_SX		24
@@ -36,7 +36,7 @@
 #define SKILL_POINTTEXT_WIDTH	54
 #define SKILL_POINTTEXT_HEIGHT	19
 
-#include "ZListBox.h"
+#include "tgamectrl/zlistbox.h"
 
 CSkillDLG::CSkillDLG( int iType )
 {

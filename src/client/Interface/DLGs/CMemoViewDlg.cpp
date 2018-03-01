@@ -6,9 +6,9 @@
 #include "interface/it_mgr.h"
 #include "CCommDlg.h"
 
-#include "TImage.h"
-#include "TButton.h" 
-#include "TEditBox.h"
+#include "tgamectrl/TImage.h"
+#include "tgamectrl/tbutton.h" 
+#include "tgamectrl/teditbox.h"
 CMemoViewDlg::CMemoViewDlg(void)
 {
 }

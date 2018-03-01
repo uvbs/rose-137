@@ -318,6 +318,29 @@
     <ClCompile Include="ObjectActionProcessor.cpp" />
     <ClCompile Include="ObjectCommand\ObjCommand.cpp" />
     <ClCompile Include="ObjFixedEvent.cpp" />
+    <ClCompile Include="Server\Util\AStream.cpp" />
+    <ClCompile Include="Server\Util\CBITArray.cpp" />
+    <ClCompile Include="Server\Util\CClientSOCKET.cpp" />
+    <ClCompile Include="Server\Util\cdxHPC.cpp" />
+    <ClCompile Include="Server\Util\classFile.cpp" />
+    <ClCompile Include="Server\Util\classHASH.cpp" />
+    <ClCompile Include="Server\Util\classIME.cpp" />
+    <ClCompile Include="Server\Util\classLOG.cpp" />
+    <ClCompile Include="Server\Util\classMD5.cpp" />
+    <ClCompile Include="Server\Util\classOGG.cpp" />
+    <ClCompile Include="Server\Util\classSTB.cpp" />
+    <ClCompile Include="Server\Util\classSYNCOBJ.cpp" />
+    <ClCompile Include="Server\Util\classSYS.cpp" />
+    <ClCompile Include="Server\Util\classTHREAD.cpp" />
+    <ClCompile Include="Server\Util\classTRACE.cpp" />
+    <ClCompile Include="Server\Util\classUTIL.cpp" />
+    <ClCompile Include="Server\Util\CPacketCODEC.cpp" />
+    <ClCompile Include="Server\Util\CProcess.cpp" />
+    <ClCompile Include="Server\Util\CRandom.cpp" />
+    <ClCompile Include="Server\Util\CshoSOCKET.cpp" />
+    <ClCompile Include="Server\Util\CSocketWND.cpp" />
+    <ClCompile Include="Server\Util\LIB_IJL.cpp" />
+    <ClCompile Include="Server\Util\PacketHEADER.cpp" />
     <ClCompile Include="Sfx\ISFX.cpp" />
     <ClCompile Include="Sfx\SFXFont.cpp" />
     <ClCompile Include="Sfx\SFXManager.cpp" />
@@ -373,7 +396,6 @@
     <ClCompile Include="Util\CGameSTB.cpp" />
     <ClCompile Include="Util\CGameStr.cpp" />
     <ClCompile Include="Util\CheckHack.cpp" />
-    <ClCompile Include="Util\classCRC.cpp" />
     <ClCompile Include="Util\classHTTP.cpp" />
     <ClCompile Include="Util\classLUA.cpp" />
     <ClCompile Include="Util\classSTR.cpp" />
@@ -701,6 +723,44 @@
     <ClInclude Include="onigurama.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="resource1.h" />
+    <ClInclude Include="Server\Util\AStream.h" />
+    <ClInclude Include="Server\Util\AStrTABLE.h" />
+    <ClInclude Include="Server\Util\CBITArray.h" />
+    <ClInclude Include="Server\Util\CClientSOCKET.h" />
+    <ClInclude Include="Server\Util\CDLList.h" />
+    <ClInclude Include="Server\Util\Cdxhpc.h" />
+    <ClInclude Include="Server\Util\CFileLIST.h" />
+    <ClInclude Include="Server\Util\CFileSystem.h" />
+    <ClInclude Include="Server\Util\classFile.h" />
+    <ClInclude Include="Server\Util\classHASH.h" />
+    <ClInclude Include="Server\Util\classIME.h" />
+    <ClInclude Include="Server\Util\classLOG.h" />
+    <ClInclude Include="Server\Util\classMD5.h" />
+    <ClInclude Include="Server\Util\classMD5Defines.h" />
+    <ClInclude Include="Server\Util\classOGG.h" />
+    <ClInclude Include="Server\Util\classSTB.h" />
+    <ClInclude Include="Server\Util\classSTB2.h" />
+    <ClInclude Include="Server\Util\classSYNCOBJ.h" />
+    <ClInclude Include="Server\Util\classSYS.h" />
+    <ClInclude Include="Server\Util\classTHREAD.h" />
+    <ClInclude Include="Server\Util\classTRACE.h" />
+    <ClInclude Include="Server\Util\classUTIL.h" />
+    <ClInclude Include="Server\Util\CPacketCODEC.h" />
+    <ClInclude Include="Server\Util\CProcess.h" />
+    <ClInclude Include="Server\Util\CRandom.h" />
+    <ClInclude Include="Server\Util\CshoSOCKET.h" />
+    <ClInclude Include="Server\Util\CSLList.h" />
+    <ClInclude Include="Server\Util\CSocketWND.h" />
+    <ClInclude Include="Server\Util\CVector.h" />
+    <ClInclude Include="Server\Util\CWaveFILE.h" />
+    <ClInclude Include="Server\Util\DLLIST.h" />
+    <ClInclude Include="Server\Util\DynamicData.h" />
+    <ClInclude Include="Server\Util\ijl.h" />
+    <ClInclude Include="Server\Util\JSingleton.h" />
+    <ClInclude Include="Server\Util\LIB_IJL.h" />
+    <ClInclude Include="Server\Util\LIB_Util.h" />
+    <ClInclude Include="Server\Util\PacketHEADER.h" />
+    <ClInclude Include="Server\Util\SLLIST.h" />
     <ClInclude Include="Sfx\ISFX.h" />
     <ClInclude Include="Sfx\SFXFont.h" />
     <ClInclude Include="Sfx\SFXManager.h" />
@@ -762,7 +822,6 @@
     <ClInclude Include="Util\CGameSTB.h" />
     <ClInclude Include="Util\CGameStr.h" />
     <ClInclude Include="Util\CheckHack.h" />
-    <ClInclude Include="Util\classCRC.h" />
     <ClInclude Include="Util\classHASH.h" />
     <ClInclude Include="Util\classHTTP.h" />
     <ClInclude Include="Util\classIME.h" />
@@ -929,14 +988,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)src\engine\include;$(SolutionDir)src\tgamectrl;$(SolutionDir)src\triggerinfo\include;$(SolutionDir)src\triggervfs\include;$(SolutionDir)thirdparty\dx9-sdk;$(SolutionDir)thirdparty\lua-4.0.1\include;$(SolutionDir)thirdparty\sqlite-3.6.7;$(SolutionDir)thirdparty\libogg-1.1.3\include;$(SolutionDir)thirdparty\libvorbis-1.2.0\include;$(SolutionDir)thirdparty\expat-2.0.1\lib;$(SolutionDir)thirdparty\zlib-1.2.3;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)src\engine\include;$(SolutionDir)src\tgamectrl\include;$(SolutionDir)src\triggerinfo\include;$(SolutionDir)src\triggervfs\include;$(SolutionDir)thirdparty\dx9-sdk;$(SolutionDir)thirdparty\lua-4.0.1\include;$(SolutionDir)thirdparty\sqlite-3.6.7;$(SolutionDir)thirdparty\libogg-1.1.3\include;$(SolutionDir)thirdparty\libvorbis-1.2.0\include;$(SolutionDir)thirdparty\expat-2.0.1\lib;$(SolutionDir)thirdparty\zlib-1.2.3;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_NO_CRT_STDIO_INLINE;ZZ_LUA500;ZZ_STATIC_USE;TGAMECTRL_STATIC;TRIGGERINFO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)bin\engine\$(Configuration)\;$(SolutionDir)thirdparty\dx9-sdk\lib;$(SolutionDir)bin\thirdparty\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)bin\$(Configuration)\;$(SolutionDir)bin\$(Configuration)\thirdparty;$(SolutionDir)thirdparty\dx9-sdk\lib;$(SolutionDir)thirdparty\zlib-1.2.3\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <Link>
-      <AdditionalDependencies>d3d9.lib;engine.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d9.lib;engine.lib;expat.lib;ijl15.lib;legacy_stdio_definitions.lib;lua401.lib;onig.lib;sqlite3.lib;tgamectrl.lib;triggerinfo.lib;triggervfs.lib;version.lib;Wininet.lib;winmm.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -953,14 +1012,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>false</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)src\engine\include;$(SolutionDir)src\tgamectrl;$(SolutionDir)src\triggerinfo\include;$(SolutionDir)src\triggervfs\include;$(SolutionDir)thirdparty\dx9-sdk;$(SolutionDir)thirdparty\lua-4.0.1\include;$(SolutionDir)thirdparty\sqlite-3.6.7;$(SolutionDir)thirdparty\libogg-1.1.3\include;$(SolutionDir)thirdparty\libvorbis-1.2.0\include;$(SolutionDir)thirdparty\expat-2.0.1\lib;$(SolutionDir)thirdparty\zlib-1.2.3;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)src\engine\include;$(SolutionDir)src\tgamectrl\include;$(SolutionDir)src\triggerinfo\include;$(SolutionDir)src\triggervfs\include;$(SolutionDir)thirdparty\dx9-sdk;$(SolutionDir)thirdparty\lua-4.0.1\include;$(SolutionDir)thirdparty\sqlite-3.6.7;$(SolutionDir)thirdparty\libogg-1.1.3\include;$(SolutionDir)thirdparty\libvorbis-1.2.0\include;$(SolutionDir)thirdparty\expat-2.0.1\lib;$(SolutionDir)thirdparty\zlib-1.2.3;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_NO_CRT_STDIO_INLINE;ZZ_LUA500;ZZ_STATIC_USE;TGAMECTRL_STATIC;TRIGGERINFO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)bin\engine\$(Configuration)\;$(SolutionDir)thirdparty\dx9-sdk\lib;$(SolutionDir)bin\thirdparty\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>d3d9.lib;engine.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)bin\$(Configuration)\;$(SolutionDir)bin\$(Configuration)\thirdparty;$(SolutionDir)thirdparty\dx9-sdk\lib;$(SolutionDir)thirdparty\zlib-1.2.3\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>d3d9.lib;engine.lib;expat.lib;ijl15.lib;legacy_stdio_definitions.lib;lua401.lib;onig.lib;sqlite3.lib;tgamectrl.lib;triggerinfo.lib;triggervfs.lib;version.lib;Wininet.lib;winmm.lib;zlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

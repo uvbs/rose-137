@@ -22,25 +22,6 @@
 #define SAFE_RELEASE(p)			{ if(p) { (p)->Release();	(p)=NULL; } }
 
 
-void ODS (char *fmt, ...)
-{
-	//static char m_StrBUFF[ 2048 ];
- //   try {
- //       va_list argptr;
- //       va_start(argptr, fmt);
- //       vsprintf(m_StrBUFF,fmt,argptr);
- //       va_end(argptr);
- //   }
- //   catch( ... ) {
- //       return;
- //   }
-
-	//::OutputDebugString( m_StrBUFF );
-}
-
-
-
-
 //-----------------------------------------------------------------------------
 // Name: NotificationProc()
 // Desc: Handles dsound notifcation events
@@ -408,8 +389,6 @@ HRESULT ADirectSoundSTREAM::WriteToBuffer (void* pbBuffer, DWORD dwBufferLength)
 		return S_OK;
     }
 
-	ODS( "Read:: BuffLen:%d, Buff:%d, Actual: %d \n", dwBufferLength, pbBuffer, nActualBytesWritten );
-
     // If the number of bytes written is less than the 
     // amount we requested, we have a short file.
     if ( nActualBytesWritten < dwBufferLength ) {
@@ -474,7 +453,6 @@ HRESULT ADirectSoundSTREAM::UpdateProgress(void)
     if ( FAILED( hr = m_pDSBuffer->GetCurrentPosition( &dwPlayPos, &dwWritePos ) ) )
         return hr;
 
-	ODS( "		CurBLOCK: %d / PlayingBLOCK: %d / %d\n", m_wCurrentBlockIDX, this->GetBlockIndex(dwPlayPos), this->GetBlockIndex(dwWritePos) );
 	++m_wCurrentBlockIDX %= m_wDataBlockCount;
 
     if( dwPlayPos < m_dwLastPos )
@@ -507,8 +485,6 @@ HRESULT ADirectSoundSTREAM::HandleNotification (void)
     if( FAILED( hr = m_pDSBuffer->Lock( m_dwNextWriteOffset, m_dwDataBlockSize, 
                                         &pbBuffer, &dwBufferLength, NULL, NULL, 0L ) ) )
         return hr;
-
-	ODS( "Next:%d, Size:%d, BUF: %d \n", m_dwNextWriteOffset, m_dwDataBlockSize, pbBuffer );
 
     // Fill the buffer with wav data 
     if( FAILED( hr = WriteToBuffer (pbBuffer, dwBufferLength ) ) ) {

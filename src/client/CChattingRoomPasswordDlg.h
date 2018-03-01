@@ -1,6 +1,6 @@
 #ifndef _CChattingRoomPasswordDlg_
 #define _CChattingRoomPasswordDlg_
-#include "TDialog.h"
+#include "tgamectrl/tdialog.h"
 
 //홍근 오후 12:02 2006-10-26 : chattingroom password 입력창.
 class CChattingRoomPasswordDlg : public CTDialog

@@ -1,9 +1,9 @@
 #ifndef _CUpgradeDlg_
 #define _CUpgradeDlg_
-#include "tdialog.h"
+#include "tgamectrl/tdialog.h"
 #include "subclass/CSlot.h"
 #include "GameCommon/IObserver.h"
-#include "singlelinestring.h"
+#include "tgamectrl/singlelinestring.h"
 
 class CDragItem;
 class CUpgradeDlgState;

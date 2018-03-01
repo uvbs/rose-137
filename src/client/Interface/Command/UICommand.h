@@ -3,7 +3,7 @@
 
 #include "Common/CItem.h"
 #include "Network//net_prototype.h"
-#include "tcommand.h"
+#include "tgamectrl/tcommand.h"
 
 class	CMakeDLG;
 class	CItem;

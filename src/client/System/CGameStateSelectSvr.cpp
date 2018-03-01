@@ -9,7 +9,7 @@
 
 #include "Game.h"
 #include "System/CGame.h"
-#include "../TGameCtrl/TMsgBox.h"
+#include "tgamectrl/TMsgBox.h"
 #include "Network/CNetwork.h"
 
 #include "interface/ExternalUI/ExternalUILobby.h"
@@ -25,7 +25,7 @@
 
 
 #include "../CSkyDOME.H"
-#include "TIme2.h"
+#include "tgamectrl/time2.h"
 #include "SystemProcScript.h"
 
 HNODE hCameraMotion_;

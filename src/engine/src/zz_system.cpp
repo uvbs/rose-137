@@ -88,8 +88,10 @@ zz_system::zz_system () :
 
 	sfxs = zz_new zz_manager_sfx;
 
+	/*
 	script = (zz_script_lua *)ZZ_RUNTIME_TYPE(zz_script_lua)->create_instance();
 	script->set_name(".lua_script");
+	*/
 
 	view = (zz_view_d3d *)ZZ_RUNTIME_TYPE(zz_view_d3d)->create_instance();
 	view->set_name(".view");

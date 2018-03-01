@@ -9,7 +9,7 @@
 #include "interface/ExternalUI/ExternalUILobby.h"
 #include "interface/CLoading.h"
 #include "interface/CUIMediator.h"
-#include "../../TGameCtrl/TMsgBox.h"
+#include "tgamectrl/TMsgBox.h"
 CGameStatePrepareSelectAvatar::CGameStatePrepareSelectAvatar( int iID )
 { 
 	m_iStateID = iID; 

@@ -1,15 +1,15 @@
 #ifndef _MAKE_DLG_H
 #define _MAKE_DLG_H
 
-#include "../../../TGameCtrl/TDialog.h"
-#include "../../../TGameCtrl/TContainerItem.h"
+#include "tgamectrl/TDialog.h"
+#include "tgamectrl/TContainerItem.h"
 #include "Common/CItem.h"
 #include "GameData/cmanufacture.h"
 #include "Common/DataType.h"
 #include "GameCommon/item.h"
 #include "GameCommon/iobserver.h"
 #include "SubClass/CSlot.h"
-#include "singlelinestring.h"
+#include "tgamectrl/singlelinestring.h"
 
 
 class	CMakeState; 

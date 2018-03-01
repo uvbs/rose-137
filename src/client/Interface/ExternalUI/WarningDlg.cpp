@@ -16,9 +16,9 @@
 
 //resource
 #include "Interface/IO_ImageRes.h"
-#include "ResourceMgr.h"
-#include "TListBox.h"
-#include "TScrollBar.h"
+#include "tgamectrl/resourcemgr.h"
+#include "tgamectrl/tlistbox.h"
+#include "tgamectrl/tscrollbar.h"
 
 CWarningDlg::CWarningDlg(void)
 {

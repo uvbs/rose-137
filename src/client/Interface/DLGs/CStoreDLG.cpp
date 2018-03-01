@@ -19,9 +19,9 @@
 #include "../cdragitem.h"
 #include "Interface/Icon/ciconitem.h"
 
-#include "TRadioButton.h"
-#include "TRadioBox.h"
-#include "TCaption.h"
+#include "tgamectrl/tradiobutton.h"
+#include "tgamectrl/tradiobox.h"
+#include "tgamectrl/tcaption.h"
 
 #define ITEM_START_POS_X		8
 #define ITEM_START_POS_Y		66

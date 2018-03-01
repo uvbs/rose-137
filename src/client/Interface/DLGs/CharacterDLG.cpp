@@ -16,11 +16,11 @@
 #include "GameData/Event/CTEventItem.h"
 #include "GameData/CClan.h"
 
-#include "TabbedPane.h"
-#include "TGuage.h"
-#include "JContainer.h"
-#include "ResourceMgr.h"
-#include "TImage.h"
+#include "tgamectrl/tabbedpane.h"
+#include "tgamectrl/TGuage.h"
+#include "tgamectrl/jcontainer.h"
+#include "tgamectrl/resourcemgr.h"
+#include "tgamectrl/TImage.h"
 #include "../CClanMarkView.h"
 #include "Misc/gameutil.h"
 

@@ -45,12 +45,15 @@ void CSysInfo::GetOSInfo (void)
 	ZeroMemory(&osvi, sizeof(OSVERSIONINFOEX));
 	osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEX);
 
+	bOsVersionInfoEx = true;
+	/*
 	if( !(bOsVersionInfoEx = GetVersionEx ((OSVERSIONINFO *) &osvi)) )
 	{
 		osvi.dwOSVersionInfoSize = sizeof (OSVERSIONINFO);
 		if (! GetVersionEx ( (OSVERSIONINFO *) &osvi) ) 
 			return;
 	}
+	*/
 
 	switch (osvi.dwPlatformId)
 	{

@@ -3,7 +3,7 @@
 #include "Network/CNetWork.h"
 #include "System/CGame.h"
 #include "CClanMarkUserDefined.h"
-#include "Util/classCRC.h"
+#include "classCRC.h"
 #include "interface/it_mgr.h"
 
 #include "zlib.h"
@@ -222,7 +222,7 @@ bool CClanMarkTransfer::GetImageFileCRC( HANDLE hBmpFile, WORD* pBmpCRC16, DWORD
 	}
 
 	assert( *pdwFileSizeLow == *pdwNumberOfBytesRead );
-	*pBmpCRC16 = classCRC::DataCRC16( bmp_buffer, *pdwFileSizeLow );
+	*pBmpCRC16 = classCRC::DataCRC16( bmp_buffer, *pdwFileSizeLow , true);
 	delete []bmp_buffer;
 
 	return true;

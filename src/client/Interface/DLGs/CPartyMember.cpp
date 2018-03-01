@@ -9,7 +9,7 @@
 #include "interface/it_mgr.h"
 #include "../CEnduranceProperty.h"
 
-#include "ResourceMgr.h"
+#include "tgamectrl/resourcemgr.h"
 
 #include <algorithm>
 

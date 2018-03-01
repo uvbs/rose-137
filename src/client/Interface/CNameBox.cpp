@@ -3,7 +3,7 @@
 #include "..\\Game.h"
 #include "CTDrawImpl.h"
 #include "Interface/IO_ImageRes.h"
-#include "../../TGameCtrl/ResourceMgr.h"
+#include "tgamectrl/ResourceMgr.h"
 #include "Object.h"
 #include "JCommandState.h"
 #include "CClientStorage.h"

@@ -1,6 +1,6 @@
 #ifndef _CSeparateDlg_
 #define _CSeparateDlg_
-#include "tdialog.h"
+#include "tgamectrl/tdialog.h"
 #include "GameCommon/IObserver.h"
 #include "subclass/CSlot.h"
 #include <vector>
@@ -10,7 +10,7 @@
 #include "subclass/CSeparateDlgStateResult.h"
 #include "Network/Net_Prototype.h"
 
-#include "singlelinestring.h"
+#include "tgamectrl/singlelinestring.h"
 
 class CIconItem;
 class CDragItem;

@@ -13,8 +13,8 @@
 #include "Network//Net_Prototype.h"
 #include "GameCommon/Item.h"
 
-#include "../../../TGameCtrl/TPushButton.h"
-#include "TImage.h"
+#include "tgamectrl/TPushButton.h"
+#include "tgamectrl/TImage.h"
 
 #define DS_CAPTION_SX	31
 #define DS_CAPTION_SY	11

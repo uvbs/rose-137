@@ -1,9 +1,9 @@
 #ifndef _ChatRoomDlg_
 #define _ChatRoomDlg_
-#include "TDialog.h"
+#include "tgamectrl/tdialog.h"
 #include "GameData/CChatRoom.h"
 #include "GameCommon/IObserver.h"
-#include "IActionListener.h"
+#include "tgamectrl/iactionlistener.h"
 #include "subclass/CZLBAppendText.h"
 
 

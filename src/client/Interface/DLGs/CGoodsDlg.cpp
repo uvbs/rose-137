@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include ".\cgoodsdlg.h"
 #include "Interface/Icon/CIconItem.h"
-#include "TEditBox.h"
+#include "tgamectrl/teditbox.h"
 #include "GameData/CPrivateStore.h"
 #include "Common/io_stb.h"
-#include "TImage.h"
+#include "tgamectrl/TImage.h"
 #include "Interface/TypeResource.h"
 
 CGoodsDlg::CGoodsDlg( int iDlgType)

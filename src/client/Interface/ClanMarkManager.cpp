@@ -175,7 +175,7 @@ HNODE CClanMarkManager::LoadNewTexture( const char* pstrName, WORD crc16 )
 	assert( FileSizeLow == NumberOfBytesRead );
 		
 
-	WORD wCrc16 = classCRC::DataCRC16( buffer, FileSizeLow );
+	WORD wCrc16 = classCRC::DataCRC16( buffer, FileSizeLow, true);
 
 	delete []buffer;
 	CloseHandle( hClanMarkFile );

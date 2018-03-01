@@ -1,12 +1,12 @@
 #include "stdafx.h"
 #include ".\caddfrienddlg.h"
-#include "TEditBox.h"
+#include "tgamectrl/teditbox.h"
 #include "CCommDlg.h"
 #include "interface/it_mgr.h"
 #include "Network//CNetwork.h"
-#include "TCaption.h"
-#include "TImage.h"
-#include "TButton.h"
+#include "tgamectrl/tcaption.h"
+#include "tgamectrl/TImage.h"
+#include "tgamectrl/tbutton.h"
 
 CAddFriendDlg::CAddFriendDlg( int iDlgType )
 {

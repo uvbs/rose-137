@@ -13,8 +13,8 @@
 #include "GameCommon/item.h"
 #include "Object.h"
 #include "../TypeResource.h"
-#include "TCaption.h"
-#include "TImage.h"
+#include "tgamectrl/tcaption.h"
+#include "tgamectrl/TImage.h"
 
 #include "Interface/CToolTipMgr.h"
 

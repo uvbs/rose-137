@@ -3,7 +3,7 @@
 
 #include "interface/it_mgr.h"
 #include "./Network/CNetwork.h"
-#include "TGuage.h"
+#include "tgamectrl/TGuage.h"
 
 CClanWar_BossDlg::CClanWar_BossDlg()
 {

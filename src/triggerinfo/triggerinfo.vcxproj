@@ -26,13 +26,13 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -82,6 +82,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\;$(ProjectDir)src\;$(SolutionDir)thirdparty\dx9-sdk</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;_CRT_SECURE_NO_WARNINGS;TRIGGERINFO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -98,6 +100,8 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\;$(ProjectDir)src\;$(SolutionDir)thirdparty\dx9-sdk</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;_CRT_SECURE_NO_WARNINGS;TRIGGERINFO_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -118,6 +122,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="disk.cpp" />
+    <ClCompile Include="reg.cpp" />
+    <ClCompile Include="src\AdapterInfo.cpp" />
+    <ClCompile Include="src\CpuInfo.cpp" />
+    <ClCompile Include="src\getdxver.cpp" />
+    <ClCompile Include="src\Http.cpp" />
+    <ClCompile Include="src\stdafx.cpp" />
+    <ClCompile Include="src\SysInfo.cpp" />
+    <ClCompile Include="src\TriggerInfo.cpp" />
+    <ClCompile Include="src\__d3d9.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="disk.h" />
+    <ClInclude Include="include\AdapterInfo.h" />
+    <ClInclude Include="include\CpuInfo.h" />
+    <ClInclude Include="include\dispinfo.h" />
+    <ClInclude Include="include\getdxver.h" />
+    <ClInclude Include="include\Http.h" />
+    <ClInclude Include="include\OSInfo.h" />
+    <ClInclude Include="include\SysInfo.h" />
+    <ClInclude Include="include\SystemInfo.h" />
+    <ClInclude Include="include\TriggerInfo.h" />
+    <ClInclude Include="include\__d3d9.h" />
+    <ClInclude Include="reg.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,11 +1,11 @@
 #include "stdafx.h"
 #include "avatarinfodlg.h"
 
-#include "TGuage.h"
-#include "TCheckBox.h"
-#include "TStatic.h"
-#include "TImage.h"
-#include "ResourceMgr.h"
+#include "tgamectrl/TGuage.h"
+#include "tgamectrl/tcheckbox.h"
+#include "tgamectrl/TStatic.h"
+#include "tgamectrl/TImage.h"
+#include "tgamectrl/resourcemgr.h"
 
 #include "interface/it_mgr.h"
 #include "Interface/CToolTipMgr.h"

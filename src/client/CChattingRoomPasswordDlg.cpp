@@ -1,12 +1,12 @@
 #include "stdafx.h"
 #include "CChattingRoomPasswordDlg.h"
 #include "GameData/CChatRoom.h"
-#include "TEditBox.h"
+#include "tgamectrl/teditbox.h"
 #include "interface/it_mgr.h"
 #include "Network/CNetwork.h"
-#include "TCaption.h"
-#include "TImage.h"
-#include "TButton.h"
+#include "tgamectrl/tcaption.h"
+#include "tgamectrl/TImage.h"
+#include "tgamectrl/tbutton.h"
 
 
 CChattingRoomPasswordDlg::CChattingRoomPasswordDlg( int iDlgType )

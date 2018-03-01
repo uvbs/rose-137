@@ -174,66 +174,6 @@ DWORD classCRC::DataCRC32 (const void *pDATA, int iSize, bool bInitCRC)
 	return m_dwCRC32;
 }
 
-//-------------------------------------------------------------------------------------------------
-// CRC16을 계산하는 ROUTINE
-/*
-실제 사용시
-
-    프레임 구조
-
-    +-----------------------------------+----+----+
-    |  실제 데이타                      |  CRC16  |
-    +-----------------------------------+----+----+
-
-    u_char		rxframe[1600];
-    int			rxlen;
-    u_short 	crc16;
-
-수신시:
-
-	rxlen = recvfrom(udp_sock,(char *)rxframe,sizeof(rxbuffer),0,(struct sockaddr *)&from,&sockaddr_len);
-
-	crc16 = calc_crc16(rxframe,rxlen-2);
-	if (crc16 == *((u_short*)&rxframe[rxlen-2])) return 1;  // CRC16 OK
-
-
-송신시:
-	txframe 방의 크기가 충분히(2바이트 정도) 클경우
-
-	crc16 = calc_crc16(txframe,txlen);
-	*((u_short*)txframe[txlen]) = crc16;
-
-	sendto(udp_sock,(char *)txframe,txlen+2,......);
-*/
-/*
-WORD classCRC::DataCRC16 (const void *pDATA, int iSize, bool bInitCRC)
-{
-    const unsigned char *lpdata = reinterpret_cast<const unsigned char*>(pDATA);
-
-	int		i,j;
-	WORD	lsb,xor,data;
-
-	if ( bInitCRC )
-		this->InitCRC16 ();
-
-	for (i = 0; i < iSize; i++) {
-		 data = *lpdata ++;
-		 for (j = 0; j < 8; j++) {
-			 lsb = m_wCRC16 & 0x0001;
-			 xor = lsb ^ data;
-			 xor = xor & 0x0001;
-
-			 m_wCRC16 = m_wCRC16 >> 1;
-
-			 if ( xor == 1 ) m_wCRC16 = m_wCRC16 ^ 0x8408;
-			 data = data >> 1;
-		 }
-	}
-
-	return m_wCRC16;
-}
-*/
-//-------------------------------------------------------------------------------------------------
 #define UPDC16(crc, octet)	(g_pwCRC16[((crc) ^ (octet)) & 0xff] ^ ((crc) >> 8))
 
 WORD classCRC::DataCRC16 (const void *pDATA, int iSize, bool bInitCRC)

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include ".\inputnamedlg.h"
 #include "Interface/Command/uicommand.h"
-#include "TEditBox.h"
+#include "tgamectrl/teditbox.h"
 #include "Interface/TypeResource.h"
 
 CInputNameDlg::CInputNameDlg(void)

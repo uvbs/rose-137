@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include ".\clanorganizedlg.h"
-#include "JTable.h"
+#include "tgamectrl/jtable.h"
 #include "subclass/ClanMark.h"
 #include "Interface/IO_ImageRes.h"
 #include "Interface/CTDrawImpl.h"
@@ -8,8 +8,8 @@
 #include "Network//CNetwork.h"
 #include "GameCommon/CFilterWord.h"
 #include "Country.h"
-#include "TEditBox.h"
-#include "TImage.h"
+#include "tgamectrl/teditbox.h"
+#include "tgamectrl/TImage.h"
 
 CClanOrganizeDlg::CClanOrganizeDlg(void)
 {

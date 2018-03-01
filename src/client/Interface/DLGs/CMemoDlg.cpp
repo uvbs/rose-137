@@ -3,9 +3,9 @@
 #include "Game.h"
 #include "Network//CNetwork.h"
 
-#include "TEditBox.h"
-#include "TButton.h"
-#include "TImage.h"
+#include "tgamectrl/teditbox.h"
+#include "tgamectrl/tbutton.h"
+#include "tgamectrl/TImage.h"
 
 CMemoDlg::CMemoDlg( int iDlgType )
 {

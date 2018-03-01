@@ -9,10 +9,10 @@
 #include "../CDragItem.h"
 #include "Interface/Command/dragcommand.h"
 #include "Object.h"
-#include "TImage.h"
+#include "tgamectrl/TImage.h"
 #include <algorithm>
 #include "Interface/CToolTipMgr.h"
-#include "TCaption.h"
+#include "tgamectrl/tcaption.h"
 
 
 CUpgradeDlg::CUpgradeDlg( int iType )

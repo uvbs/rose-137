@@ -240,9 +240,6 @@
     <ClCompile Include="src\zz_script.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\zz_script_lua.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\zz_script_simple.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

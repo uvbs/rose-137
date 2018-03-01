@@ -11,8 +11,8 @@
 #include "interface/it_mgr.h"
 #include "Interface/CToolTipMgr.h"
 
-#include "TRadioBox.h"
-#include "TButton.h"
+#include "tgamectrl/tradiobox.h"
+#include "tgamectrl/tbutton.h"
 
 CAvatarStoreDlg::CAvatarStoreDlg( int iDlgType )
 {

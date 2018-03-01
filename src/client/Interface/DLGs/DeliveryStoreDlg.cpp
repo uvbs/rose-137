@@ -10,8 +10,8 @@
 #include "Network//CNetwork.h"
 #include "CDialogDlg.h"
 
-#include "TImage.h"
-#include "TButton.h"
+#include "tgamectrl/TImage.h"
+#include "tgamectrl/tbutton.h"
 
 CDeliveryStoreDlg::CDeliveryStoreDlg(void)
 {

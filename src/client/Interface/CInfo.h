@@ -5,7 +5,7 @@
 #include "Game.h"
 #include "Interface/SlotContainer/ClanSkillSlot.h"
 
-//#include "JStringParser.h"
+//#include "tgamectrl/jstringparser.h"
 
 const D3DCOLOR	g_dwBlueToolTip = D3DCOLOR_ARGB( 255, 100, 200,255);
 

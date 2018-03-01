@@ -18,8 +18,8 @@
 #include "../../misc/gameutil.h"
 
 
-#include "../../../TGameCtrl/ResourceMgr.h"
-#include "TCaption.h"
+#include "tgamectrl/ResourceMgr.h"
+#include "tgamectrl/tcaption.h"
 
 
 

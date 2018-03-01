@@ -1,7 +1,7 @@
 #ifndef _CCLAN_WAR_BOSSDLG_
 #define _CCLAN_WAR_BOSSDLG_
 
-#include "TDialog.h"
+#include "tgamectrl/tdialog.h"
 
 struct gsv_cli_CLAN_WAR_BOSS_HP;
 class CClanWar_BossDlg : public CTDialog

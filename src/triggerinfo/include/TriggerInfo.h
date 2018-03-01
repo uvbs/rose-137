@@ -3,6 +3,8 @@
 
 #ifdef TRIGGERINFO_EXPORTS
 #define TRIGGERINFO_API __declspec(dllexport)
+#elif TRIGGERINFO_STATIC
+#define TRIGGERINFO_API
 #else
 #define TRIGGERINFO_API __declspec(dllimport)
 #endif

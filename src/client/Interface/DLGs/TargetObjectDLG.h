@@ -2,7 +2,7 @@
 #define _TARGETOBJECTDLG_
 
 
-#include "../../../TGameCtrl/TDialog.h"
+#include "tgamectrl/TDialog.h"
 
 
 

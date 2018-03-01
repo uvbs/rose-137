@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include ".\cdragitem.h"
 #include "interface/icon/CIcon.h"
-#include "../../TGameCtrl/TCommand.h"
+#include "tgamectrl/TCommand.h"
 
 CDragItem::CDragItem(void)
 {

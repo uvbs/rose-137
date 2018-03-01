@@ -2,7 +2,7 @@
 #ifndef _INVENTORY_DLG_H
 #define _INVENTORY_DLG_H
 
-#include "../../../TGameCtrl/TDialog.h"
+#include "tgamectrl/TDialog.h"
 #include "GameCommon/IObserver.h"
 #include "Interface/Icon/CIconItem.h"
 #include "subclass/CSlot.h"

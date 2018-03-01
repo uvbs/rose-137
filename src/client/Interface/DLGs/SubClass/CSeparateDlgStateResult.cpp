@@ -14,7 +14,7 @@
 #include "../../TypeResource.h"
 #include "Object.h"
 #include "../../../Game_Func.h"
-#include "ResourceMgr.h"
+#include "tgamectrl/resourcemgr.h"
 
 CSeparateDlgStateResult * CSeparateDlgStateResult::s_Instance = NULL;
 

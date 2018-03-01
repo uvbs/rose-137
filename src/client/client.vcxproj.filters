@@ -90,6 +90,12 @@
     <Filter Include="Source Files\Util\Arcfour">
       <UniqueIdentifier>{e06b312a-050f-445e-a22e-3544eed6332e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Server">
+      <UniqueIdentifier>{8aeb7273-582c-4c8c-a85e-acdd3a6e1f3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Server\Util">
+      <UniqueIdentifier>{582174ee-08f2-442f-924d-5208522a2aae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AppMsgQ.cpp">
@@ -1157,9 +1163,6 @@
     <ClCompile Include="Util\CheckHack.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
-    <ClCompile Include="Util\classCRC.cpp">
-      <Filter>Source Files\Util</Filter>
-    </ClCompile>
     <ClCompile Include="Util\classHTTP.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
@@ -1222,6 +1225,75 @@
     </ClCompile>
     <ClCompile Include="Util\Arcfour\Arcfour.cpp">
       <Filter>Source Files\Util\Arcfour</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\AStream.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\CBITArray.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\CClientSOCKET.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\cdxHPC.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\classFile.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\classHASH.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\classIME.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\classLOG.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\classMD5.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\classOGG.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\classSTB.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\classSYNCOBJ.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\classSYS.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\classTHREAD.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\classTRACE.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\classUTIL.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\CPacketCODEC.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\CProcess.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\CRandom.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\CshoSOCKET.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\CSocketWND.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\LIB_IJL.cpp">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Server\Util\PacketHEADER.cpp">
+      <Filter>Source Files\Server\Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -2314,9 +2386,6 @@
     <ClInclude Include="Util\CheckHack.h">
       <Filter>Source Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Util\classCRC.h">
-      <Filter>Source Files\Util</Filter>
-    </ClInclude>
     <ClInclude Include="Util\classHASH.h">
       <Filter>Source Files\Util</Filter>
     </ClInclude>
@@ -2432,6 +2501,120 @@
       <Filter>Source Files\Util\Arcfour</Filter>
     </ClInclude>
     <ClInclude Include="resource1.h" />
+    <ClInclude Include="Server\Util\AStream.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\AStrTABLE.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\CBITArray.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\CClientSOCKET.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\CDLList.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\Cdxhpc.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\CFileLIST.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\CFileSystem.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\classFile.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\classHASH.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\classIME.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\classLOG.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\classMD5.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\classMD5Defines.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\classOGG.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\classSTB.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\classSTB2.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\classSYNCOBJ.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\classSYS.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\classTHREAD.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\classTRACE.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\classUTIL.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\CPacketCODEC.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\CProcess.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\CRandom.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\CshoSOCKET.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\CSLList.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\CSocketWND.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\CVector.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\CWaveFILE.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\DLLIST.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\DynamicData.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\ijl.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\JSingleton.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\LIB_IJL.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\LIB_Util.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\PacketHEADER.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server\Util\SLLIST.h">
+      <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="Client.cbp">

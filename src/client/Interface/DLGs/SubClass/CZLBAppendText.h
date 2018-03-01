@@ -1,7 +1,7 @@
 #ifndef _CZLBAppendText_
 #define _CZLBAppendText_
-#include "winctrl.h"
-#include "JStringParser.h"
+#include "tgamectrl/winctrl.h"
+#include "tgamectrl/jstringparser.h"
 /**
 * ZListBox에 태그들을 적용해서 Append 하기 위한 데이터 클래스.
 *

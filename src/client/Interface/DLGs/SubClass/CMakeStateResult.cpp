@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include ".\cmakestateresult.h"
 #include "CGuage.h"
-#include "../../../../TGameCtrl/ResourceMgr.h"
+#include "tgamectrl/ResourceMgr.h"
 #include "../../IO_ImageRes.h"
 #include "../MakeDLG.h"
 #include "../../../Network/CNetwork.h"
@@ -9,7 +9,7 @@
 #include "../../Command/CTCmdHotExec.h"
 #include "../../Icon/CIconItem.h"
 #include "../../../Game_Func.h"
-#include "TGuage.h"
+#include "tgamectrl/TGuage.h"
 
 CMakeStateResult::CMakeStateResult( CMakeDLG* pParent )
 { 

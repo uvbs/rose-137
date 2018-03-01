@@ -1,7 +1,7 @@
 #ifndef _CBANKDLG_
 #define _CBANKDLG_
 
-#include "../../../TGameCtrl/TDialog.h"
+#include "tgamectrl/TDialog.h"
 #include "Common/CItem.h"
 #include "GameData/cbank.h"
 #include "GameCommon/iobserver.h"

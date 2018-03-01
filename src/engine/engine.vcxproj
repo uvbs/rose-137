@@ -201,7 +201,6 @@
     <ClCompile Include="src\zz_scene.cpp" />
     <ClCompile Include="src\zz_scene_octree.cpp" />
     <ClCompile Include="src\zz_script.cpp" />
-    <ClCompile Include="src\zz_script_lua.cpp" />
     <ClCompile Include="src\zz_script_simple.cpp" />
     <ClCompile Include="src\zz_sfx.cpp" />
     <ClCompile Include="src\zz_shader.cpp" />

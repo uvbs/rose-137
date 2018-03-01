@@ -10,6 +10,8 @@
 
 #ifdef TGAMECTRL_EXPORTS
 #define TGAMECTRL_API __declspec(dllexport)
+#elif TGAMECTRL_STATIC
+#define TGAMECTRL_API
 #else
 #define TGAMECTRL_API __declspec(dllimport)
 #endif

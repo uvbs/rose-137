@@ -3,7 +3,7 @@
 #include "CGame.h"
 
 #include "Game.h"
-#include "../TGameCtrl/TMsgBox.h"
+#include "tgamectrl/TMsgBox.h"
 #include "Network/CNetwork.h"
 
 #include "interface/ExternalUI/ExternalUILobby.h"
@@ -20,7 +20,7 @@
 #include "../CCamera.h"
 #include "../CSkyDOME.H"
 #include "Misc/GameUtil.h"
-#include "TIme2.h"
+#include "tgamectrl/time2.h"
 #include "SystemProcScript.h"
 
 //조성현 2005 12 - 12 Test 카메라...

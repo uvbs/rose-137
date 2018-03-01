@@ -8,8 +8,8 @@
 #include "interface/it_mgr.h"
 #include "Interface/CToolTipMgr.h"
 
-#include "TButton.h"
-#include "TEditBox.h"
+#include "tgamectrl/tbutton.h"
+#include "tgamectrl/teditbox.h"
 
 CBankWindowDlg::CBankWindowDlg(void)
 {

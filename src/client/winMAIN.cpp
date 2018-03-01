@@ -78,8 +78,8 @@ bool Init_DEVICE (void)
 	ClientLog(LOG_DEBUG,"winMAIN  opening data.idx");
 	::openFileSystem("data.idx");
 
-	ClientLog(LOG_DEBUG,"winMAIN  doscript lua stuff");
-	::doScript("scripts/init.lua");
+	//ClientLog(LOG_DEBUG,"winMAIN  doscript lua stuff");
+	//::doScript("scripts/init.lua");
 
 	ClientLog(LOG_DEBUG,"winMAIN  setting resolution");
 	t_OptionResolution Resolution = g_ClientStorage.GetResolution();

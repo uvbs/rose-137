@@ -2,7 +2,7 @@
 #include ".\cinfo.h"
 #include "Interface/IO_ImageRes.h"
 #include "CTDrawImpl.h"
-#include "../../TGameCtrl/ResourceMgr.h"
+#include "tgamectrl/ResourceMgr.h"
 CInfo::CInfo(void)
 {
 	Clear();

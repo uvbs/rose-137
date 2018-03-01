@@ -4,7 +4,7 @@
 #include "CExternalUI.h"
 
 #include "Network//Net_Prototype.h"
-#include "../../../TGameCtrl/TDialog.h"
+#include "tgamectrl/TDialog.h"
 #include <string>
 #include <deque>
 

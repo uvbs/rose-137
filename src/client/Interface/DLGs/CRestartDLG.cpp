@@ -3,7 +3,7 @@
 #include "..\\..\\NetWork\\CNetwork.h"
 #include "Country.h"
 #include "../../IO_Terrain.h"
-#include "TListBox.h"
+#include "tgamectrl/tlistbox.h"
 
 CRestartDLG::CRestartDLG()
 {
