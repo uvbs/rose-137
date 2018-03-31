@@ -8,11 +8,11 @@
 //-------------------------------------------------------------------------------------------------
 
 
-unsigned int get_param_uint (lua_State * L, int& index_from_end, const char * where);
-int			 get_param_int (lua_State * L, int& index_from_end, const char * where);
-float		 get_param_float (lua_State * L, int& index_from_end, const char * where);
-float		*get_param_float3 (lua_State * L, int& index_from_end, const char * where);
-const char	*get_param_string (lua_State * L, int& index_from_end, const char * where);
+unsigned int get_param_uint (lua_State * L, int& index, const char * where);
+int			 get_param_int (lua_State * L, int& index, const char * where);
+float		 get_param_float (lua_State * L, int& index, const char * where);
+float		*get_param_float3 (lua_State * L, int& index, const char * where);
+const char	*get_param_string (lua_State * L, int& index, const char * where);
 void		 set_param_uint (lua_State * L, int& return_num, unsigned int val);
 void		 set_param_int (lua_State * L, int& return_num, int val);
 void		 set_param_float (lua_State * L, int& return_num, float val);
@@ -23,14 +23,11 @@ void		set_global (lua_State * L, const char * variable_name, int value);
 void		set_global (lua_State * L, const char * variable_name, float value);
 void		set_global (lua_State * L, const char * variable_name, const char * value);
 
-//-------------------------------------------------------------------------------------------------
-//
-// assume that function call evaluate right to left
-//
+
 #define ZL_FUNC_BEGIN(FUNCNAME, RETURNTYPE)		\
-int lf_##FUNCNAME (lua_State * L)			\
+int lf_##FUNCNAME (lua_State * L)				\
 {												\
-	int index_from_end = 0;						\
+	int index = 1;								\
 	const char where[] = #FUNCNAME;				\
 	int return_num = 0;							\
 	RETURNTYPE									\
@@ -42,13 +39,13 @@ int lf_##FUNCNAME (lua_State * L)			\
 	return return_num;							\
 }												\
 
-#define ZL_INT						get_param_int(L, index_from_end, where)
-#define ZL_UINT						get_param_uint(L, index_from_end, where)
-#define ZL_HNODE					get_param_uint(L, index_from_end, where)
-#define ZL_FLOAT					get_param_float(L, index_from_end, where)
+#define ZL_INT						get_param_int(L, index, where)
+#define ZL_UINT						get_param_uint(L, index, where)
+#define ZL_HNODE					get_param_uint(L, index, where)
+#define ZL_FLOAT					get_param_float(L, index, where)
 // CAUTION: ZL_FLOAT3 should be alone in the parameter list. Do not put one more ZL_FLOAT3
-#define ZL_FLOAT3					get_param_float3(L, index_from_end, where)
-#define ZL_STRING					get_param_string(L, index_from_end, where)
+#define ZL_FLOAT3					get_param_float3(L, index, where)
+#define ZL_STRING					get_param_string(L, index, where)
 
 #define RETURNS_NONE				(
 #define RETURNS_UINT				set_param_uint(L, return_num, 

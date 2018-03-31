@@ -252,9 +252,8 @@ int CGame::Init()
 
 	//PY let's try initializing the LUA way up here
 	//LUA initialized here. InitSystem is a boolean so why aren't we using it that way?
-	CSystemProcScript::GetSingleton().InitSystem();	//Load SystemFunc.lua functions (SystemProcScript.cpp)
-	ClientLog(LOG_DEBUG,"LUA Initialized" );
-
+	//CSystemProcScript::GetSingleton().InitSystem();	//Load SystemFunc.lua functions (SystemProcScript.cpp)
+	// ClientLog(LOG_DEBUG,"LUA Initialized" );
 
 	( CLocalizing::GetSingleton() ).GetCurrentCodePage();
 	if( !(CStringManager::GetSingleton()).LoadTables( ( CLocalizing::GetSingleton() ).GetCurrentCharSet() ) ) //Loading STLs
@@ -346,9 +345,6 @@ int CGame::Init()
 	g_pSoundLIST->SetVolume( -10000 );
 
 
-
-
-
 	//--------------------------------------------------------------------------------
 	/// Loading class
 	MakeFont();	
@@ -365,11 +361,6 @@ int CGame::Init()
 //	if( CreateAllStringTables( &g_TblString ) == false )
 //		return false;
 	//ClientLog(LOG_DEBUG,"LIST_STRINGS.STB Complete" );
-
-	//PY: this section temporaily moved down a few lines to see if it helps.
-	//LUA initialized here
-	//CSystemProcScript::GetSingleton().InitSystem();	//Load SystemFunc.lua functions (SystemProcScript.cpp)
-	//ClientLog(LOG_DEBUG,"InitSystem OK" );
 	
 	
 	CCursor::GetInstance().Initialize();            //Sets up cursors
@@ -377,14 +368,13 @@ int CGame::Init()
 	CCursor::GetInstance().SetCursorType( CCursor::CURSOR_DEFAULT );
 	//ClientLog(LOG_DEBUG,"Set Cursor Type OK" );
 
-
 	/// skill dealy
 	CSkillCommandDelay::GetSingleton().Init();
 	ClientLog(LOG_DEBUG,"Skill command delay init OK" );
 
 	//LUA initialized here. InitSystem is a boolean so why aren't we using it that way?
-	//CSystemProcScript::GetSingleton().InitSystem();	//Load SystemFunc.lua functions (SystemProcScript.cpp)
-	//ClientLog(LOG_DEBUG,"InitSystem OK" );
+	CSystemProcScript::GetSingleton().InitSystem();	//Load SystemFunc.lua functions (SystemProcScript.cpp)
+	ClientLog(LOG_DEBUG,"InitSystem OK" );
 
 	/// Tutorial Event
 	
