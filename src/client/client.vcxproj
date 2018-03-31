@@ -720,7 +720,6 @@
     <ClInclude Include="ObjFixedEvent.h" />
     <ClInclude Include="onigurama.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="resource1.h" />
     <ClInclude Include="Server\Util\AStream.h" />
     <ClInclude Include="Server\Util\AStrTABLE.h" />
     <ClInclude Include="Server\Util\CBITArray.h" />
@@ -860,7 +859,6 @@
     <ClInclude Include="WheatyExceptionReport.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Client.cbp" />
     <None Include="Client.ver" />
     <None Include="Common\CUserDATA.SRV" />
     <None Include="Event\export_interface.lua" />
@@ -882,6 +880,7 @@
     <None Include="Res\cursor1.cur" />
     <None Include="Res\cursor2.cur" />
     <None Include="Res\Default.cur" />
+    <None Include="Res\ibeam.cur" />
     <None Include="Res\identify.cur" />
     <None Include="Res\item_invem.cur" />
     <None Include="Res\Item_inven.cur" />
@@ -908,7 +907,6 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc" />
-    <ResourceCompile Include="Client_private.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

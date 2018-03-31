@@ -2494,7 +2494,6 @@
     <ClInclude Include="Util\Arcfour\Arcfour.h">
       <Filter>Source Files\Util\Arcfour</Filter>
     </ClInclude>
-    <ClInclude Include="resource1.h" />
     <ClInclude Include="Server\Util\AStream.h">
       <Filter>Source Files\Server\Util</Filter>
     </ClInclude>
@@ -2611,9 +2610,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Client.cbp">
-      <Filter>Source Files</Filter>
-    </None>
     <None Include="Client.ver">
       <Filter>Source Files</Filter>
     </None>
@@ -2734,6 +2730,9 @@
     <None Include="Res\Wheel.cur">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="Res\ibeam.cur">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Client.ico">
@@ -2745,9 +2744,6 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Client.rc">
-      <Filter>Source Files</Filter>
-    </ResourceCompile>
-    <ResourceCompile Include="Client_private.rc">
       <Filter>Source Files</Filter>
     </ResourceCompile>
   </ItemGroup>

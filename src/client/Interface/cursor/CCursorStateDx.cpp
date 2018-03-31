@@ -69,7 +69,7 @@ void CCursorStateDx::LoadCursor()
 	//m_hDxCursor[ CCursor::CURSOR_REPAIR ] =  loadCursor( "CURSOR_REPAIR", m_hCursor[ CCursor::CURSOR_REPAIR ] );
 #endif
 
-	m_hCursor[ CCursor::CURSOR_APPRAISAL ] = (HCURSOR)LoadImage( hInstance,MAKEINTRESOURCE( IDC_IDENTIFY ), IMAGE_CURSOR,0,0, LR_DEFAULTSIZE );
+	m_hCursor[ CCursor::CURSOR_APPRAISAL ] = (HCURSOR)LoadImage( hInstance,MAKEINTRESOURCE( IDC_CURSOR_IDENTIFY ), IMAGE_CURSOR,0,0, LR_DEFAULTSIZE );
 	//LoadCursor( CApplication::Instance()->GetHINS(), MAKEINTRESOURCE( IDC_IDENTIFY ) );
 	//m_hDxCursor[ CCursor::CURSOR_APPRAISAL ] =  loadCursor( "CURSOR_APPRAISAL", m_hCursor[ CCursor::CURSOR_APPRAISAL ] );
 }
