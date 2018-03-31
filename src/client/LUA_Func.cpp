@@ -3,123 +3,7 @@
 */
 #include "stdAFX.h"
 #include "LUA_Func.h"
-
-//-------------------------------------------------------------------------------------------------
-//
-// file scope variables
-// for saved return type
-//
-int f_return_int = 0;
-unsigned int f_return_uint = 0;
-float f_return_float = 0.0f;
-const float * f_return_float3 = NULL;
-const char * f_return_string = NULL;
-
-unsigned int get_param_uint (lua_State * L, int& index_from_end, const char * where)
-{
-	int index = lua_gettop(L) - index_from_end;
-	_ASSERT(index >= 1);
-	index_from_end++;
-	if (!lua_isnumber(L, index)) {
-		LogString(LOG_DEBUG, "script_lua: %s().parameter(uint) match failed\n", where);
-		return 0;
-	}
-	return (unsigned int)lua_tonumber(L, index);
-}
-
-
-int get_param_int (lua_State * L, int& index_from_end, const char * where)
-{
-	int index = lua_gettop(L) - index_from_end;
-	_ASSERT(index >= 1);
-	index_from_end++;
-	if (!lua_isnumber(L, index)) {
-		LogString(LOG_DEBUG, "script_lua: %s().parameter(int) match failed\n", where);
-		return 0;
-	}
-	return (int)lua_tonumber(L, index);
-}
-
-float get_param_float (lua_State * L, int& index_from_end, const char * where)
-{
-	int index = lua_gettop(L) - index_from_end;
-	_ASSERT(index >= 1);
-	index_from_end++;
-	if (!lua_isnumber(L, index)) {
-		LogString(LOG_DEBUG, "_script_lua: %s().parameter(float) match failed\n", where);
-		return 0;
-	}
-	return (float)lua_tonumber(L, index);
-}
-
-float * get_param_float3 (lua_State * L, int& index_from_end, const char * where)
-{
-	int index = lua_gettop(L) - index_from_end;
-	_ASSERT(index >= 1);
-	index_from_end += 3;
-	if (!lua_isnumber(L, index-2) || !lua_isnumber(L, index-1) || !lua_isnumber(L, index)) {
-		LogString(LOG_DEBUG, "script_lua: %s().parameter(float3) match failed\n", where);
-		return NULL;
-	}
-	static float ret[3];
-	ret[0] = (float)lua_tonumber(L, index-2);
-	ret[1] = (float)lua_tonumber(L, index-1);
-	ret[2] = (float)lua_tonumber(L, index);
-	return ret;
-}
-
-const char * get_param_string (lua_State * L, int& index_from_end, const char * where)
-{
-	int index = lua_gettop(L) - index_from_end;
-	_ASSERT(index >= 1);
-	index_from_end++;
-	if (!lua_isstring(L, index)) {
-		LogString(LOG_DEBUG, "script_lua: %s().parameter(string) match failed\n", where);
-		return NULL;
-	}
-	return lua_tostring(L, index);
-}
-
-
-//-------------------------------------------------------------------------------------------------
-//
-//
-void set_param_uint (lua_State * L, int& return_num, unsigned int val)
-{
-	f_return_uint = val;
-	lua_pushnumber(L, val);
-	return_num++;
-}
-
-void set_param_int (lua_State * L, int& return_num, int val)
-{
-	f_return_int = val;
-	lua_pushnumber(L, val);
-	return_num++;
-}
-
-void set_param_float (lua_State * L, int& return_num, float val)
-{
-	f_return_float = val;
-	lua_pushnumber(L, val);
-	return_num++;
-}
-
-void set_param_float3 (lua_State * L, int& return_num,  const float * val)
-{
-	f_return_float3 = val;
-	lua_pushnumber(L, val[0]);
-	lua_pushnumber(L, val[1]);
-	lua_pushnumber(L, val[2]);
-	return_num += 3;
-}
-
-void set_param_string (lua_State * L, int& return_num, const char * val)
-{
-	f_return_string = val;
-	lua_pushstring(L, val);
-	return_num++;
-}
+#include "zz_script_lua.h"
 
 
 void set_global (lua_State * L, const char * variable_name, int value)
@@ -191,7 +75,7 @@ int lua_CallFUNC (lua_State *L, const char* function_name, va_list va)
 		}
 	}
 	
-#ifdef ZZ_LUA50
+#ifdef ZZ_LUA500
 	int err = lua_pcall(L, param_count, LUA_MULTRET /* nresults */, 0 /* errfunc */);
 #else // 40
 	int err = lua_call(L, param_count, LUA_MULTRET /* nresults */);

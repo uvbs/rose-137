@@ -22,7 +22,7 @@
 
 classLUA::classLUA (int iStackSize)
 {
-	m_pState = lua_open (0);
+	m_pState = lua_open ();
 
     if ( m_pState ) 
 	{

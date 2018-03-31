@@ -318,6 +318,9 @@
     <ClCompile Include="src\zz_waiting_line.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\zz_script_lua.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\zz_algebra.h">

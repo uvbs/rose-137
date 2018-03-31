@@ -89,6 +89,10 @@
       <PreprocessorDefinitions>WIN32;ZZ_LUA500;ZZ_STATIC_USE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir)include;$(SolutionDir)src\triggervfs\include;$(SolutionDir)thirdparty\dx9-sdk;$(SolutionDir)thirdparty\lua-5.0\include;$(SolutionDir)thirdparty\nvtristrip\include;$(SolutionDir)thirdparty\zlib-1.2.3\contrib\minizip;$(SolutionDir)thirdparty\zlib-1.2.3\</AdditionalIncludeDirectories>
     </ClCompile>
+    <Lib>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -111,6 +115,10 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <Lib>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -201,6 +209,7 @@
     <ClCompile Include="src\zz_scene.cpp" />
     <ClCompile Include="src\zz_scene_octree.cpp" />
     <ClCompile Include="src\zz_script.cpp" />
+    <ClCompile Include="src\zz_script_lua.cpp" />
     <ClCompile Include="src\zz_script_simple.cpp" />
     <ClCompile Include="src\zz_sfx.cpp" />
     <ClCompile Include="src\zz_shader.cpp" />

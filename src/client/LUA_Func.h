@@ -3,7 +3,10 @@
 */
 #ifndef	__LUA_FUNC_H
 #define	__LUA_FUNC_H
+#include "zz_script_lua.h"
+
 //-------------------------------------------------------------------------------------------------
+
 
 unsigned int get_param_uint (lua_State * L, int& index_from_end, const char * where);
 int			 get_param_int (lua_State * L, int& index_from_end, const char * where);

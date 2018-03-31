@@ -681,9 +681,9 @@ bool CGame::Load_DataNotUseThread()///Should not read the thread by using the Lo
 {
 	g_pCamera = CCamera::Instance ();
 
-	//::doScript( "scripts/load.lua" );
+	::doScript( "scripts/load.lua" );
 
-	g_pCamera->Init ( findNode( "motion_camera" ) );
+	g_pCamera->Init(findNode("motion_camera"));
 	g_GameDATA.m_nSightRange = 30;
 	//g_ClientStorage.ApplyCameraOption( g_TblCamera.m_nDataCnt - 1 );
 
