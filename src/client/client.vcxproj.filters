@@ -2735,11 +2735,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Client.ico">
-      <Filter>Source Files</Filter>
+    <Image Include="Res\icons\client.ico">
+      <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="small.ico">
-      <Filter>Source Files</Filter>
+    <Image Include="Res\icons\client_small.ico">
+      <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

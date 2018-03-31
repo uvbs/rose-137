@@ -545,9 +545,9 @@ bool CApplication::CreateWND(char *szClassName, char *szWindowName, short nWidth
     wcex.hIcon          = LoadIcon(hInstance, (LPCTSTR)IDI_CLIENT);
 	wcex.hCursor		= LoadCursor(NULL, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)GetStockObject(BLACK_BRUSH);
-	wcex.lpszMenuName   = ( m_bFullScreenMode ) ? NULL : (LPCTSTR)IDC_CLIENT;
+	wcex.lpszMenuName   = ( m_bFullScreenMode ) ? NULL : (LPCTSTR)"CLIENT";
     wcex.lpszClassName  = szClassName;
-	wcex.hIconSm        = LoadIcon(wcex.hInstance, (LPCTSTR)IDI_SMALL);
+	wcex.hIconSm        = LoadIcon(wcex.hInstance, (LPCTSTR)IDI_CLIENT_SMALL);
 
     RegisterClassEx(&wcex);
 
