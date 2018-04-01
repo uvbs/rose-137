@@ -365,7 +365,7 @@ int CGameStateLogin::Leave( int iNextStateID )
 
 	for(int ii = 0; ii < 6; ii += 1)
 	{
-		::unloadMotion(hCameraMotion[ii]);
+		// ::unloadMotion(hCameraMotion[ii]);
 	}
  
 	for(int ii = 0; ii < 2; ii += 1)
