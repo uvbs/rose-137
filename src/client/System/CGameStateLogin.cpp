@@ -272,15 +272,14 @@ int CGameStateLogin::Enter( int iPrevStateID )
 {
 	CSystemProcScript::GetSingleton().CallLuaFunction( "EnterLogin", ZZ_PARAM_INT, (int)g_GameDATA.GetTime(),ZZ_PARAM_END );
 
-	//조성현 2005 12 - 14 카메라..
-	//------------------------------------------------------------------------------------------------------------------	
+	/* TODO: The motions don't appear to be valid as they are missing the magic number ZMO00002 as first 8 bytes
 	hCameraMotion[0] = ::loadMotion("LoginCameraMotion1", "3DData\\Title\\Camera01_intro01.zmo", 1, 4, 3, 1, 0); 
 	hCameraMotion[1] = ::loadMotion("LoginCameraMotion2", "3DData\\Title\\Camera01_intro02.zmo", 1, 4, 3, 1, 0); 
 	hCameraMotion[2] = ::loadMotion("LoginCameraMotion3", "3DData\\Title\\Camera01_intro03.zmo", 1, 4, 3, 1, 0); 
 	hCameraMotion[3] = ::loadMotion("LoginCameraMotion4", "3DData\\Title\\Camera01_intro04.zmo", 1, 4, 3, 1, 0); 
 	hCameraMotion[4] = ::loadMotion("LoginCameraMotion5", "3DData\\Title\\Camera01_intro05.zmo", 1, 4, 3, 1, 0); 
 	hCameraMotion[5] = ::loadMotion("LoginCameraMotion6", "3DData\\Title\\Camera01_login01.zmo", 1, 4, 3, 1, 0); 
-	//-------------------------------------------------------------------------------------------------------------------- 
+	*/
 
 
 	g_EUILobby.InitEUIManager();
@@ -341,7 +340,7 @@ int CGameStateLogin::Enter( int iPrevStateID )
     m_hTitleTexture[1] = loadTexture ( "3DData\\Control\\Res\\Roselogo.dds", "3DData\\Control\\Res\\Roselogo.dds", 1,	0 );
    	
 	hCameraNode = ::findNode("motion_camera");
-	::attachMotion(hCameraNode, hCameraMotion[0]);
+	// ::attachMotion(hCameraNode, hCameraMotion[0]);
 	::setRepeatCount(hCameraNode, 0);
 	::controlAnimatable(hCameraNode, 0);
 	
