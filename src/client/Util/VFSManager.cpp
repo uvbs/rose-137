@@ -23,7 +23,6 @@ CVFSManager::CVFSManager()
 
 CVFSManager::~CVFSManager()
 {
-	ReleaseAll();
 }
 
 /// Get current file system
@@ -59,7 +58,6 @@ CFileSystem* CVFSManager::GetNewFileSystem( int iVFSType )
 bool CVFSManager::InitVFS( int iVFSType, int iReserveCount /*=10*/)  //iReservedCount defined as 10 in header but not passed from winMain
 {
 	
-	ReleaseAll();
 	ClientLog(LOG_DEBUG,"VFS Manager Setting iVFSType: %i Reserved Count: %i",iVFSType,iReserveCount ); // just confirming the value here
 	m_iVFSType = iVFSType;
 
@@ -69,23 +67,7 @@ bool CVFSManager::InitVFS( int iVFSType, int iReserveCount /*=10*/)  //iReserved
 			g_pCApp->ErrorBOX( "First, set VFS hash", "ERROR" );
 		return false;
 	}
-	return true; //PY don't run any of this crap.  It's complete bollox. we don't need a stack of filesystems
-
-	CFileSystem* pFileSystem = NULL;				//create a new empty CFileSystem object
-	for( int i =0 ; i < iReserveCount; i++ )		//so 10 times around the loop we go
-	{
-		pFileSystem = GetNewFileSystem( iVFSType );	//set our new CFileSystem object to one of two types
-
-		if( pFileSystem == NULL )
-		{
-			ReleaseAll();
-			return false;
-		}
-
-		m_VFSList.push_back( pFileSystem );			//push our new CFileSystem object onto this vector
-	}
-
-	return true;	//back to winMain with 10 filesystems on the stack
+	return true;
 }
 
 ///util function for for_each
@@ -98,30 +80,10 @@ void ReleaseSingleVFS( CFileSystem* pFileSystem )
 	}
 }
 
-void CVFSManager::ReleaseAll()
-{
-	//std::for_each( m_VFSList.begin(), m_VFSList.end(), ReleaseSingleVFS );
-	//std::for_each( m_VFSUsedList.begin(), m_VFSUsedList.end(), ReleaseSingleVFS );
-
-	//m_VFSList.clear();
-	//m_VFSUsedList.clear();
-}
-
 CFileSystem* CVFSManager::GetFileSystem()
 {
 	CFileSystem* pFileSystem = NULL;		//creates pFilesystem
-
-	//if( m_VFSList.empty() )					//if stack is empty
-	//{
-	//	pFileSystem = GetNewFileSystem( m_iVFSType );		//set pFileSystem to the default type
-	//	m_VFSList.push_back( pFileSystem );					//Push it onto the stack
-	//}
-
 	pFileSystem = GetNewFileSystem( m_iVFSType );		//not going to take one from the stack any more. PY
-	//pFileSystem = m_VFSList.back();							//set pFileSystem equal to the last element on the stack
-	//m_VFSList.pop_back();									//delete last entry
-
-	//m_VFSUsedList.push_back( pFileSystem );					//add this to the used list
 
 	return pFileSystem;										//return pFileSystem as one of 2 types
 }

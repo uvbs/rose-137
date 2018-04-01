@@ -302,7 +302,7 @@ int APIENTRY WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmd
 	//-------------------------------------------------------------------------------
 	VHANDLE hVFS = OpenVFS( "data.idx", (iWindowVersion == WINDOWS_98) ? "r" : "mr" ); //hVFS now contains the entire VFS
 	(CVFSManager::GetSingleton()).SetVFS( hVFS );			//sets m_hVFile = pVFile where pVfile is hVFS
-	(CVFSManager::GetSingleton()).InitVFS( VFS_TRIGGER_VFS ); //sets VFS type. VFS_NORMAL (0) VFS_TRIGGER_VFS (1)
+	(CVFSManager::GetSingleton()).InitVFS( VFS_NORMAL ); //sets VFS type. VFS_NORMAL (0) VFS_TRIGGER_VFS (1)
 
 
 	 DWORD dwCurVersion = VGetCurVersion(hVFS);
@@ -333,7 +333,6 @@ int APIENTRY WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmd
 	//If reading from the end client.
 	if( g_bArcfourSucessed == false )
 	{
-		(CVFSManager::GetSingleton()).ReleaseAll();
 		g_pCApp->Destroy ();
 
 		MessageBox(NULL, "Fail - 1004", "TRose", MB_OK | MB_ICONERROR);

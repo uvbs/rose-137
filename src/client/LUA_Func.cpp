@@ -84,45 +84,31 @@ int lua_CallFUNC (lua_State *L, const char* function_name, va_list va)
 	param_count = 0;
 	if (err == 0) {
 		return (lua_gettop (L)-iBeforeStackIDX);
-/*
-		while (lua_gettop( L ))
-		{
-			int iType = lua_type( L, lua_gettop( L ) );
-			switch( iType )
-			{
-				case LUA_TNUMBER	: LogString (LOG_DEBUG, "script returned %d \n", lua_tonumber( L, lua_gettop( L ) ) );		break;
-				case LUA_TTABLE	: LogString (LOG_DEBUG, "script returned a table \n" ); break;
-				case LUA_TSTRING	: LogString (LOG_DEBUG, "script returned %s \n", lua_tostring( L, lua_gettop( L ) ) );		break;
-//				case LUA_TBOOLEAN	: LogString (LOG_DEBUG, "script returned %d \n", lua_toboolean( L, lua_gettop( L ) ) );	break;
-				default: LogString (LOG_DEBUG, "script returned unknown param  %d \n", iType );	break;
-			}
-			lua_pop( L, 1 );
-	   }
-*/
 	}
 
 	// error code print
-	char *szErrMSG;
+	char errMsgBuffer[512];
+	const char* luaErrorMessage = lua_tostring(L, lua_gettop(L));
 
 	switch ( err ) {
 		case LUA_ERRRUN:	// 1
-			szErrMSG = "script : error while running the chunk\n";
+			snprintf(errMsgBuffer, sizeof(errMsgBuffer), "Runtime: %s", luaErrorMessage);
 			break;
 		case LUA_ERRFILE:	// 2
-			szErrMSG = "script: error opening the file (only for lua_dofile). \n";
+			snprintf(errMsgBuffer, sizeof(errMsgBuffer), "script: error opening the file (only for lua_dofile). \n");
 			break;
 		case LUA_ERRSYNTAX:	// 3
-			szErrMSG = "script: syntax error during pre-compilation";
+			snprintf(errMsgBuffer, sizeof(errMsgBuffer), "script: syntax error during pre-compilation");
 			break;
 		case LUA_ERRMEM:	// 4
-			szErrMSG = "script: memory allocation error. For such errors, Scriptor does not call _ERRORMESSAGE."; // (see Section 4.7). ");
+			snprintf(errMsgBuffer, sizeof(errMsgBuffer), "script: memory allocation error. For such errors, Scriptor does not call _ERRORMESSAGE.");
 			break;
 		case LUA_ERRERR:	// 5
-			szErrMSG = "script: error while running _ERRORMESSAGE. For such errors, Scriptor does not call _ERRORMESSAGE again, to avoid loops.";
+			snprintf(errMsgBuffer, sizeof(errMsgBuffer), "script: error while running _ERRORMESSAGE. For such errors, Scriptor does not call _ERRORMESSAGE again, to avoid loops.");
 			break;
 	}
 
-	g_pCApp->ErrorBOX ( szErrMSG, "Script running error..");
+	g_pCApp->ErrorBOX (errMsgBuffer, "Error: LUA Script Error");
 
 	return -1;
 }
@@ -217,5 +203,6 @@ bool lua_GetRETURN (lua_State *pLUA, float& fValue )
 
     return true;
 }
+
 
 //-------------------------------------------------------------------------------------------------

@@ -7,17 +7,9 @@
 #include "interface/interfacetype.h"
 #include "interface/dlgs/cmenudlg.h"
 
-
-
-
-
 #define		TL_SETVAR(NAME)		set_global( #NAME, NAME );
 
-
-
-
-CSystemProcScript		__SystemProcScript;
-
+CSystemProcScript              __SystemProcScript; // Singleton
 
 CSystemProcScript::CSystemProcScript(void)
 {
@@ -42,26 +34,10 @@ bool CSystemProcScript::InitSystem()
 
 	PrepareSystemFunction( m_pLUA->m_pState );
 
+	int iResult = m_pLUA->Do_File("scripts\\systemfunc.lua");
 
-	int iResult = 0;
-
-	//CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetNormalFileSystem();
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();  // PY: is it trying to read lua from VFS?
-	if( pFileSystem->OpenFile( "Scripts\\SystemFunc.lua" ) == false )
-	{
-		g_pCApp->ErrorBOX( "File open error...", "Scripts\\SystemFunc.lua" );
-		ClientLog(LOG_DEBUG,"Failed to open Scipts\\SystemFunc.lua" );
-		(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );	
-		return false;
-	}
-	ClientLog(LOG_DEBUG,"opened Scipts\\SystemFunc.lua just fine" );
-	pFileSystem->ReadToMemory();
-	ClientLog(LOG_DEBUG,"Read to memory ok" );
-
-	iResult = m_pLUA->Do_Buffer( (const char*)( pFileSystem->GetData() ), pFileSystem->GetSize() );
-	ClientLog(LOG_DEBUG,"m_pLUA->Do_Buffer appeared to run properly" );
-
-	pFileSystem->CloseFile();
+	char errMsgBuffer[512];
+	const char* luaErrorMessage = lua_tostring(m_pLUA->m_pState, lua_gettop(m_pLUA->m_pState));
 
 	switch( iResult ) {
 		// error codes for lua_do* 
@@ -70,6 +46,7 @@ bool CSystemProcScript::InitSystem()
 		case LUA_ERRSYNTAX	:	// 3
 		case LUA_ERRMEM		:
 		case LUA_ERRERR		:
+			snprintf(errMsgBuffer, sizeof(errMsgBuffer), "Error: %s", luaErrorMessage);
 			LogString (LOG_NORMAL, "Script File ERROR[ %d ] %s\n", iResult, "Scripts\\SystemFunc.lua" );
 			ClientLog(LOG_DEBUG,"Script File ERROR[ %d ] %s\n", iResult, "Scripts\\SystemFunc.lua" );
 			SAFE_DELETE( m_pLUA );
@@ -84,38 +61,15 @@ bool CSystemProcScript::InitSystem()
 
 void CSystemProcScript::ClearSystem()
 {
-	if( m_pLUA != NULL )
-	{
-		delete m_pLUA;
-		m_pLUA = NULL;
-	}
+	SAFE_DELETE(m_pLUA);
 }
-
 
 ///
 /// do new file
 ///
 int CSystemProcScript::DoScript( const char* strScriptName )
 {
-	int iResult = 0;
-
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
-	if( pFileSystem->OpenFile( strScriptName ) == false )
-	{
-		g_pCApp->ErrorBOX( "File open error...", (char*)strScriptName );
-		(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );		
-
-		return 0;
-	}
-
-	pFileSystem->ReadToMemory();
-
-	iResult = m_pLUA->Do_Buffer( (const char*)( pFileSystem->GetData() ), pFileSystem->GetSize() );
-
-	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
-
-	return iResult;
+	return m_pLUA->Do_File(strScriptName);
 }
 
 

@@ -16,9 +16,6 @@ enum
 class CVFSManager : public CJSingleton< CVFSManager >
 {
 private:
-	std::list< CFileSystem* >			m_VFSList;
-	std::list< CFileSystem* >			m_VFSUsedList;
-
 	int									m_iVFSType;
 	VHANDLE								m_hVFile;
 
@@ -31,7 +28,6 @@ public:
 
 	bool			InitVFS( int iVFSType, int iReserveCount = 10 );	/// Initializes all resources
 	CFileSystem*	GetNewFileSystem( int iVFSType );
-	void			ReleaseAll();										/// Release all resources
 
 	CFileSystem*	GetFileSystem();
 	CFileSystem*	GetNormalFileSystem();

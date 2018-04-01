@@ -31,25 +31,9 @@ GlobalSCRIPT::GlobalSCRIPT ()
 {
 	m_pLUA = new classLUA;
 
-	int iResult = 0;
+	int iResult = m_pLUA->Do_File("scripts\\globalscr.lua");
 
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
-	if( pFileSystem->OpenFile( "Scripts\\GlobalSCR.lua" ) == false )
-	{
-		g_pCApp->ErrorBOX( "File open error...", "Scripts\\GlobalSCR.lua" );
-		(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );		
-	}
-
-	pFileSystem->ReadToMemory();
-
-	iResult = m_pLUA->Do_Buffer( (const char*)( pFileSystem->GetData() ), pFileSystem->GetSize() );
-
-	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
-
-
-	switch( iResult ) {
-		// error codes for lua_do* 
+	switch( iResult ) { 
 		case LUA_ERRRUN		:
 		case LUA_ERRFILE	:	// 2
 		case LUA_ERRSYNTAX	:	// 3

@@ -248,13 +248,6 @@ void CGame::GameLoop()
 
 int CGame::Init()
 {
-	/// Get current code page
-
-	//PY let's try initializing the LUA way up here
-	//LUA initialized here. InitSystem is a boolean so why aren't we using it that way?
-	//CSystemProcScript::GetSingleton().InitSystem();	//Load SystemFunc.lua functions (SystemProcScript.cpp)
-	// ClientLog(LOG_DEBUG,"LUA Initialized" );
-
 	( CLocalizing::GetSingleton() ).GetCurrentCodePage();
 	if( !(CStringManager::GetSingleton()).LoadTables( ( CLocalizing::GetSingleton() ).GetCurrentCharSet() ) ) //Loading STLs
 		return false;
@@ -363,10 +356,8 @@ int CGame::Init()
 	//ClientLog(LOG_DEBUG,"LIST_STRINGS.STB Complete" );
 	
 	
-	CCursor::GetInstance().Initialize();            //Sets up cursors
-	//ClientLog(LOG_DEBUG,"Initialize OK" );
+	CCursor::GetInstance().Initialize();       
 	CCursor::GetInstance().SetCursorType( CCursor::CURSOR_DEFAULT );
-	//ClientLog(LOG_DEBUG,"Set Cursor Type OK" );
 
 	/// skill dealy
 	CSkillCommandDelay::GetSingleton().Init();
