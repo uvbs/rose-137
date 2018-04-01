@@ -149,9 +149,6 @@
     <ClCompile Include="lua-5.0\src\lzio.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="lua-5.0\src\lua\lua.c">
-      <Filter>Source Files\lua</Filter>
-    </ClCompile>
     <ClCompile Include="lua-5.0\src\lib\lauxlib.c">
       <Filter>Source Files\lib</Filter>
     </ClCompile>
