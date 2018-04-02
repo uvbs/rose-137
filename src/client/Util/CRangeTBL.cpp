@@ -4,7 +4,7 @@
 #include "stdAFX.h"
 #include "Game.h"
 #include "CRangeTBL.h"
-#include "Util\\VFSManager.h"
+#include "util/cfilesystemnormal.h"
 
 CRangeTBL* CRangeTBL::m_pInstance = NULL;
 
@@ -40,7 +40,7 @@ bool CRangeTBL::Load_TABLE (char *szFileName )
 {	
 	short nI;	
 
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
 	if( pFileSystem->OpenFile( szFileName ) == false )	
 	{		
 		char *szStr = CStr::Printf ("File [%s] open error ", szFileName );
@@ -68,8 +68,6 @@ bool CRangeTBL::Load_TABLE (char *szFileName )
 	}
 
 	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
-	
 
 	short nR, nIdx;
 

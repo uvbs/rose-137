@@ -6,7 +6,8 @@
 #include "IO_Mesh.h"
 #include "IO_Material.h"
 #include "IO_Effect.h"
-#include "Util\\VFSManager.h"
+#include "util/cfilesystemnormal.h"
+
 //-------------------------------------------------------------------------------------------------
 
 enum enumPOINTEFFECTTYPE
@@ -246,23 +247,16 @@ bool CModelDATA<CModelPart>::Load (char *szFileName, short nBoneIdx, short nDumm
 	m_nDefaultLinkDummyNo = nDummyIdx;
 
 	ClientLog(LOG_DEBUG,"IO_Model loading normal file type for %s",szFileName );
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetNormalFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
 	if( pFileSystem->OpenFile( szFileName ) == false )	
 	{		//Failed to load normal file 
 		ClientLog(LOG_DEBUG,"IO_Model Failed to load normal file type for %s",szFileName );
 		pFileSystem->CloseFile();
-		pFileSystem = (CVFSManager::GetSingleton()).GetVFSFileSystem();
-		if( pFileSystem->OpenFile( szFileName ) == false )	
-		{
-			ClientLog(LOG_DEBUG,"IO_Model also Failed to load VFS file type for %s",szFileName );
-			pFileSystem->CloseFile();
-			return false;
-		}
-		ClientLog(LOG_DEBUG,"IO_Model loading VFS file type for %s",szFileName );
+		return false;
 	}
 	
 	/*  original code
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
 	if( pFileSystem->OpenFile( szFileName ) == false )	
 	{		
 		char *szStr = CStr::Printf ("File [%s] open error ", szFileName);
@@ -389,7 +383,6 @@ bool CModelDATA<CModelPart>::Load (char *szFileName, short nBoneIdx, short nDumm
 	SAFE_DELETE_ARRAY( pMeshKEY );
 
 	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 
 	return true;
 }

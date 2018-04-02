@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "stringmanager.h"
-#include "Util/VFSManager.h"
+#include "util/cfilesystemnormal.h"
 #include "Util/Localizing.h"
 #include "Common/IO_STB.H"
 #include "Common/IO_skill.h"
@@ -396,21 +396,16 @@ bool CStringManager::LoadTypeTable( LANGUAGE_TYPE languageType, const char* pszF
 	CFileSystem* pFileSystem;
 
 	
-	pFileSystem = (CVFSManager::GetSingleton()).GetNormalFileSystem(); //PY: forcing normal type file for only NPCs
+	pFileSystem = (CFileSystem*)new CFileSystemNormal(); //PY: forcing normal type file for only NPCs
 	ClientLog(LOG_DEBUG,"CStringManager Loading normal file type for %s",pszFileName );
 
-	//CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();  //original code
+	//CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();  //original code
 	if( pFileSystem->OpenFile( pszFileName ) == false )	//PY: Try opening normal file first
 	{			
 		//assert( 0 && "File Not Found" );
 		ClientLog(LOG_DEBUG,"%s could not be found. Loading from VFS instead",pszFileName );
 		pFileSystem->CloseFile();
-		pFileSystem = (CVFSManager::GetSingleton()).GetVFSFileSystem(); //Try opening the VFS version instead
-		if( pFileSystem->OpenFile( pszFileName ) == false )	//kick out if it still fails
-		{
-			ClientLog(LOG_DEBUG,"%s could not be found in VFS either",pszFileName );
-			return false;
-		}
+		return false;
 	}
 
 
@@ -433,7 +428,6 @@ bool CStringManager::LoadTypeTable( LANGUAGE_TYPE languageType, const char* pszF
 	}else
 	{
 		pFileSystem->CloseFile();
-		(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 		return false;
 	}
 
@@ -458,7 +452,6 @@ bool CStringManager::LoadTypeTable( LANGUAGE_TYPE languageType, const char* pszF
 		 MessageBox( NULL, "Not enough memory", "ERROR", MB_OK );
 
 		 pFileSystem->CloseFile();
-		(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 
 		return false;
 	 }
@@ -625,7 +618,6 @@ bool CStringManager::LoadTypeTable( LANGUAGE_TYPE languageType, const char* pszF
 	delete[] pTempTypeList;
 	
 	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
     
 	return true;
 }

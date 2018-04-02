@@ -129,7 +129,7 @@ t_HASHKEY CMatLIST::Add_MATERIAL (
 	float * pfGlowColor
 	)
 {
-	if ( (CVFSManager::GetSingleton()).IsExistFile( szFileName ) == false )	
+	if ( CUtil::Is_FileExist( szFileName ) == false )
 	{
 		char *szMSG = CStr::Printf ("ERROR Material File [%s] not found ... \n", szFileName);
 		// g_pCApp->ErrorBOX(szMSG, "ERROR", MB_OK);

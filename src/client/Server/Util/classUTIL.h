@@ -27,7 +27,7 @@ private :
 public  :
 	static bool	 Check_PersonalNumber  (char *szNumber);
 	static bool  Check_BussinessNumber (char *szNumber);
-	static bool  Is_FileExist (char *szFileName);
+	static bool  Is_FileExist (const char *szFileName);
 	static DWORD Is_InternetConnected (void);
 
 	static bool  Get_HostName (char *szRecvBuff, int iBuffLen);

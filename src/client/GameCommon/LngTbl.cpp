@@ -2,7 +2,7 @@
 #include "LngTbl.h"
 #include <stdio.h>
 #include "StringManager.h"
-#include "Util\\VFSManager.h"
+#include "util/cfilesystemnormal.h"
 #include "..\Util\localizing.h"
 
 const char * _LtbPath [] = { LANGSTB_AI_NAME , LANGSTB_QST_NAME , LANGSTB_CON_NAME };
@@ -105,12 +105,11 @@ bool AStringTable::Open (const char *szFileName)
 	if ( m_pFS )
 	{
 		m_pFS->CloseFile ();
-		(CVFSManager::GetSingleton()).ReturnToManager( m_pFS );
 		m_pFS = NULL;
 	}
 
 	// m_FP = fopen( szFileName, "rb" );
-	m_pFS = (CVFSManager::GetSingleton()).GetFileSystem();
+	m_pFS = (CFileSystem*)new CFileSystemNormal();
 	if( m_pFS->OpenFile( szFileName ) == false )	
 		return false;
 
@@ -149,7 +148,6 @@ void  AStringTable::Close ()
 	if ( m_pFS )
 	{
 		m_pFS->CloseFile ();
-		(CVFSManager::GetSingleton()).ReturnToManager( m_pFS );
 		m_pFS = NULL;
 	}
 }

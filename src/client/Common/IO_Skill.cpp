@@ -4,7 +4,7 @@
 	#include "..\util\CGameSTB.h"
 #else
 	#include "..\util\classSTB.h"
-#include "..\GameProc\UseItemDelay.h"
+#include "GameProc/UseItemDelay.h"
 #endif
 
 

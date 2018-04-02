@@ -43,11 +43,6 @@ public:
 	virtual bool			OpenFile( const char* pFileName, int iOpenType = OPEN_READ_BIN ) = 0{ *(int*)0 = 10; };
 	virtual void			CloseFile() = 0{ *(int*)0 = 10; };
 
-
-	virtual bool			ReadToMemory() = 0{ *(int*)0 = 10; };
-	virtual void			ReleaseData() = 0{ *(int*)0 = 10; };		
-	virtual unsigned char*	GetData() = 0{ *(int*)0 = 10; };	
-
 	virtual int				GetSize() = 0{ *(int*)0 = 10; };
 	virtual bool			IsExist( const char* pFileName ) = 0{ *(int*)0 = 10; };
 

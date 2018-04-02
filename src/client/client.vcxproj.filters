@@ -1148,9 +1148,6 @@
     <ClCompile Include="Util\CFileSystemNormal.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
-    <ClCompile Include="Util\CFileSystemTriggerVFS.cpp">
-      <Filter>Source Files\Util</Filter>
-    </ClCompile>
     <ClCompile Include="Util\CGameSTB.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
@@ -1212,9 +1209,6 @@
       <Filter>Source Files\Util</Filter>
     </ClCompile>
     <ClCompile Include="Util\SystemUtil.cpp">
-      <Filter>Source Files\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="Util\VFSManager.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
     <ClCompile Include="Util\WndMsgQ.cpp">
@@ -2365,9 +2359,6 @@
     <ClInclude Include="Util\CFileSystemNormal.h">
       <Filter>Source Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Util\CFileSystemTriggerVFS.h">
-      <Filter>Source Files\Util</Filter>
-    </ClInclude>
     <ClInclude Include="Util\CGameSTB.h">
       <Filter>Source Files\Util</Filter>
     </ClInclude>
@@ -2480,9 +2471,6 @@
       <Filter>Source Files\Util</Filter>
     </ClInclude>
     <ClInclude Include="Util\SystemUtil.h">
-      <Filter>Source Files\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="Util\VFSManager.h">
       <Filter>Source Files\Util</Filter>
     </ClInclude>
     <ClInclude Include="Util\WndMsgQ.h">
@@ -2623,15 +2611,6 @@
       <Filter>Source Files</Filter>
     </None>
     <None Include="GlobalScr.lua">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="lua.exe">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="luac.exe">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="Makefile.win">
       <Filter>Source Files</Filter>
     </None>
     <None Include="Common\CUserDATA.SRV">

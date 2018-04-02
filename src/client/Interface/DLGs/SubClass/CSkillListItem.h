@@ -1,5 +1,6 @@
 #ifndef _CSkillListItem_
 #define _CSkillListItem_
+#include <vector>
 #include "tgamectrl/winctrl.h"
 #include "CSlot.h"
 #include "tgamectrl/singlelinestring.h"

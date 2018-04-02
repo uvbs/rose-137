@@ -88,15 +88,13 @@ char *CUtil::GetCurrentDir (void)
 }
 
 //-------------------------------------------------------------------------------------------------
-bool CUtil::Is_FileExist (char *szFileName)
+bool CUtil::Is_FileExist (const char *szFileName)
 {
-#ifdef __BORLANDC__
-    if ( access (szFileName, 0) != -1 )
-        return true;
-#else
+	if (!szFileName)
+		return false;
+
     if ( _access (szFileName, 0) != -1 )
         return true;
-#endif
 
     return false;
 }

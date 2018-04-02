@@ -1,6 +1,8 @@
 #ifndef _COPTIONDLG_
 #define _COPTIONDLG_
 
+#include <vector>
+
 #include "tgamectrl/TDialog.h"
 #include "CClientStorage.h"
 

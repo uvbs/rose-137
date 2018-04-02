@@ -35,7 +35,7 @@ void CEventLIST::Free_FILE (tagFileDATA< CEvent* > *pDATA)
 //-------------------------------------------------------------------------------------------------
 t_HASHKEY CEventLIST::Add_EVENT (char *szFileName)
 {
-	if ( (CVFSManager::GetSingleton()).IsExistFile( szFileName ) == false )		
+	if ( CUtil::Is_FileExist( szFileName ) == false )
 	{
 		return 0;
 	}

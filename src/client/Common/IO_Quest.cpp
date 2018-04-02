@@ -9,32 +9,14 @@
 #include "Object.h"
 
 #include "GameCommon/Skill.h"
-#include "Util/ClassTIME.h"
 #include "Event/Quest_FUNC.h"
-
-
-//---------------------------------------------------------------------------------------------
-///
-/// Q u e s t T a concrete description of the trigger o o l 2, see QuestInfo.h.
-///
-///
-///
-//---------------------------------------------------------------------------------------------
-
-
-#ifndef	__SERVER
-	#include "interface/it_mgr.h"
-	#include "System/CGame.h"
-
-	#include "Util/LogWnd.h"
-	#include "..\GameProc\CDayNNightProc.h"
-
-	#include "Event/QuestRewardQueue.h"
-#else
-	#include "ZoneLIST.h"
-
-	extern short Get_WorldTIME ();
-#endif
+#include "interface/it_mgr.h"
+#include "System/CGame.h"
+#include "GameProc/CDayNNightProc.h"
+#include "Event/QuestRewardQueue.h"
+#include "Util/ClassTIME.h"
+#include "Util/LogWnd.h"
+#include "Util/CFileSystemNormal.h"
 
 
 t_HASHKEY Make_EventObjectID(int iZoneNO, int iMapX, int iMapY, int iEventID)
@@ -2564,11 +2546,9 @@ bool CQuestDATA::LoadDATA (char *szFileName)
 #else
 bool CQuestDATA::Client_LoadDATA (char *szFileName)
 {
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*) new CFileSystemNormal();
 	if( pFileSystem->OpenFile( szFileName ) == false )
 	{
-		//::MessageBox (NULL, "File open error...", szFileName, MB_OK);
-		(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 		return false;
 	}
 
@@ -2590,7 +2570,6 @@ bool CQuestDATA::Client_LoadDATA (char *szFileName)
 	}
 
 	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 
 	return true;
 }

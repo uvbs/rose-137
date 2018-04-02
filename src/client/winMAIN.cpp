@@ -19,7 +19,7 @@
 #include "Game.h"
 
 #include "Network\\CNetwork.h"
-#include "Util\\VFSManager.h"
+#include "util/cfilesystemnormal.h"
 #include "Util\\SystemInfo.h"
 #include "CClientStorage.h"
 #include "System/CGame.h"
@@ -295,28 +295,8 @@ int APIENTRY WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmd
 	g_SystemInfo.CollectingSystemInfo();
 	int iWindowVersion = g_SystemInfo.GetWindowsVersion();
 
-
-
-	//-------------------------------------------------------------------------------
-	/// Init Trigger VFS
-	//-------------------------------------------------------------------------------
-	VHANDLE hVFS = OpenVFS( "data.idx", (iWindowVersion == WINDOWS_98) ? "r" : "mr" ); //hVFS now contains the entire VFS
-	(CVFSManager::GetSingleton()).SetVFS( hVFS );			//sets m_hVFile = pVFile where pVfile is hVFS
-	(CVFSManager::GetSingleton()).InitVFS( VFS_NORMAL ); //sets VFS type. VFS_NORMAL (0) VFS_TRIGGER_VFS (1)
-
-
-	 DWORD dwCurVersion = VGetCurVersion(hVFS);
-	 char temp[32];
-	 sprintf(temp, "%d", dwCurVersion);
-	 ClientLog(LOG_DEBUG,"VFS current version %d",dwCurVersion );
-
-	 // 07. 1. 18 - Kim, Joo - Hyun client stores the patch version.
-	 CGame::GetInstance().SetCurVersion(temp);
-	//-------------------------------------------------------------------------------
-	/// Get Time
-	//-------------------------------------------------------------------------------
+	CGame::GetInstance().SetCurVersion("0.0");
 	GetLocalTime(	&g_GameDATA.m_SystemTime );
-
 
 	//-------------------------------------------------------------------------------
 	/// Init System object

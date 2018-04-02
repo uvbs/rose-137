@@ -17,14 +17,14 @@ CSkyDOME::CSkyDOME (HNODE hShader, HNODE hLight, short nSkyIDX) :
 	char *pZmsName, *pMatName, *pTexName1=NULL, *pTexName2=NULL;
 	
 	pZmsName = CStr::Printf ("__XXX_sky_me");
-	if ( (CVFSManager::GetSingleton()).IsExistFile( SKY_MESH( nSkyIDX ) ) == false ) 
+	if ( CUtil::Is_FileExist( SKY_MESH( nSkyIDX ) ) == false )
 	{
 		pZmsName = CStr::Printf ("[ %s ] file open error ...", SKY_MESH( nSkyIDX ) );
 		g_pCApp->ErrorBOX( pZmsName, "ERROR" );
 	}
 
 	pMatName = CStr::Printf ("__XXX_sky_ma");
-	if ( (CVFSManager::GetSingleton()).IsExistFile( SKY_TEXTURE( nSkyIDX, 0 ) ) ) 		
+	if ( CUtil::Is_FileExist( SKY_TEXTURE( nSkyIDX, 0 ) ) )
 	{
 		pTexName1 = SKY_TEXTURE( nSkyIDX, 0 );
 	}
@@ -34,7 +34,7 @@ CSkyDOME::CSkyDOME (HNODE hShader, HNODE hLight, short nSkyIDX) :
 		return;
 	}
 
-	if ( (CVFSManager::GetSingleton()).IsExistFile( SKY_TEXTURE( nSkyIDX, 1 ) )  ) 		
+	if ( CUtil::Is_FileExist( SKY_TEXTURE( nSkyIDX, 1 ) )  )
 	{
 		pTexName2 = SKY_TEXTURE( nSkyIDX, 1 );
 	}

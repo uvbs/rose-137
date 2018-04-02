@@ -7,15 +7,15 @@
 #include "CEvent.h"
 #include "Quest_FUNC.h"
 #include "Game_FUNC.h"
-#include "..\IO_EVENT.h"
+#include "io_event.h"
 #include "tgamectrl\TGameCtrl.h"
-#include "..\interface\It_mgr.h"
+#include "interface/It_mgr.h"
 #include "OBJECT.h"
 
-#include "Util\\VFSManager.h"
-#include "Util\\Localizing.h"
+#include "util/cfilesystemnormal.h"
+#include "Util/Localizing.h"
 
-#include "..\GameCommon\LngTbl.h"
+#include "GameCommon/LngTbl.h"
 
 //-------------------------------------------------------------------------------------------------
 
@@ -163,7 +163,8 @@ CEvent::~CEvent ()
 
 bool CEvent::Load (char *szFileName)
 {
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
+
 	if( pFileSystem->OpenFile( szFileName ) == false )	
 	{
 		return false;
@@ -319,7 +320,6 @@ bool CEvent::Load (char *szFileName)
 	Decode(m_pLuaDATA, m_iLuaDataLEN, m_iLuaDataLEN, lFileSize);//_tell(hf) + 1 + m_iLuaDataLEN) ; 
 
 	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 
 	return true;
 }

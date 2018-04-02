@@ -6,7 +6,7 @@
 #include "Common\IO_Motion.h"
 #include "IO_Effect.h"
 #include "IO_Mesh.h"
-#include "Util\\VFSManager.h"
+#include "util/cfilesystemnormal.h"
 
 #include "CObjCHAR.h"
 
@@ -24,7 +24,7 @@ CParticle::~CParticle ()
 
 bool CParticle::RegisterToNZIN (char *szName, char *szParticleFile)
 {
-	if ( (CVFSManager::GetSingleton()).IsExistFile( szParticleFile ) == false )	
+	if ( CUtil::Is_FileExist( szParticleFile ) == false )
 	{
 		LogString ( LOG_DEBUG, "ERROR:: Particle File [%s] not found...\n", szParticleFile);
 		return false;
@@ -139,7 +139,7 @@ void CEffectDATA::Free (void)
 
 bool CEffectDATA::Load (char *szFileName)
 {
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
 	if( pFileSystem->OpenFile( szFileName ) == false )	
 	{
 		return false;
@@ -170,7 +170,7 @@ bool CEffectDATA::Load (char *szFileName)
 		pFileSystem->Read( szName, sizeof(char) * iStrLen );
 		szName[ iStrLen ] = 0;
 
-		if ( (CVFSManager::GetSingleton()).IsExistFile( szName ) == false )			
+		if ( CUtil::Is_FileExist( szName ) == false )
 		{
 			m_bUseSoundFile = false;
 		}
@@ -321,7 +321,7 @@ bool CEffectDATA::Load (char *szFileName)
 		pFileSystem->Read( szName, sizeof(char) * iStrLen );
 		szName[ iStrLen ] = 0;		
 
-		if ( (CVFSManager::GetSingleton()).IsExistFile( szName ) == false )			
+		if ( CUtil::Is_FileExist( szName ) == false )
 		{
 			m_pMeshAni[ iL ].m_bUseAniFile = false;
 		}
@@ -368,7 +368,6 @@ bool CEffectDATA::Load (char *szFileName)
 	}
 
 	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 
 	return true;
 }
@@ -749,7 +748,7 @@ CEffectLIST::CEffectLIST (char *szFileEFFECT)
 			szFileName = fSTB.GetString(1, nI);			
 			if ( szFileName ) 
 			{
-				if ( (CVFSManager::GetSingleton()).IsExistFile( szFileName ) == true )					
+				if ( CUtil::Is_FileExist( szFileName ) == true )
 				{					
 					m_pHashKEY[ nI ] = this->Add_EffectFILE( szFileName );
 				}else
@@ -782,7 +781,7 @@ CEffectLIST::~CEffectLIST ()
 ///			
 t_HASHKEY CEffectLIST::Add_EffectFILE(char *szEffectFile)
 {
-	if ( (CVFSManager::GetSingleton()).IsExistFile( szEffectFile ) == false )		
+	if ( CUtil::Is_FileExist( szEffectFile ) == false )
 	{
 		char *szMSG = CStr::Printf ("ERROR Effect File [%s] not found ... \n", szEffectFile);
 		g_pCApp->ErrorBOX( szMSG, "ERROR" );

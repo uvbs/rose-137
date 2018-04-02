@@ -10,7 +10,7 @@
 #pragma once
 #ifndef	__SERVER
 	#include "CGameSTB.h"
-	#include "Util\\VFSManager.h"
+	#include "util/cfilesystemnormal.h"
 #else
 	typedef		classSTB	CGameSTB;	
 #endif
@@ -176,7 +176,7 @@ template <class dType>
 t_HASHKEY CFileLIST<dType>::Add_FILE( char *szFileName, short nIndex, dType DATA, bool bCheckFileExist, bool bImmediateLoad )
 {
 #ifndef	__SERVER
-	if ( bCheckFileExist && ( (CVFSManager::GetSingleton()).IsExistFile( szFileName ) == false ) )	
+	if ( bCheckFileExist && ( CUtil::Is_FileExist( szFileName ) == false ) )
 	{
 		char *szMSG = CStr::Printf ("ERROR File [%s] not found in %s ... \n", szFileName, m_NameTAG.Get());
 		// ::MessageBox (NULL, szMSG, "ERROR", MB_OK);

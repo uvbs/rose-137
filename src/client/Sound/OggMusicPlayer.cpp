@@ -23,7 +23,7 @@ bool COggMusicPlayer::Play( const char* fName )
 {
 	Stop();
 
-	if ( (CVFSManager::GetSingleton()).IsExistFile( fName ) == false )	
+	if ( CUtil::Is_FileExist( fName ) == false )
 	{
 		return false;
 	}

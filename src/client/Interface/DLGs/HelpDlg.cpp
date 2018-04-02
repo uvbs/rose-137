@@ -58,10 +58,9 @@ CHelpDlg::~CHelpDlg(void)
 
 bool CHelpDlg::LoadHelpContents( const char* szFileName , CTree* pTree )
 {
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
 	if( pFileSystem->OpenFile( szFileName ) == false )
 	{
-		(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 		return false;
 	}
 
@@ -108,8 +107,6 @@ bool CHelpDlg::LoadHelpContents( const char* szFileName , CTree* pTree )
 	LoadPageList( pFileSystem, m_pTreeModel );
 	
 	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
-
 
 	return true;
 }

@@ -1,13 +1,9 @@
 #include "stdAFX.h"
 #include "IO_Motion.h"
-#ifndef	__SERVER
-	#include "Game.h"
-	#include "Util/VFSManager.h"
-#endif
-
+#include "Game.h"
+#include "Util/CFileSystemNormal.h"
 
 #define FRAME_ATTACK			
-
 
 tagMOTION::tagMOTION ()
 {	
@@ -30,7 +26,7 @@ tagMOTION::tagMOTION ()
 bool tagMOTION::LoadZMO (char *szFileName)
 {
 
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*) new CFileSystemNormal();
 	if( pFileSystem->OpenFile( szFileName ) == false )	
 	{		
 		char *szStr = CStr::Printf ("File [%s] open error ", szFileName );
@@ -43,7 +39,6 @@ bool tagMOTION::LoadZMO (char *szFileName)
 	if (strncmp(szTag, "ZMO0002", 7)) 
 	{
 		pFileSystem->CloseFile();
-		(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 		return false;
 	}
 
@@ -135,7 +130,6 @@ bool tagMOTION::LoadZMO (char *szFileName)
 	///m_wTotalFrame --;
 
 	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 
 	return true;
 }

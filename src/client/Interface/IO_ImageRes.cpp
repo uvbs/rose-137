@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Interface/IO_ImageRes.h"
 #include "Game.h"
-#include "Util/VFSManager.h"
+#include "util/cfilesystemnormal.h"
 #include "Util/CFileSystem.h"
 #include "tgamectrl/ResourceMgr.h"
 #include <algorithm>
@@ -184,7 +184,7 @@ CImageResManager::~CImageResManager()
 
 bool CImageResManager::LoadImageResources()
 {
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
 
 
 	pFileSystem->OpenFile( "3DData\\Control\\Res\\TARGETMARK.TSI", OPEN_READ_BIN );
@@ -262,7 +262,6 @@ bool CImageResManager::LoadImageResources()
 		return false;
 
 	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 
 	return true;
 }
@@ -311,7 +310,7 @@ bool CImageResManager::Add_NpcFaceFileInfo( int index, const char* filename )
 
 HNODE CImageResManager::Load_NpcFace( int index )
 {
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
 	if( pFileSystem == NULL )
 		return false;
 
@@ -338,41 +337,12 @@ HNODE CImageResManager::Load_NpcFace( int index )
 
 
 	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 	return hNode;
 }
 
 HNODE CImageResManager::Load_NpcFace( const char * szName_ )
 {
 	HNODE hNode = false;
-
-// 홍근 : 히어로 퀘스트 추가 구현.
-#ifdef _WORK
-
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
-	if( pFileSystem == NULL )
-		return false;
-	
-
-	if( false == pFileSystem->OpenFile( szName_, OPEN_READ_BIN ) )
-	{
-		_RPT1( _CRT_ASSERT,"File Open Error	(%s)", szName_ );
-		return false;
-	}
-
-
-	setDelayedLoad(0);
-
-	hNode = loadTexture( szName_, szName_, 1, 0 );
-
-	setDelayedLoad(1);
-
-
-	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );	
-
-#endif
-
 	return hNode;
 
 }

@@ -3,15 +3,12 @@
 #include <assert.h>
 
 
-CFileSystemNormal::CFileSystemNormal(void) : m_pFile( NULL ), m_pData( NULL )
+CFileSystemNormal::CFileSystemNormal(void)
 {
-	m_pData = NULL;
-	m_iSize = 0;
 };
 
 CFileSystemNormal::~CFileSystemNormal(void)
 {
-	// Destruct
 }
 
 
@@ -48,14 +45,6 @@ bool CFileSystemNormal::OpenFile( const char* fname, int iMode )
 		return false;
 	}
 
-	if( m_pData != NULL )
-	{
-		delete m_pData;
-		m_pData = NULL;
-	}
-
-	m_iSize = 0;
-
 	return true;
 }
 
@@ -68,15 +57,6 @@ void CFileSystemNormal::CloseFile()
 	}
 
 	m_strFileName = std::string( "" );
-}
-
-void CFileSystemNormal::ReleaseData()
-{
-	if( m_pData != NULL )
-	{
-		delete[] m_pData;
-		m_pData = NULL;
-	}
 }
 
 ////////////////////////////////////////////////////////////
@@ -310,37 +290,10 @@ void CFileSystemNormal::WritePascalString( const char* pStr )
 
 ////////////////////////////////////////////////////////////
 
-bool CFileSystemNormal::ReadToMemory( )
-{		
-	if( m_pFile == NULL )
-	{
-		m_strFileName = std::string( "" );
-		return false;
-	}
-
-	ReleaseData();
-
-	m_iSize = GetSize();
-	if( m_iSize == 0 )
-	{
-		CloseFile();
-		return false;
-	}
-
-	m_pData = new unsigned char[ m_iSize + 1 ];		// so 0 size file will be saved
-	memset( m_pData, 0, m_iSize + 1 );
-	Read( m_pData, m_iSize );
-	
-	return true;
-}
-
 int CFileSystemNormal::GetSize()
 {
 	if( m_pFile == NULL || m_strFileName.empty() )
 		return 0;
-
-	if( m_iSize )
-		return m_iSize;
 
 	FILE* fp = fopen( m_strFileName.c_str(), "rb" );
 

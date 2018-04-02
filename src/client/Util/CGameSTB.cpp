@@ -43,39 +43,16 @@ bool CGameSTB::Open( char *szFileName, int VFSMode )
     } u;
 
 	m_lFP = 0;
-	//...........
-	VFSMode = _LOAD_NORMAL;
-	//...........
 
-	//PY: changed some stuff so that we can send VFSMode from CGame.cpp to load STBs in normal mode
-	if(VFSMode == _LOAD_NORMAL)			//only load files in NORMAL mode if they are tagged with VFSMode _LOAD_NORMAL
-	{
-		m_pFileSystem = (CVFSManager::GetSingleton()).GetNormalFileSystem(); //PY: forcing normal type file for only NPCs
-		ClientLog(LOG_DEBUG,"CGameSTB loading normal file type for %s",szFileName );
-	}
-	else
-	{
-		m_pFileSystem = (CVFSManager::GetSingleton()).GetVFSFileSystem();		//PY: this returns the VFS filesystem object
-		ClientLog(LOG_DEBUG,"CGameSTB loading VFS file type for %s",szFileName );
-	}
+	m_pFileSystem = (CFileSystem*)new CFileSystemNormal(); //PY: forcing normal type file for only NPCs
+	ClientLog(LOG_DEBUG,"CGameSTB loading normal file type for %s",szFileName );
+
 	if( m_pFileSystem->OpenFile( szFileName ) == false )
 	{
 		//::MessageBox (NULL, "File open error...", szFileName, MB_OK);
 		ClientLog(LOG_DEBUG,"Failed to open %s",szFileName );
 		m_pFileSystem->CloseFile();
-		//(CVFSManager::GetSingleton()).ReturnToManager( m_pFileSystem );
-		if(VFSMode == _LOAD_NORMAL) //Try loading from VFS instead
-		{
-			m_pFileSystem = (CVFSManager::GetSingleton()).GetVFSFileSystem();
-			if( m_pFileSystem->OpenFile( szFileName ) == false )
-			{
-				ClientLog(LOG_DEBUG,"VFS Error. cannot open %s in VFS either",szFileName );
-				m_pFileSystem->CloseFile();
-				//(CVFSManager::GetSingleton()).ReturnToManager( m_pFileSystem );
-				return false;
-			}
-			ClientLog(LOG_DEBUG,"CGameSTB loaded VFS file type for %s",szFileName );
-		}
+		return false;
 	}
 
 	////////////////////////////////////////////////////////
@@ -160,7 +137,6 @@ void CGameSTB::Close ()
 {
 	//ClientLog(LOG_DEBUG,"CGameSTB closing file");
 	m_pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( m_pFileSystem );
 
 	if ( m_pOffset ) 
 	{

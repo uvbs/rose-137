@@ -39,7 +39,7 @@ HNODE CMeshLIST::KEY_HNODE(t_HASHKEY HashKEY)
 		if ( pData ) {
 			LogString ( LOG_DEBUG, "Mesh ERROR:: %s ", pData->m_FileName.Get() );
 
-			if ( (CVFSManager::GetSingleton()).IsExistFile( pData->m_FileName.Get() ) == true )			
+			if ( CUtil::Is_FileExist( pData->m_FileName.Get() ) == true )
 				LogString (LOG_DEBUG, " in exist file\n" );
 			else
 				LogString (LOG_DEBUG, " file not found \n" );

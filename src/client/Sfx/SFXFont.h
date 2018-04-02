@@ -1,6 +1,6 @@
 #ifndef _SFX_FONT_
 #define _SFX_FONT_
-
+#include <list>
 #include "ISFX.h"
 
 
@@ -11,6 +11,7 @@
 ///
 //--------------------------------------------------------------------------------------------------
 class CEffectString;
+
 class CSFXFont : public ISFX
 {
 	std::list<CEffectString*> m_children;

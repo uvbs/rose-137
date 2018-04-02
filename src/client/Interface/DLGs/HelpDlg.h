@@ -4,6 +4,7 @@
 #include "tgamectrl/tdialog.h"
 #include <map>
 #include <string>
+#include <vector>
 
 
 class	CHelpPage;

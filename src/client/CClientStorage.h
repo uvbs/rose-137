@@ -1,12 +1,11 @@
 #ifndef _CCLIENTSTORAGE_
 #define _CCLIENTSTORAGE_
 
-#include "Interface/InterfaceType.h"
+#include <list>
 #include <string>
-//////////////////////////////////////////////////////////////////////
-/// 클라이언트 사이드에 저장되는 Data를 Load/Save하는 Class
-/// 1. 옵션, 인벤토리안의 아이템위치, 다이얼로그들의 위치등을 저장한다.
-/// 2. 인벤토리나 다이얼로그위치등은 WritePrivateProfileStruct를 이용하자.
+
+#include "Interface/InterfaceType.h"
+
 
 
 struct t_OptionResolution{

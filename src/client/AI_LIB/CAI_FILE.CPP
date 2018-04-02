@@ -4,7 +4,9 @@
 
 #ifndef	__SERVER
 #include "Game.h"
-#include "Util/VFSManager.h"
+#include "util/cfilesystemnormal.h"
+#include "Util/CFileSystemNormal.h"
+
 #include "Common/IO_STB.h"
 #endif
 
@@ -476,25 +478,12 @@ bool CAI_FILE::Load (char *szFileName, STBDATA *pSTB, int iLangCol)
 {	
 	
 	ClientLog(LOG_DEBUG,"CAI_FILE loading Normal file type for %s",szFileName );
-	//PY: try loading normal type first
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetNormalFileSystem();
-	//CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
 	if( pFileSystem->OpenFile( szFileName ) == false )	
 	{		
 		ClientLog(LOG_DEBUG,"CAI_FILE Failed to load Normal file type for %s",szFileName );
-		//char *szStr = CStr::Printf ("File [%s] open error ", szFileName ); Show the missing file
-		//g_pCApp->ErrorBOX(szStr, "ERROR", MB_OK); Error box for the missing file
-		//PY: Failed to open normal type file so clear pFileSystem and try VFS type instead
-		pFileSystem = (CVFSManager::GetSingleton()).GetVFSFileSystem();
-		//return false;
-		if( pFileSystem->OpenFile( szFileName ) == false )	
-		{		
-			ClientLog(LOG_DEBUG,"CAI_FILE also Failed to load VFS file type for %s",szFileName );
-			pFileSystem->CloseFile();
-			//(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem ); No used anymore
-			return false;
-		}
-		ClientLog(LOG_DEBUG,"CAI_FILE %s Loaded from VFS instead",szFileName );
+		pFileSystem->CloseFile();
+		return false;
 	}
 
 	AI_FILE_HEADER	sFileH;
@@ -516,7 +505,6 @@ bool CAI_FILE::Load (char *szFileName, STBDATA *pSTB, int iLangCol)
 	}
 
 	pFileSystem->CloseFile();	
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 
 	return true;
 }

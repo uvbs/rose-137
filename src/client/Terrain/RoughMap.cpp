@@ -49,7 +49,7 @@ bool CRoughMap::Load( char* szMapName, int iZoneMapX, int iZoneMapY )
 	char *szFullPathName = CStr::Printf ("%s.HIM", szMapName);
 
 	/// Load file
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
 	if( pFileSystem->OpenFile( szFullPathName ) == false )	
 	{	
 		/// 원래 없을 수도 있다.
@@ -97,8 +97,6 @@ bool CRoughMap::Load( char* szMapName, int iZoneMapX, int iZoneMapY )
 	}
 
 	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
-
 
 	if( LoadEngineObject( szMapName, iZoneMapX, iZoneMapY ) == false )
 		return false;
@@ -134,7 +132,7 @@ bool CRoughMap::LoadEngineObject( char* szMapName, int iZoneMapX, int iZoneMapY 
 	char *szFullPathName = CStr::Printf ("%sPlanMap.dds", szMapName );	
 	
 	/// Load file
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
 	if( pFileSystem->IsExist( szFullPathName ) == false )	
 	{
 		szFullPathName = "3DData\\Terrain\\default_light.dds";

@@ -1,5 +1,6 @@
 #ifndef _CFilterWord_
 #define _CFilterWord_
+#include <list>
 #include <map>
 #include <string>
 

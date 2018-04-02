@@ -3,7 +3,7 @@
 #include "IO_Quest.h"
 
 #ifndef	__SERVER
-#include "..\GameProc\CDayNNightProc.h"
+#include "GameProc/CDayNNightProc.h"
 #include "Game.h"
 #include "interface/it_mgr.h"
 #else

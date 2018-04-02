@@ -11,7 +11,7 @@
 #include "System/CGame.h"
 #include "interface\\it_MGR.h"
 #include "Network\CNetwork.h"
-#include "Util\\VFSManager.h"
+#include "util/cfilesystemnormal.h"
 #include "interface/dlgs/CMinimapDlg.h"
 
 #include "Sound/MusicMgr.h"
@@ -1717,7 +1717,7 @@ void CMAP::ReadObjINFO( CFileSystem* pFileSystem, long lOffset, int iLumpType)
 //-------------------------------------------------------------------------------------------------
 bool CMAP::LoadLightMapINFO (int iLumpType, char *szLightFileINF, char *szPath)
 {
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
 	if( pFileSystem->OpenFile( szLightFileINF ) == false )	
 	{		
 		char *szStr = CStr::Printf ("File [%s] open error ", szLightFileINF );
@@ -1738,8 +1738,6 @@ bool CMAP::LoadLightMapINFO (int iLumpType, char *szLightFileINF, char *szPath)
 		if( iObjIDX < 0 )
 		{
 			pFileSystem->CloseFile();
-			(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
-
 			return false;
 		}
 
@@ -1781,8 +1779,6 @@ bool CMAP::LoadLightMapINFO (int iLumpType, char *szLightFileINF, char *szPath)
 	}
 
 	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
-
 	return true;
 }
 
@@ -1802,7 +1798,7 @@ CMAP*CMAP::Load (char *szFileName, short nZoneMapXIDX, short nZoneMapYIDX)
 	szFullPathName = CStr::Printf ("%s.HIM", szFileName);
 
 	/// Load file
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
 	if( pFileSystem->OpenFile( szFullPathName ) == false )	
 	{	
 		/// 원래 없을 수도 있다.
@@ -1813,11 +1809,11 @@ CMAP*CMAP::Load (char *szFileName, short nZoneMapXIDX, short nZoneMapYIDX)
 
 	szFullPathName = CStr::Printf ("%s\\%d_%d_PlaneLightingMap.dds", szFileName, nZoneMapXIDX, MAP_COUNT_PER_ZONE_AXIS-nZoneMapYIDX );
 
-	if ( (CVFSManager::GetSingleton()).IsExistFile( szFullPathName ) == false )	
+	if ( CUtil::Is_FileExist( szFullPathName ) == false )
 	{
 		szFullPathName = CStr::Printf ("%s\\%d_%d_PlaneLightingMap.tga", szFileName, nZoneMapXIDX, MAP_COUNT_PER_ZONE_AXIS-nZoneMapYIDX );
 
-		if ( (CVFSManager::GetSingleton()).IsExistFile( szFullPathName ) == false )		
+		if ( CUtil::Is_FileExist( szFullPathName ) == false )
 			szFullPathName = CStr::Printf("3DDATA\\TERRAIN\\default_light.dds");
 	}
 	m_hLightMAP = ::loadColormapMaterial(CStr::Printf("%dx%d_%s", nZoneMapXIDX, nZoneMapYIDX, szFullPathName), g_GameDATA.m_hShader_lightmap, szFullPathName );
@@ -1919,7 +1915,7 @@ CMAP*CMAP::Load (char *szFileName, short nZoneMapXIDX, short nZoneMapYIDX)
 
 	szFullPathName = CStr::Printf ( "%s.TIL", szFileName );
 
-	//pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	//pFileSystem = (CFileSystem*)new CFileSystemNormal();
 	if( pFileSystem->OpenFile( szFullPathName ) == false )	
 	{		
 		char *szStr = CStr::Printf ("File [%s] open error ", szFullPathName );
@@ -1983,7 +1979,7 @@ CMAP*CMAP::Load (char *szFileName, short nZoneMapXIDX, short nZoneMapYIDX)
 
 	szFullPathName = CStr::Printf ("%s.IFO", szFileName);
 
-	//pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	//pFileSystem = (CFileSystem*)new CFileSystemNormal();
 	if( pFileSystem->OpenFile( szFullPathName ) == false )	
 	{		
 		char *szStr = CStr::Printf ("File [%s] open error ", szFullPathName );
@@ -2034,7 +2030,6 @@ CMAP*CMAP::Load (char *szFileName, short nZoneMapXIDX, short nZoneMapYIDX)
 		pFileSystem->Seek( lCurPtr, FILE_POS_SET );
 	}
 	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 
 	//load construct light map ...
 	szFullPathName = CStr::Printf ("%s\\LightMap\\BuildingLightMapData.lit", szFileName);
@@ -2290,7 +2285,7 @@ void CTERRAIN::Proc_Ecomony (void)
 //-------------------------------------------------------------------------------------------------
 HNODE CTERRAIN::GetLIGHTMAP(char *szLightMapFile)
 {
-	if ( (CVFSManager::GetSingleton()).IsExistFile( szLightMapFile ) == false )	
+	if ( CUtil::Is_FileExist( szLightMapFile ) == false )
 	{
 		szLightMapFile = CStr::Printf("3DDATA\\TERRAIN\\Zone\\default_light.dds");
 	}
@@ -2535,7 +2530,7 @@ bool CTERRAIN::LoadZONE(short nZoneNO,bool bPlayBGM )
 	::setLightmapBlendStyle( iBlendOP );
 
 
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
 	if( pFileSystem->OpenFile( ZONE_FILE( nZoneNO ) ) == false )	
 	{		
 		char *szStr = CStr::Printf ("File [%s] open error ", ZONE_FILE( nZoneNO ) );
@@ -2606,8 +2601,6 @@ bool CTERRAIN::LoadZONE(short nZoneNO,bool bPlayBGM )
 	}
 
 	pFileSystem->CloseFile();
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
-	
 
 	short nX, nY;
 	for (nX=0; nX<MAX_MAP_BUFFER; nX++) 

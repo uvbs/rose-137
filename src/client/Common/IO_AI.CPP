@@ -65,11 +65,7 @@ bool CAI_LIST::Load (char *szBaseDIR, char *szSTBFile, char *szLangSTB, int iLan
 				else
 					pFullPath = szFileName;
 
-#ifndef	__SERVER
-				if ( (CVFSManager::GetSingleton()).IsExistFile( pFullPath ) == true )				
-#else
 				if ( CUtil::Is_FileExist(pFullPath) )
-#endif
 				{
 					m_ppAI[ nI ] = new CAI_FILE;
 					if ( !m_ppAI[ nI ]->Load( pFullPath, &AILang, iLangCol ) ) 
@@ -78,12 +74,10 @@ bool CAI_LIST::Load (char *szBaseDIR, char *szSTBFile, char *szLangSTB, int iLan
 						return false;
 					}
 				} 
-#ifndef	__SERVER
 				else 
 				{
 					g_pCApp->ErrorBOX( pFullPath, "file not found", MB_OK);
 				}
-#endif
 			}
 		}
 		AILang.Free ();

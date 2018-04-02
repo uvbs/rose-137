@@ -54,8 +54,6 @@ int	CGameStateLogin::Update( bool bLostFocus )
 	
 	if(LoginState > 1)
 	{
-		
-		//조성현 2005 12 - 14 카메라
 		CheckMotionCamera();
 		LoopFadeInOut();
 	}
@@ -65,7 +63,7 @@ int	CGameStateLogin::Update( bool bLostFocus )
 	// processing  ...
 	if ( !bLostFocus ) 
 	{
-		if ( !::beginScene() ) //  디바이스가 손실된 상태라면 0을 리턴하므로, 모든 렌더링 스킵
+		if ( !::beginScene() )
 		{
 			return 0;
 		}
@@ -75,36 +73,25 @@ int	CGameStateLogin::Update( bool bLostFocus )
 		if(LoginState > 1)
 			::renderScene();	
 			
-
-
 		::beginSprite( D3DXSPRITE_ALPHABLEND );
 
 		if(LoginState < 2)
 		{
 			DrawLOGO();
 		}
-		else if(LoginState == 3)  //조성현 2005 12 - 19 LoginState에 따라..
+		else if(LoginState == 3) 
 		{
-//			 ::SetFogOffMode(true);
+			::SetFogOffMode(true);
 			/// Screen message display
 			g_UIMed.Draw();
 			/// UI display
 			g_EUILobby.Draw();
 		}
 
-
 		CTIme::GetInstance().Draw();
 
-//		g_GameDATA.DrawFontCameraPosition();   // 조성현 10 - 19
-
-
 		::endSprite();		
-
-
 		::endScene ();
-
-
-
 		::swapBuffers();
 	}
 
@@ -208,7 +195,6 @@ int CGameStateLogin::ProcMouseInput( UINT uiMsg, WPARAM wParam, LPARAM lParam )
 	return 0;
 }
 
-
 int CGameStateLogin::ProcKeyboardInput( UINT uiMsg, WPARAM wParam, LPARAM lParam )
 {
 	if(!InputOnOff)
@@ -281,7 +267,6 @@ int CGameStateLogin::Enter( int iPrevStateID )
 	hCameraMotion[5] = ::loadMotion("LoginCameraMotion6", "3DData\\Title\\Camera01_login01.zmo", 1, 4, 3, 1, 0); 
 	*/
 
-
 	g_EUILobby.InitEUIManager();
 	g_EUILobby.CreateLoginDlg();
 
@@ -295,35 +280,7 @@ int CGameStateLogin::Enter( int iPrevStateID )
 	/// Init skybox
 	CSkyDOME::Init( g_GameDATA.m_hShader_sky, g_GameDATA.m_hLight, 0 );
 
-
-	//::setDelayedLoad( 1 );
-
 	g_GameDATA.m_nSightRange = iOldSightRange;
-
-	if( g_GameDATA.m_is_NHN_JAPAN )
-	{
-		CTDialog* pDlg =  g_EUILobby.GetEUI( EUI_LOGIN );
-		CLogin* pLoginDlg = ( CLogin*)pDlg;
-		pLoginDlg->SetID( g_GameDATA.m_Account.Get() );
-		///Decoding후 넣는다.
-		//pLoginDlg->SetPassword( g_GameDATA.m_Password.Get() );
-		pLoginDlg->ConnectLoginServer();
-		pLoginDlg->Hide();
-	}
-	/// exec Enter script
-
-#ifdef __AUTOLOGIN	
-	if( g_GameDATA.m_dwSeq && g_GameDATA.m_szSessionKey )
-	{
-		CTDialog* pDlg = g_EUILobby.GetEUI( EUI_LOGIN ) ;
-		assert( pDlg );
-		if( pDlg )
-		{
-			pDlg->Hide();			
-		}
-	}
-	
-#endif
 
 	InputInterruptTime = 0;
 	InputOnOff = false;
@@ -333,7 +290,7 @@ int CGameStateLogin::Enter( int iPrevStateID )
     m_hTitleTexture[1] = loadTexture ( "3DData\\Control\\Res\\Roselogo.dds", "3DData\\Control\\Res\\Roselogo.dds", 1,	0 );
    	
 	hCameraNode = ::findNode("motion_camera");
-	// ::attachMotion(hCameraNode, hCameraMotion[0]);
+	//::attachMotion(hCameraNode, hCameraMotion[0]);
 	::setRepeatCount(hCameraNode, 0);
 	::controlAnimatable(hCameraNode, 0);
 	
@@ -478,25 +435,6 @@ void CGameStateLogin::CheckInterruptTime()
 
 	else if( LoginState == 3)
 	{
-#ifdef __AUTOLOGIN
-
-		if( g_GameDATA.m_dwSeq && g_GameDATA.m_szSessionKey )
-		{
-			static bool OneTimeProc = true;
-			if(OneTimeProc)
-			{	
-				OneTimeProc = false;
-				CTDialog* pDlg = g_EUILobby.GetEUI( EUI_LOGIN ) ;
-				assert( pDlg );
-				if( pDlg )
-				{
-					CLogin*	pLoginDlg = (CLogin*)pDlg;
-					pLoginDlg->ConnectLoginServer();
-				}
-			}
-		}
-
-#endif
 	}
 	
 }
@@ -527,7 +465,6 @@ void CGameStateLogin::DrawLOGO()
 {
 	D3DXMATRIX mat, matScale, matTrans;	
 	int iWidth, iHeight;
-
 
 	::getTextureSize( m_hTitleTexture[LoginState], iWidth, iHeight );
 	D3DXVECTOR3 vCenter( (float)(iWidth/2), (float)(iHeight/2), 0);

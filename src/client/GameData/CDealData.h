@@ -1,5 +1,7 @@
 #ifndef _CDealData_
 #define _CDealData_
+#include <vector>
+
 #include "GameCommon/cobservable.h"
 #include "GameCommon/iobserver.h"
 

@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include "StringManager.h"
-#include "Util\\VFSManager.h"
+#include "util/cfilesystemnormal.h"
 
 // AI 스트링 테이블 파일
 #define LANGSTB_AI_NAME			"3Ddata\\AI\\ulngtb_ai.ltb"

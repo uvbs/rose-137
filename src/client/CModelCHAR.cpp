@@ -5,7 +5,7 @@
 #include "IO_Basic.h"
 #include "IO_Terrain.h"
 #include "CModelCHAR.h"
-#include "Util\\VFSManager.h"
+#include "util/cfilesystemnormal.h"
 
 
 CCharModelDATA	g_MOBandNPC;
@@ -305,28 +305,14 @@ CCharModelDATA::~CCharModelDATA ()
 
 bool CCharModelDATA::Load_MOBorNPC (char *szFileName)
 {
-	
 	ClientLog(LOG_DEBUG,"CCharModelData loading normal file type for %s",szFileName );
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetNormalFileSystem();
+	CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
 	if( pFileSystem->OpenFile( szFileName ) == false )	
-	{		//Failed to load normal file 
-		ClientLog(LOG_DEBUG,"CCharModelData Failed to load normal file type for %s",szFileName );
-		CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetVFSFileSystem();
-		if( pFileSystem->OpenFile( szFileName ) == false )	
-		{
-			ClientLog(LOG_DEBUG,"CCharModelData Failed to load VFS file type for %s",szFileName );
-			return false;
-		}
-		ClientLog(LOG_DEBUG,"CCharModelData loading VFS file type for %s",szFileName );
-	}
-	
-	
-	/*  //original code
-	CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
-	if ( pFileSystem->OpenFile( szFileName ) == false )
 	{
+		ClientLog(LOG_DEBUG,"CCharModelData Failed to load normal file type for %s",szFileName );
+		pFileSystem->CloseFile();
 		return false;
-	}*/
+	}
 
 	t_HASHKEY *pSkelKEY, *pAniKEY, *pEftKEY;
 	char *pStr;
@@ -383,7 +369,6 @@ bool CCharModelDATA::Load_MOBorNPC (char *szFileName)
 
 	pFileSystem->CloseFile();
 
-	(CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 	return true;
 }
 void CCharModelDATA::Free (void)

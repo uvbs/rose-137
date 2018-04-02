@@ -12,7 +12,7 @@ CPatchManager::CPatchManager(void)
 {
    
    lod_onoff=FALSE;	
-   CFileSystem* pFileSystem = (CVFSManager::GetSingleton()).GetFileSystem();
+   CFileSystem* pFileSystem = (CFileSystem*)new CFileSystemNormal();
 
    if(pFileSystem->OpenFile("3DData\\Terrain\\LODType\\PatchType.lod", OPEN_READ_BIN))
    {
@@ -32,8 +32,6 @@ CPatchManager::CPatchManager(void)
 	 pFileSystem->CloseFile();
 
    }
-
-   (CVFSManager::GetSingleton()).ReturnToManager( pFileSystem );
 }
 
 CPatchManager::~CPatchManager(void)

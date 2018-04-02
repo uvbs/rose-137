@@ -1,7 +1,7 @@
 #ifndef _LOCALIZING_
 #define _LOCALIZING_
 
-
+#include "Util/JSingleton.h"
 //-------------------------------------------------------------------------------------
 /// Localizing manager
 /// class CLocalizing
