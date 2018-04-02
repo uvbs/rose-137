@@ -556,12 +556,6 @@ void CLogin::Draw()
 
 	D3DXMATRIX mat;	
 
-//	06. 08. 23 - 김주현 : 버젼 정보 출력 기능 사용 안함.
-//	D3DXMatrixTranslation( &mat, 50, 20, 0.0f );
-//	::setTransformSprite( mat );
-//	drawFont( g_GameDATA.m_hFONT[ FONT_NORMAL_OUTLINE ], true, 0,0, g_dwWHITE, CStr::Printf("Version : %s",CGame::GetInstance().GetClientFileVersion().c_str() ));
-
-
 //	#ifdef __VIEWVERSION
 //	D3DXMatrixTranslation( &mat, 50, 35, 0.0f );
 //	::setTransformSprite( mat );
@@ -641,8 +635,6 @@ bool CLogin::ConnectLoginServer()
 		}
 	}
 
-
-	
 
 	CTCommand* pCmd = new CTCmdExit;
 	g_EUILobby.ShowMsgBox(STR_WAIT_CONNECT_LOGIN_SERVER,CTMsgBox::BT_CANCEL ,true ,EUI_LOGIN ,NULL, pCmd );

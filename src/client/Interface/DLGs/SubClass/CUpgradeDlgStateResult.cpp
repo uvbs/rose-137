@@ -12,7 +12,7 @@
 #include "../../io_imageres.h"
 #include "../../TypeResource.h"
 #include "Object.h"
-#include "../../../Game_Func.h"
+#include "../../../Game_FUNC.h"
 #include "tgamectrl/resourcemgr.h"
 
 CUpgradeDlgStateResult::CUpgradeDlgStateResult( CUpgradeDlg* pParent )

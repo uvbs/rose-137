@@ -96,6 +96,9 @@
     <Filter Include="Source Files\Server\Util">
       <UniqueIdentifier>{582174ee-08f2-442f-924d-5208522a2aae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\scripts">
+      <UniqueIdentifier>{98baac8f-4178-47a5-8fba-62c133d0f869}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AppMsgQ.cpp">
@@ -2622,13 +2625,7 @@
     <None Include="Game_FUNC_DEF.inc">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="Game_FUNC_DEF.inc.r35">
-      <Filter>Source Files</Filter>
-    </None>
     <None Include="Game_FUNC_REG.inc">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="Game_FUNC_REG.inc.r35">
       <Filter>Source Files</Filter>
     </None>
     <None Include="GlobalScr.lua">
@@ -2641,9 +2638,6 @@
       <Filter>Source Files</Filter>
     </None>
     <None Include="Makefile.win">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="StdAfx.hx">
       <Filter>Source Files</Filter>
     </None>
     <None Include="Common\CUserDATA.SRV">
@@ -2664,22 +2658,10 @@
     <None Include="Event\Quest_FUNC_REG.inc.r35">
       <Filter>Source Files\Event</Filter>
     </None>
-    <None Include="System\export_System.lua">
-      <Filter>Source Files\System</Filter>
-    </None>
     <None Include="System\System_FUNC_DEF.inc">
       <Filter>Source Files\System</Filter>
     </None>
     <None Include="System\System_FUNC_REG.inc">
-      <Filter>Source Files\System</Filter>
-    </None>
-    <None Include="System\System_FUNC_REG.inc.mine">
-      <Filter>Source Files\System</Filter>
-    </None>
-    <None Include="System\System_FUNC_REG.inc.r28">
-      <Filter>Source Files\System</Filter>
-    </None>
-    <None Include="System\System_FUNC_REG.inc.r35">
       <Filter>Source Files\System</Filter>
     </None>
     <None Include="Res\Attack.cur">
@@ -2732,6 +2714,9 @@
     </None>
     <None Include="Res\ibeam.cur">
       <Filter>Resource Files</Filter>
+    </None>
+    <None Include="scripts\export_luafunc.lua">
+      <Filter>Source Files\scripts</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

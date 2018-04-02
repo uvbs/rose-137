@@ -14,19 +14,8 @@ typedef const char*	ZSTRING;
 SYSTEM_SCRIPT
 void SC_InitGame ( void );
 
-
-
-///
-/// 새로운스크립트 실행
-///
 SYSTEM_SCRIPT
 int SC_DoScript ( ZSTRING strName );
-
-
-
-///
-/// 캐릭터 생성관련
-///
 
 SYSTEM_SCRIPT
 HNODE SC_CreateAVT ( ZSTRING strName, int iRace, int iFACE, int iHAIR, int iHELMET,
@@ -36,9 +25,6 @@ HNODE SC_CreateAVT ( ZSTRING strName, int iRace, int iFACE, int iHAIR, int iHELM
 SYSTEM_SCRIPT
 void SC_DestroyAVT ( HNODE hAVT );
 
-
-
-/// 모션 세팅
 SYSTEM_SCRIPT
 void SC_SetAvatarMotionByName ( ZSTRING strName, ZSTRING strMotion );
 
@@ -48,19 +34,8 @@ void SC_SetAvatarMotionByIndex ( ZSTRING strName, int iMotionIDX );
 SYSTEM_SCRIPT
 void SC_SetVisible ( HNODE hAVT, int iIsVisible );
 
-
-///
-/// adjust transform
-///
-
 SYSTEM_SCRIPT
 void SC_SetPosition ( HNODE hNODE, float x, float y, float z );
-
-
-
-
-
-
 
 SYSTEM_SCRIPT
 HNODE SC_LoadModel ( ZSTRING pModelName, HNODE hSkeleton, HNODE hMotion, float ScaleInLoad );
@@ -83,13 +58,11 @@ void SC_AttachMotion ( HNODE hNode, HNODE hMotion );
 SYSTEM_SCRIPT
 void SC_ControlAnimation ( HNODE hNode, int iControl );
 
-/// 모션 조작 관련
 SYSTEM_SCRIPT
 void SC_SetMotionFrame ( HNODE hNode, int iFrame );
 
 SYSTEM_SCRIPT
 int SC_GetTotalFrame ( HNODE hNode );
-
 
 SYSTEM_SCRIPT
 HNODE SC_LoadCamera ( ZSTRING pCameraName, ZSTRING pCameraPath, HNODE hCameraMotion );
@@ -109,14 +82,11 @@ HNODE SC_GetMotion ( HNODE hAnimatable );
 SYSTEM_SCRIPT
 void SC_SetScale ( HNODE hVisible, float x, float y, float z );
 
-
-
 SYSTEM_SCRIPT
 void SC_SetModelDirection ( HNODE hModel, float fAngleDegree );
 
 SYSTEM_SCRIPT
 void SC_SetModelPosition ( HNODE hModel, float x, float y, float z );
-
 
 SYSTEM_SCRIPT
 HNODE SC_AddCreateAVT ( ZSTRING pszName, int iRace, int iFace, int iHair, int iHelmet,
@@ -126,15 +96,12 @@ HNODE SC_AddCreateAVT ( ZSTRING pszName, int iRace, int iFace, int iHair, int iH
 SYSTEM_SCRIPT
 void SC_RemoveCreateAVT ( ZSTRING pszName );
 
-
-
-
 SYSTEM_SCRIPT
 void SC_SetAvatarFace ( ZSTRING pszName, int iFace );
 
 SYSTEM_SCRIPT
 void SC_SetAvatarHair ( ZSTRING pszName, int iHair );
-////인터페이스용
+
 SYSTEM_SCRIPT
 void SC_AddSelectItem4CreateAvatar ( int iType, ZSTRING pszItem, ZSTRING pszValue );
 
@@ -144,33 +111,15 @@ void SC_ClearSelectItem4CreateAvatar ( int iType );
 SYSTEM_SCRIPT
 void SC_SelectItem4CreateAvatar ( int iType, int iSubscript );
 
-///
-/// 존 관리
-///
 SYSTEM_SCRIPT
 int SC_GetBGZoneNO ( void );
 
-
-
-//------------------------------------------------------------------------------------------------
-/// 이벤트 관련
-//------------------------------------------------------------------------------------------------
-
-
-///
-/// 이벤트 오브젝트 관련..
-/// type 0 : 포지션 노드
-/// type 1 : 애니매이션 노드
-///
 SYSTEM_SCRIPT
 HNODE SC_GetEventObject ( int iEventID, int iType );
 
 SYSTEM_SCRIPT
 int SC_GetEventObjectIndex ( int iEventID );
 
-///
-/// Con 파일 실행
-///
 SYSTEM_SCRIPT
 void SC_RunEvent ( int iOwnerIndex, ZSTRING szQuestFILE, int iEventIDX );
 
@@ -180,110 +129,72 @@ void SC_RunEventFieldWarp ( int iOwnerIndex, ZSTRING szQuestFILE, int iEventIDX 
 SYSTEM_SCRIPT
 void SC_RunEventObjectEvent ( int iOwnerIndex, ZSTRING szQuestFILE, int iEventIDX );
 
-///
-/// 알림 메세지박스
-///
 SYSTEM_SCRIPT
 void SC_ShowNotifyMessage ( int iStringIDX );
 
-
-///
-/// Log/OutputDebugString
-///
 SYSTEM_SCRIPT
 void SC_LogString ( ZSTRING szMessage );
 
-
-//------------------------------------------------------------------------------------------------
-/// 컷씬 관련
-//------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 int SC_ChangeState ( int iNewState );
 
 SYSTEM_SCRIPT
 int SC_ScreenFadeInStart ( float fade_in_t, float fade_m_t, float fade_out_t, int color_r, int color_g, int color_b );
 
-
 SYSTEM_SCRIPT
 int SC_TestFunc ( void );
 
-//------------------------------------------------------------------------------------------------
-/// 이펙트 관련
-//------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
-int		SC_GetEffectUseFile ( ZSTRING szEffectFile );
+int	SC_GetEffectUseFile ( ZSTRING szEffectFile );
 
 SYSTEM_SCRIPT
-int		SC_GetEffectUseIndex ( int iEffectIndex );
+int	SC_GetEffectUseIndex ( int iEffectIndex );
 
 SYSTEM_SCRIPT
-void	SC_EffectOnChar ( int iObject, int iEffectHash );
+void SC_EffectOnChar ( int iObject, int iEffectHash );
 
 SYSTEM_SCRIPT
-void	SC_EffectOnObject ( HNODE hNode, int iEffectHash );
-
-//------------------------------------------------------------------------------------------------
-/// 인터페이스 관련
-//------------------------------------------------------------------------------------------------
-SYSTEM_SCRIPT
-void	SC_OpenDialog ( int iDialog );
+void SC_EffectOnObject ( HNODE hNode, int iEffectHash );
 
 SYSTEM_SCRIPT
-void	SC_OpenMsgbox ( ZSTRING pszMsg );
+void SC_OpenDialog ( int iDialog );
 
 SYSTEM_SCRIPT
-void	SC_SetButtonBlink ( int iParentDlg, int iButtonID );
+void SC_OpenMsgbox ( ZSTRING pszMsg );
 
 SYSTEM_SCRIPT
-void	SC_CreateEventButton ( int iButtonIndex );
-
-
-SYSTEM_SCRIPT
-void	SC_AddNpcIndicator ( int npcno, int auto_remove );
+void SC_SetButtonBlink ( int iParentDlg, int iButtonID );
 
 SYSTEM_SCRIPT
-void	SC_AddCoordinatesIndicator ( int index, int zoneno, float x, float y );
+void SC_CreateEventButton ( int iButtonIndex );
 
 SYSTEM_SCRIPT
-void	SC_RemoveNpcIndicator ( int npcno );
+void SC_AddNpcIndicator ( int npcno, int auto_remove );
 
 SYSTEM_SCRIPT
-void	SC_RemoveCoordinatesIndicator ( int index );
-//------------------------------------------------------------------------------------------------
-/// 아바타 정보
-//------------------------------------------------------------------------------------------------
+void SC_AddCoordinatesIndicator ( int index, int zoneno, float x, float y );
+
+SYSTEM_SCRIPT
+void SC_RemoveNpcIndicator ( int npcno );
+
+SYSTEM_SCRIPT
+void SC_RemoveCoordinatesIndicator ( int index );
+
 SYSTEM_SCRIPT
 int	SC_GetAvatarEXP ( );
 
 SYSTEM_SCRIPT
 int	SC_GetAvatarLEVEL ( );
 
-
-
-
-//------------------------------------------------------------------------------------------------
-/// Send msg to web
-//------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 void SC_SendMsgToWeb ( ZSTRING pstrIP, ZSTRING pstrPage, ZSTRING pstrMsg );
 
-//------------------------------------------------------------------------------------------------
-/// 스크립트를 실행한다. 2005-05-26 김창수
-//------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 void SC_QF_doQuestTrigger ( ZSTRING TriggerName );
 
-//------------------------------------------------------------------------------------------------
-/// 퀘스트 트리거 컨디션을 체크한다. 2005-05-26 김창수
-//------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 int SC_QF_checkQuestCondition ( ZSTRING szQuestTriggerName );
 
-
-//------------------------------------------------------------------------------------------------
-/// SC => GF/QF 연동 스크립드
-/// 자세한 설명은 SC_를 뺀 스크립트 참조
-//------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 int SC_GF_getVariable ( int iVarTYPE );	
 
@@ -319,33 +230,21 @@ int SC_QF_getQuestItemQuantity ( int iQuestID, int iItemNo/*5자리:Type+No*/ );
 
 SYSTEM_SCRIPT
 int SC_QF_getUserSwitch ( int iSwitchNO );
-//------------------------------------------------------------------------------------------------
-/// 아바타의 부활존을 현재 존으로 변경한다.
-//------------------------------------------------------------------------------------------------
+
 SYSTEM_SCRIPT
 void SC_GF_setRevivePosition ( );
-//------------------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------------------
-/// Tutorial Image Show 관련 
-//------------------------------------------------------------------------------------------------
+
 SYSTEM_SCRIPT
 void SC_ShowTutorialImage ( ZSTRING filename, int x, int y, float fadein_endtime, float fadeout_starttime, float max_time, int append_or_renewal );
 
-
-//------------------------------------------------------------------------------------------------
-// 함수 이름뒤에 한칸 띄운다. ( 다음에 한칸 띄운다, 파라미터 타입 뒤에 한칸 띄운다. 
-// 파라미터 이름 뒤에 한칸 띄운다
-//------------------------------------------------------------------------------------------------
-
+SYSTEM_SCRIPT
 int SC_QF_GetNpcQuestStatus ( int npcindex );
-
 
 SYSTEM_SCRIPT
 void SC_TimeLua ( ZSTRING funcName, int time );
 
 SYSTEM_SCRIPT
 void SC_TimeLuaObject ( ZSTRING funcName, int time );
-
 
 #endif //__SYSTEM_FUNC_H
 

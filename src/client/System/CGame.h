@@ -254,10 +254,6 @@ public:
 	void	SetActiveXConnect(bool bn);
 	bool	GetActiveXConnect();
 
-	/// Client File Version
-	std::string&		GetClientFileVersion();	
-
-
 	// Current patch.
 	std::string&		GetCurVersion();
 	void				SetCurVersion(std::string szString);
@@ -354,7 +350,6 @@ private:
 	bool			m_bAutoRun;
 
 	std::string		m_JapanPartnerString;
-	CFileVersionInfo m_ClientFileVersion;
 
 	//07. 06. 14 - ±èÁÖÇö : To modify this issue, move the disk-connect to the server selection window in the character selection window when using the ActiveX
 	//Add to determine whether or not to use ActiveX.

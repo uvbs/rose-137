@@ -210,18 +210,6 @@ bool CImageResManager::LoadImageResources()
     
 	CResourceMgr::GetInstance()->AddResource("3DData\\Control\\XML\\EXUI_strID.ID",IMAGE_RES_EXUI);
 
-
-
-#ifdef _WARNING
-	//WARNING
-	pFileSystem->OpenFile( "3DData\\Control\\Res\\WARNING.TSI", OPEN_READ_BIN );
-	if( m_ImageRes[ IMAGE_RES_WARNING ].LoadRES( pFileSystem ) == false )
-		return false;
-
-	CResourceMgr::GetInstance()->AddResource("3DData\\Control\\XML\\WARNING_strID.ID",IMAGE_RES_WARNING);
-#endif
-
-
 	pFileSystem->OpenFile( "3DData\\Control\\Res\\UI2.TSI", OPEN_READ_BIN );
 
 	if( m_ImageRes[ IMAGE_RES_NEWUI ].LoadRES( pFileSystem ) == false )	{	return false;	}

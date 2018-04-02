@@ -63,7 +63,7 @@ $Header: /Client/Network/RecvPACKET.cpp 822   07-05-14 1:48p Raning $
 #include "Event/QuestRewardQueue.h"
 #include "ObjFixedEvent.h"
 
-#include "Event/Quest_Func.h"
+#include "Event/Quest_FUNC.h"
 #include "GameProc/LiveCheck.h"
 #include "GameProc/DelayedExp.h"
 

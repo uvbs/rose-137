@@ -18,29 +18,20 @@
 #include "Tutorial/TutorialEventUtility.h"
 #include "Tutorial/TutorialEventManager.h"
 #include "Event/Quest_FUNC.h"
-#include "Game_Func.h"
+#include "Game_FUNC.h"
 #include "Util/SystemUtil.h"
 
 #include "zz_interface.h"
+
 
 void SC_InitGame()
 {
 }
 
-
-///
-/// 새로운스크립트 실행
-///
 int SC_DoScript ( ZSTRING strName )
 {
 	return CSystemProcScript::GetSingleton().DoScript( strName );
 }
-
-
-
-///
-/// 캐릭터 생성관련
-///
 
 HNODE SC_CreateAVT( ZSTRING strName, int iRace, int iFACE, int iHAIR, int iHELMET, 
 				   int iARMOR, int iGAUNTLET, int iBOOTS, 
@@ -57,7 +48,6 @@ HNODE SC_CreateAVT( ZSTRING strName, int iRace, int iFACE, int iHAIR, int iHELME
 	return reinterpret_cast<HNODE>(pAvt);
 }
 
-/// 아바타 삭제
 void SC_DestroyAVT ( HNODE hAVT )
 {
 	CJustModelAVT* pAvt = reinterpret_cast<CJustModelAVT*>(hAVT);
@@ -72,7 +62,6 @@ void SC_DestroyAVT ( HNODE hAVT )
 	}
 }
 
-/// 모션 세팅
 void SC_SetAvatarMotionByName ( ZSTRING strName, ZSTRING strMotion )
 {
 	CJustModelAVT* pAvt = CGameDataCreateAvatar::GetInstance().FindAvatar( strName );
@@ -95,23 +84,10 @@ void SC_SetVisible ( HNODE hAVT, int iIsVisible )
 		pAvt->SetVisible( iIsVisible );
 }
 
-
-
-///
-/// adjust transform
-///
-
 void SC_SetPosition ( HNODE hNODE, float x, float y, float z )
 {
 	::setPosition( hNODE, x, y, z );
 }
-
-
-
-
-
-
-
 
 HNODE SC_LoadModel( ZSTRING pModelName,
 				   HNODE hSkeleton,
@@ -174,7 +150,6 @@ HNODE SC_LoadMotion ( ZSTRING pMotionName, ZSTRING pMotionFileName, int bUseLoop
 	return hNode;
 }
 
-
 void SC_AttachMotion ( HNODE hNode, HNODE hMotion )
 {
 	if( hNode == 0 )
@@ -186,9 +161,6 @@ void SC_AttachMotion ( HNODE hNode, HNODE hMotion )
 	::attachMotion( hNode, hMotion );
 }
 
-//------------------------------------------------------------------------------------------
-/// 모션 조작 관련
-//------------------------------------------------------------------------------------------
 void SC_SetMotionFrame ( HNODE hNode, int iFrame )
 {
 	::setAnimatableFrame ( hNode, iFrame );
@@ -244,6 +216,7 @@ int SC_SetRepeatCount ( HNODE hAnimatable, int iRepeatCount )
 	}
 	return setRepeatCount ( hAnimatable, iRepeatCount );
 }
+
 HNODE SC_GetMotion ( HNODE hAnimatable )
 {
 	if( hAnimatable == 0 )
@@ -283,10 +256,6 @@ void SC_SetScale ( HNODE hVisible, float x, float y, float z )
 
 }
 
-///
-/// 존 관리
-///
-
 int SC_GetBGZoneNO ( void )
 {
 	return 4;
@@ -309,7 +278,6 @@ HNODE SC_AddCreateAVT ( ZSTRING pszName, int iRace, int iFace, int iHair, int iH
 
 	return pAvt->GetModelNode();
 }
-
 
 void SC_RemoveCreateAVT ( ZSTRING pszName )
 {
@@ -354,13 +322,6 @@ void SC_SetAvatarHair ( ZSTRING pszName, int iHair )
 	}
 }
 
-
-
-///
-/// 이벤트 오브젝트 관련..
-/// type 0 : 포지션 노드
-/// type 1 : 애니매이션 노드
-///
 HNODE SC_GetEventObject ( int iEventID, int iType )
 {
 	CObjFixedEvent* pObj = g_pObjMGR->GetEventObject( iEventID );	
@@ -379,13 +340,6 @@ int SC_GetEventObjectIndex ( int iEventID )
 	return pObj->Get_INDEX();	
 }
 
-
-
-///
-/// Con 파일 실행
-/// NPC 대화창..
-///
-
 void SC_RunEvent ( int iOwnerIndex, ZSTRING szQuestFILE, int iEventIDX )
 {
 	if( g_itMGR.IsDlgOpened( DLG_TYPE_DIALOG ) )
@@ -397,11 +351,6 @@ void SC_RunEvent ( int iOwnerIndex, ZSTRING szQuestFILE, int iEventIDX )
 	}
 }
 
-///
-/// Con 파일 실행
-/// 필드 워프창
-///
-
 void SC_RunEventFieldWarp ( int iOwnerIndex, ZSTRING szQuestFILE, int iEventIDX )
 {
 	if( g_itMGR.IsDlgOpened( DLG_TYPE_SELECTEVENT ) )
@@ -412,11 +361,6 @@ void SC_RunEventFieldWarp ( int iOwnerIndex, ZSTRING szQuestFILE, int iEventIDX 
 		;
 	}
 }
-
-///
-/// Con 파일 실행
-/// 이벤트 대화창 생성
-///
 
 void SC_RunEventObjectEvent ( int iOwnerIndex, ZSTRING szQuestFILE, int iEventIDX )
 {
@@ -430,9 +374,6 @@ void SC_RunEventObjectEvent ( int iOwnerIndex, ZSTRING szQuestFILE, int iEventID
 	}
 }
 
-///
-/// 알림 메세지박스
-///
 void SC_ShowNotifyMessage ( int iStringIDX )
 {
 	const char* pMsg = CStringManager::GetSingleton().GetNotifyMessageString( iStringIDX );
@@ -448,18 +389,11 @@ void SC_ShowNotifyMessage ( int iStringIDX )
 	//SC_OpenMsgbox( pMsg );
 }
 
-///
-/// Log/OutputDebugString
-///
 void SC_LogString ( ZSTRING szMessage )
 {
 	LogString( LOG_NORMAL, "%s\n", szMessage );
 }
 
-
-//------------------------------------------------------------------------------------------------
-/// 컷씬 존관련
-//------------------------------------------------------------------------------------------------
 int SC_ChangeState ( int iNewState )
 {
 	CGame::GetInstance().ChangeState( iNewState );
@@ -474,33 +408,21 @@ int SC_ScreenFadeInStart ( float fade_in_t,float fade_m_t,float fade_out_t,int c
 	return 1;
 }
 
-
 int SC_TestFunc ( void )  
 {
 	return 1;
 }
 
-
-
-//----------------------------------------------------------------------------------------------------
-/// @param
-/// @brief 이펙트 파일을 이펙트 리소스 관리자에 넣는다.
-//----------------------------------------------------------------------------------------------------
 int	SC_GetEffectUseFile ( ZSTRING szEffectFile )
 {
 	return (int)g_pEffectLIST->Add_EffectFILE( (char*)szEffectFile );
 }
-
 
 int	SC_GetEffectUseIndex ( int iEffectIndex )
 {
 	return (int)g_pEffectLIST->Add_EffectWithIDX( iEffectIndex, true );
 }
 
-//----------------------------------------------------------------------------------------------------
-/// @param
-/// @brief CObjCHAR 에 이펙트를 붙인다.
-//----------------------------------------------------------------------------------------------------
 void SC_EffectOnChar ( int iObject, int iEffectHash )
 {
 	CObjCHAR *pObjCHAR = g_pObjMGR->Get_CharOBJ( iObject, false );
@@ -510,42 +432,23 @@ void SC_EffectOnChar ( int iObject, int iEffectHash )
 	}
 }
 
-//----------------------------------------------------------------------------------------------------
-/// @param
-/// @brief CObjCHAR 에 이펙트를 붙인다.
-//----------------------------------------------------------------------------------------------------
 void SC_EffectOnObject ( HNODE hNode, int iEffectHash )
 {
 	CEffect *pEffect = g_pEffectLIST->Add_EFFECT( (t_HASHKEY)iEffectHash, true );
 	pEffect->LinkNODE ( hNode );
 }
 
-//----------------------------------------------------------------------------------------------------
-/// @param interface/interfacetype.h에 있는 DialogType
-/// @brief 인자로 넘어온 Dialog를 연다
-//----------------------------------------------------------------------------------------------------
 void SC_OpenDialog ( int iDialog )
 {
 	g_itMGR.OpenDialog( iDialog , false );
 }
 
-//----------------------------------------------------------------------------------------------------
-/// @param 출력될 메세지
-/// @brief MODALESS 메세지 박스를 연다
-//----------------------------------------------------------------------------------------------------
-SYSTEM_SCRIPT
 void	SC_OpenMsgbox ( ZSTRING pszMsg )
 {
 	g_itMGR.OpenMsgBox( pszMsg ,CMsgBox::BT_OK, false );
 }
 
-//----------------------------------------------------------------------------------------------------
-/// @param iParentDlg	Button의 Parent Dialog
-/// @param iButtonID	Button의 ID( 해당 Dialog의 xml에서 ID 참조 )
-/// @brief 해당 다이얼로그의 차일드 버튼을 Blink시킨다( Child의 Child일 경우 안된다 )
-//----------------------------------------------------------------------------------------------------
-SYSTEM_SCRIPT
-void	SC_SetButtonBlink ( int iParentDlg, int iButtonID )
+void SC_SetButtonBlink ( int iParentDlg, int iButtonID )
 {
 	if( CTDialog* pDlg = g_itMGR.FindDlg( iParentDlg ) )
 	{
@@ -568,14 +471,12 @@ void	SC_SetButtonBlink ( int iParentDlg, int iButtonID )
 	}
 }
 
-void	SC_CreateEventButton ( int iButtonIndex )
+void SC_CreateEventButton ( int iButtonIndex )
 {
 	CTutorialEventUtility::GetSingleton().CreateNotifyEventButton( iButtonIndex );
 }
 
-
-SYSTEM_SCRIPT
-void	SC_AddNpcIndicator ( int npcno , int auto_remove )
+void SC_AddNpcIndicator ( int npcno , int auto_remove )
 {
 	if( CTDialog* pDlg = g_itMGR.FindDlg( DLG_TYPE_MINIMAP ) )
 	{
@@ -584,8 +485,7 @@ void	SC_AddNpcIndicator ( int npcno , int auto_remove )
 	}
 }
 
-SYSTEM_SCRIPT
-void	SC_AddCoordinatesIndicator ( int index, int zoneno, float x, float y )
+void SC_AddCoordinatesIndicator ( int index, int zoneno, float x, float y )
 {
 	if( CTDialog* pDlg = g_itMGR.FindDlg( DLG_TYPE_MINIMAP ) )
 	{
@@ -594,8 +494,7 @@ void	SC_AddCoordinatesIndicator ( int index, int zoneno, float x, float y )
 	}
 }
 
-SYSTEM_SCRIPT
-void	SC_RemoveNpcIndicator ( int npcno )
+void SC_RemoveNpcIndicator ( int npcno )
 {
 	if( CTDialog* pDlg = g_itMGR.FindDlg( DLG_TYPE_MINIMAP ) )
 	{
@@ -604,8 +503,7 @@ void	SC_RemoveNpcIndicator ( int npcno )
 	}
 }
 
-SYSTEM_SCRIPT
-void	SC_RemoveCoordinatesIndicator ( int index )
+void SC_RemoveCoordinatesIndicator ( int index )
 {
 	if( CTDialog* pDlg = g_itMGR.FindDlg( DLG_TYPE_MINIMAP ) )
 	{
@@ -613,10 +511,6 @@ void	SC_RemoveCoordinatesIndicator ( int index )
 		p->RemoveIndicatorCoordinates( index );
 	}
 }
-
-//------------------------------------------------------------------------------------------------
-/// 아바타 정보
-//------------------------------------------------------------------------------------------------
 
 int	SC_GetAvatarEXP()
 {
@@ -629,60 +523,33 @@ int	SC_GetAvatarLEVEL()
 }
 
 
-
-//------------------------------------------------------------------------------------------------
-/// Send msg to web
-//------------------------------------------------------------------------------------------------
 void SC_SendMsgToWeb( ZSTRING pstrURL, ZSTRING pstrPage, ZSTRING pstrMsg )
 {
 	//TI_SendHttpPostData ( pstrURL, pstrPage, pstrMsg );
 }
 
-//------------------------------------------------------------------------------------------------
-/// 퀘스트 트리거를 실행한다 2005-05-26 김창수
-//------------------------------------------------------------------------------------------------
 void SC_QF_doQuestTrigger ( ZSTRING TriggerName )
 {
 	::QF_doQuestTrigger ( TriggerName ) ;
 }
 
-//------------------------------------------------------------------------------------------------
-/// 퀘스트 트리거 컨디션을 체크한. 2005-05-26 김창수
-//------------------------------------------------------------------------------------------------
 int SC_QF_checkQuestCondition ( ZSTRING szQuestTriggerName )
 {
 	return ::QF_checkQuestCondition ( szQuestTriggerName );
 }
 
-//------------------------------------------------------------------------------------------------
-/// 
-//------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 void SC_GF_setRevivePosition ( )
 {
 	GF_setRevivePosition();
 }
 
-//-------------------------------------------------------------------------------------------------------------------
-/// 튜토리얼 이미지를 화면에 지정된 위치에 일정시간동안 보여준다.
-/// @param ZSTRING	filename: 이미지 화일네임( path/filename )
-/// @param int		x		: 출력할 화면의 x좌표
-/// @param int		y		: 출력할 화면의 y좌표
-/// @param float	fade_time	: 출력중인 이미지가 화면에서 사라지기 시작하는 시간( max_time 보다는 작아야 한다 )
-/// @param float	max_time	: 이미지가 화면에 표시될 총 시간
-/// @param int		append_or_renewal	: 기존 출력중인 이미지가 있을경우 삭제하고 보여줄것인가? 출력이 끝난후 보여줄것인가?
-//-------------------------------------------------------------------------------------------------------------------
 void SC_ShowTutorialImage ( ZSTRING filename, int x, int y, float fadein_endtime, float fadeout_starttime, float max_time, int append_or_renewal )
 {
 	//CTutorialEventManager::GetSingleton().RegistImage( filename, x, y, fadein_time,fadeout_time, max_time, append_or_renewal );
 	CTutorialEventManager::GetSingleton().RegistImage( filename, x, y, fadein_endtime, fadeout_starttime, max_time, append_or_renewal );
 }
 
-
-//------------------------------------------------------------------------------------------------
-/// SC => GF/QF 연동 스크립드
-/// 자세한 설명은 SC_를 뺀 스크립트 참조
-//------------------------------------------------------------------------------------------------
 SYSTEM_SCRIPT
 int SC_GF_getVariable ( int iVarTYPE )
 {

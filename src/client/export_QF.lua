@@ -52,7 +52,7 @@ function read_interfaces ( hin, hout )
     end -- end of while
 end
 
-IN_FILENAME     = "event/Quest_FUNC.h"
+IN_FILENAME     = "Event/Quest_FUNC.h"
 OUT_FILENAME1 = "event/Quest_FUNC_DEF.inc"
 OUT_FILENAME2 = "event/Quest_FUNC_REG.inc"
 

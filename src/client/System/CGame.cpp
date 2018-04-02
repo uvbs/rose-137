@@ -57,7 +57,7 @@
 #include "GameData/CClan.h"
 
 #include "GameCommon/CFilterword.h"
-#include "Game_Func.h"
+#include "Game_FUNC.h"
 #include "Game.h"
 #include "../Bullet.h"
 #include "../CSkyDome.h"
@@ -396,23 +396,6 @@ int CGame::Init()
 	CreateDirectory( CClanMarkUserDefined::ClanMarkFileDirectory.c_str(), NULL );
 	CreateDirectory( "Chat", NULL );
 
-#ifdef _DEBUG
-	m_ClientFileVersion.GetVersionInfo( "TRose.exe" );
-#else
-	m_ClientFileVersion.GetVersionInfo( "TRose.exe" );
-#endif
-
-	m_ClientFileVersion.m_strFileVersion = CStr::Printf("%d.%d.%d.%d",
-		m_ClientFileVersion.m_iMajorVersion, 
-		m_ClientFileVersion.m_MinorVersion, 
-		m_ClientFileVersion.m_BuildNumber, 
-		m_ClientFileVersion.m_RevisionNumber );
-
-	m_ClientFileVersion.m_strFileVersion.append("_DE");
-
-#ifdef __ITEM_MAX
-	m_ClientFileVersion.m_strFileVersion.append("_IM");
-#endif
 	ClientLog(LOG_DEBUG,"Initialization complete" );
 	return 0;
 }
@@ -701,9 +684,6 @@ bool CGame::Load_DataNotUseThread()///Should not read the thread by using the Lo
 #include "Util/FileVersionInfo.h"
 void CGame::MakeFont()
 {
-	//CFileVersionInfo versionInfo;
-	//versionInfo.GetVersionInfo( "d_client.exe" );
-
 	for( int i =0; i < MAX_FONT ; i++ )
 	{		
 		g_GameDATA.m_hFONT[ i ] = NULL;
@@ -1899,12 +1879,6 @@ bool CGame::GetActiveXConnect()
 const std::string& CGame::GetJapanPartnerString()
 {
 	return m_JapanPartnerString;
-}
-
-
-std::string& CGame::GetClientFileVersion()
-{
-	return m_ClientFileVersion.m_strFileVersion;
 }
 
 void CGame::SetCurVersion(std::string szString)

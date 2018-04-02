@@ -8,7 +8,7 @@
 #include "Interface/it_mgr.h"
 #include "../../Command/CTCmdHotExec.h"
 #include "../../Icon/CIconItem.h"
-#include "../../../Game_Func.h"
+#include "../../../Game_FUNC.h"
 #include "tgamectrl/TGuage.h"
 
 CMakeStateResult::CMakeStateResult( CMakeDLG* pParent )

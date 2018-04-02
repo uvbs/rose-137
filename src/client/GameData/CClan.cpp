@@ -2,7 +2,7 @@
 #include ".\cclan.h"
 #include "Network/CNetwork.h"
 #include "IO_Terrain.h"
-#include "Game_Func.h"
+#include "Game_FUNC.h"
 
 CClan::CClan(void)
 {

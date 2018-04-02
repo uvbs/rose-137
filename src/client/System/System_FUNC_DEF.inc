@@ -160,6 +160,7 @@ ZL_FUNC_BEGIN( SC_LoadModel, RETURNS_HNODE )
 	       ZL_FLOAT
 ZL_FUNC_END
 
+/*
 ZL_FUNC_BEGIN( SC_LoadMotion, RETURNS_HNODE )
 	      ZL_STRING,
 	      ZL_STRING,
@@ -169,6 +170,26 @@ ZL_FUNC_BEGIN( SC_LoadMotion, RETURNS_HNODE )
 	       ZL_FLOAT,
 	         ZL_INT
 ZL_FUNC_END
+*/
+
+int lf_SC_LoadMotion (lua_State * L)			
+{											
+	int index = 1;								
+	const char where[] = "SC_LoadMotion";			
+	int return_num = 0;	
+	ZSTRING name = get_param_string(L, index, where);
+	ZSTRING file = get_param_string(L, index, where);
+	set_param_uint(L, return_num, 
+		SC_LoadMotion (
+			name,
+			file,
+			get_param_int(L, index, where),
+			get_param_int(L, index, where),
+			get_param_int(L, index, where),
+			get_param_float(L, index, where),
+			get_param_int(L, index, where)));											
+	return return_num;
+}				
 
 ZL_FUNC_BEGIN( SC_LoadSkeleton, RETURNS_HNODE )
 	      ZL_STRING,

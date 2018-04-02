@@ -869,9 +869,7 @@
     <None Include="export_GM.lua" />
     <None Include="export_QF.lua" />
     <None Include="Game_FUNC_DEF.inc" />
-    <None Include="Game_FUNC_DEF.inc.r35" />
     <None Include="Game_FUNC_REG.inc" />
-    <None Include="Game_FUNC_REG.inc.r35" />
     <None Include="GlobalScr.lua" />
     <None Include="lua.exe" />
     <None Include="luac.exe" />
@@ -893,13 +891,9 @@
     <None Include="Res\socket_drill.cur" />
     <None Include="Res\User.cur" />
     <None Include="Res\Wheel.cur" />
-    <None Include="StdAfx.hx" />
-    <None Include="System\export_System.lua" />
+    <None Include="scripts\export_luafunc.lua" />
     <None Include="System\System_FUNC_DEF.inc" />
     <None Include="System\System_FUNC_REG.inc" />
-    <None Include="System\System_FUNC_REG.inc.mine" />
-    <None Include="System\System_FUNC_REG.inc.r28" />
-    <None Include="System\System_FUNC_REG.inc.r35" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Res\icons\client.ico" />

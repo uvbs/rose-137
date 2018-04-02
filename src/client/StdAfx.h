@@ -114,7 +114,6 @@
 
 #define __BUILD_REGION_NAME   "ROSE Online Evolution"
 #define _PACKETRESERVED		 0x0000
-#define _WARNING
 #define _DE
 #define _USA
 #define __NoNProtect
