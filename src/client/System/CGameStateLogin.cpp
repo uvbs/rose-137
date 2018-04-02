@@ -285,11 +285,6 @@ int CGameStateLogin::Enter( int iPrevStateID )
 	g_EUILobby.InitEUIManager();
 	g_EUILobby.CreateLoginDlg();
 
-	//	CTCommand* pCmd = new CTCmdExit;
-	//	g_pTerrain->SetLoadingMode( false );
-	//	::setDelayedLoad( 2 );	
-
-
 	int iOldSightRange = g_GameDATA.m_nSightRange;
 	g_GameDATA.m_nSightRange = 50;
 
@@ -297,8 +292,6 @@ int CGameStateLogin::Enter( int iPrevStateID )
 	D3DVECTOR PosENZIN = g_pCamera->Get_Position ();	
 	g_pTerrain->InitZONEALL( PosENZIN.x, PosENZIN.y );
 	
-
-
 	/// Init skybox
 	CSkyDOME::Init( g_GameDATA.m_hShader_sky, g_GameDATA.m_hLight, 0 );
 

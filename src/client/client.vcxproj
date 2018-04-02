@@ -373,7 +373,6 @@
     <ClCompile Include="System\CGameStateTitle.cpp" />
     <ClCompile Include="System\CGameStateWarp.cpp" />
     <ClCompile Include="System\GameStateMovePlanet.cpp" />
-    <ClCompile Include="System\GameStateWarning.cpp" />
     <ClCompile Include="System\SystemProcScript.cpp" />
     <ClCompile Include="System\System_FUNC.cpp" />
     <ClCompile Include="System\TCmdSystem.cpp" />
@@ -791,7 +790,6 @@
     <ClInclude Include="System\CGameStateTitle.h" />
     <ClInclude Include="System\CGameStateWarp.h" />
     <ClInclude Include="System\GameStateMovePlanet.h" />
-    <ClInclude Include="System\GameStateWarning.h" />
     <ClInclude Include="System\SystemProcScript.h" />
     <ClInclude Include="System\System_FUNC.h" />
     <ClInclude Include="System\TCmdSystem.h" />

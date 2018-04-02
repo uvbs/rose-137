@@ -262,7 +262,11 @@ bool CExternalUILobby::MsgProc(UINT uiMsg,WPARAM wParam,LPARAM lParam)
 	if( m_pMsgBox && m_pMsgBox->IsVision() && m_pMsgBox->IsModal() )
 		return true;
 
-	return (m_pCurrDialog->Process( uiMsg, wParam, lParam )?true:false);
+	if (m_pCurrDialog) {
+		return (m_pCurrDialog->Process(uiMsg, wParam, lParam) ? true : false);
+	}
+
+	return true;
 }
 
 void CExternalUILobby::ReSetAvataListBox()

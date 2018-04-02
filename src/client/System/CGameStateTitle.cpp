@@ -56,10 +56,7 @@ int CGameStateTitle::Enter( int iPrevStateID )
 		Draw();
 		ThreadFunc(NULL);
 
-		if (g_GameDATA.m_SkipIntroNote)
-			CGame::GetInstance().ChangeState( CGame::GS_LOGIN );
-		else
-			CGame::GetInstance().ChangeState( CGame::GS_WARNING );
+		CGame::GetInstance().ChangeState( CGame::GS_LOGIN );
 	
 
 	}
