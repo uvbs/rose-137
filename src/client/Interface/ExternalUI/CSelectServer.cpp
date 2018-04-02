@@ -11,7 +11,6 @@
 #include "System/CGame.h"
 
 #include "Interface/Command/CTCmdHotExec.h"
-#include "../../Debug.h"
 #include "tgamectrl/tlistbox.h"
 #include "tgamectrl/tmsgbox.h"
 

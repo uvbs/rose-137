@@ -18,7 +18,6 @@
 #include "CGameStateReLogin.h"
 #include "SqliteDB.h"
 
-#include "Debug.h"
 #include "Network/CNetwork.h"
 #include "IO_Event.h"
 #include "CClientStorage.h"
@@ -247,10 +246,6 @@ int CGame::Init()
 	( CLocalizing::GetSingleton() ).GetCurrentCodePage();
 	if( !(CStringManager::GetSingleton()).LoadTables( ( CLocalizing::GetSingleton() ).GetCurrentCharSet() ) ) //Loading STLs
 		return false;
-
-#ifdef _USE_BG
-	g_CrashMsg.assign( STR_CRASH_MSG );
-#endif
 
 	::activateLog (true);
 

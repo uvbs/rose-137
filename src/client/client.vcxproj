@@ -63,7 +63,6 @@
     <ClCompile Include="CPunk.cpp" />
     <ClCompile Include="CSkyDOME.cpp" />
     <ClCompile Include="CViewMSG.cpp" />
-    <ClCompile Include="Debug.cpp" />
     <ClCompile Include="Event\CEvent.cpp" />
     <ClCompile Include="Event\GF_EFFECT.CPP" />
     <ClCompile Include="Event\GF_ITEM.CPP" />
@@ -306,8 +305,6 @@
     <ClCompile Include="JCommandState.cpp" />
     <ClCompile Include="LUA_Func.cpp" />
     <ClCompile Include="LUA_Init.cpp" />
-    <ClCompile Include="MiniDumper.cpp" />
-    <ClCompile Include="Misc\DropItemManager.cpp" />
     <ClCompile Include="Misc\GameUtil.cpp" />
     <ClCompile Include="Network\CNetwork.cpp" />
     <ClCompile Include="Network\RecvPACKET.cpp" />
@@ -323,7 +320,6 @@
     <ClCompile Include="Server\Util\cdxHPC.cpp" />
     <ClCompile Include="Server\Util\classFile.cpp" />
     <ClCompile Include="Server\Util\classHASH.cpp" />
-    <ClCompile Include="Server\Util\classIME.cpp" />
     <ClCompile Include="Server\Util\classLOG.cpp" />
     <ClCompile Include="Server\Util\classMD5.cpp" />
     <ClCompile Include="Server\Util\classOGG.cpp" />
@@ -344,7 +340,6 @@
     <ClCompile Include="Sfx\SFXFont.cpp" />
     <ClCompile Include="Sfx\SFXManager.cpp" />
     <ClCompile Include="Sfx\SFXWideScreen.cpp" />
-    <ClCompile Include="Sfx\SmoothVisibility.cpp" />
     <ClCompile Include="Sound\CMusic.cpp" />
     <ClCompile Include="Sound\DirectMusicPlayer.cpp" />
     <ClCompile Include="Sound\IO_Sound.cpp" />
@@ -388,11 +383,9 @@
     <ClCompile Include="Util\CCheat.cpp" />
     <ClCompile Include="Util\CD3DUtil.cpp" />
     <ClCompile Include="Util\CDSound.cpp" />
-    <ClCompile Include="Util\Cencryptdecrypt.cpp" />
     <ClCompile Include="Util\CFileSystemNormal.cpp" />
     <ClCompile Include="Util\CGameSTB.cpp" />
     <ClCompile Include="Util\CGameStr.cpp" />
-    <ClCompile Include="Util\CheckHack.cpp" />
     <ClCompile Include="Util\classHTTP.cpp" />
     <ClCompile Include="Util\classLUA.cpp" />
     <ClCompile Include="Util\classSTR.cpp" />
@@ -409,7 +402,6 @@
     <ClCompile Include="Util\JResourceContainer.cpp" />
     <ClCompile Include="Util\Localizing.cpp" />
     <ClCompile Include="Util\ResourceCache.cpp" />
-    <ClCompile Include="Util\SystemInfo.cpp" />
     <ClCompile Include="Util\SystemUtil.cpp" />
     <ClCompile Include="Util\WndMsgQ.cpp" />
     <ClCompile Include="WheatyExceptionReport.cpp" />
@@ -462,7 +454,6 @@
     <ClInclude Include="CPunk.h" />
     <ClInclude Include="CSkyDOME.h" />
     <ClInclude Include="CViewMSG.h" />
-    <ClInclude Include="Debug.h" />
     <ClInclude Include="Event\CEvent.h" />
     <ClInclude Include="Event\QuestRewardQueue.h" />
     <ClInclude Include="Event\Quest_FUNC.h" />
@@ -703,8 +694,6 @@
     <ClInclude Include="IO_Terrain.h" />
     <ClInclude Include="JCommandState.h" />
     <ClInclude Include="LUA_Func.h" />
-    <ClInclude Include="MiniDumper.h" />
-    <ClInclude Include="Misc\DropItemManager.h" />
     <ClInclude Include="Misc\GameUtil.h" />
     <ClInclude Include="Network\CNetwork.h" />
     <ClInclude Include="Network\NET_Prototype.h" />
@@ -715,7 +704,6 @@
     <ClInclude Include="ObjectActionProcessor.h" />
     <ClInclude Include="ObjectCommand\ObjCommand.h" />
     <ClInclude Include="ObjFixedEvent.h" />
-    <ClInclude Include="onigurama.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Server\Util\AStream.h" />
     <ClInclude Include="Server\Util\AStrTABLE.h" />
@@ -727,7 +715,6 @@
     <ClInclude Include="Server\Util\CFileSystem.h" />
     <ClInclude Include="Server\Util\classFile.h" />
     <ClInclude Include="Server\Util\classHASH.h" />
-    <ClInclude Include="Server\Util\classIME.h" />
     <ClInclude Include="Server\Util\classLOG.h" />
     <ClInclude Include="Server\Util\classMD5.h" />
     <ClInclude Include="Server\Util\classMD5Defines.h" />
@@ -759,7 +746,6 @@
     <ClInclude Include="Sfx\SFXFont.h" />
     <ClInclude Include="Sfx\SFXManager.h" />
     <ClInclude Include="Sfx\SFXWideScreen.h" />
-    <ClInclude Include="Sfx\SmoothVisibility.h" />
     <ClInclude Include="Sound\CMusic.h" />
     <ClInclude Include="Sound\DirectMusicPlayer.h" />
     <ClInclude Include="Sound\IO_Sound.h" />
@@ -801,22 +787,18 @@
     <ClInclude Include="Tutorial\TutorialEventUtility.h" />
     <ClInclude Include="Util\ADSStream.h" />
     <ClInclude Include="Util\Arcfour\Arcfour.h" />
-    <ClInclude Include="Util\BugGUARD.h" />
     <ClInclude Include="Util\CBITArray.h" />
     <ClInclude Include="Util\CCheat.h" />
     <ClInclude Include="Util\CClientSOCKET.h" />
     <ClInclude Include="Util\CD3DUtil.h" />
     <ClInclude Include="Util\CDSound.h" />
-    <ClInclude Include="Util\Cencryptdecrypt.h" />
     <ClInclude Include="Util\CFileLIST.h" />
     <ClInclude Include="Util\CFileSystem.h" />
     <ClInclude Include="Util\CFileSystemNormal.h" />
     <ClInclude Include="Util\CGameSTB.h" />
     <ClInclude Include="Util\CGameStr.h" />
-    <ClInclude Include="Util\CheckHack.h" />
     <ClInclude Include="Util\classHASH.h" />
     <ClInclude Include="Util\classHTTP.h" />
-    <ClInclude Include="Util\classIME.h" />
     <ClInclude Include="Util\classLOG.h" />
     <ClInclude Include="Util\classLUA.h" />
     <ClInclude Include="Util\classMD5.h" />
@@ -847,7 +829,6 @@
     <ClInclude Include="Util\ResourceCache.h" />
     <ClInclude Include="Util\RTTI.h" />
     <ClInclude Include="Util\SLLIST.h" />
-    <ClInclude Include="Util\SystemInfo.h" />
     <ClInclude Include="Util\SystemUtil.h" />
     <ClInclude Include="Util\WndMsgQ.h" />
     <ClInclude Include="WheatyExceptionReport.h" />

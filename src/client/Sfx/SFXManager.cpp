@@ -1,11 +1,9 @@
 #include "stdafx.h"
-#include ".\sfxmanager.h"
+#include "sfxmanager.h"
 #include "ISFX.h"
+#include "sfxwidescreen.h"
 #include <functional>
 #include <algorithm>
-
-#include "SFXWideScreen.h"
-
 
 /// for singleton
 CSFXManager __sfxManager;

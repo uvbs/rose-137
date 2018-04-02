@@ -179,9 +179,6 @@
     <ClCompile Include="CViewMSG.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Debug.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -225,9 +222,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LUA_Init.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MiniDumper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ObjCastleGear.cpp">
@@ -989,9 +983,6 @@
     <ClCompile Include="Interface\SlotContainer\HotIconSlot.cpp">
       <Filter>Source Files\Interface\SlotContainer</Filter>
     </ClCompile>
-    <ClCompile Include="Misc\DropItemManager.cpp">
-      <Filter>Source Files\Misc</Filter>
-    </ClCompile>
     <ClCompile Include="Misc\GameUtil.cpp">
       <Filter>Source Files\Misc</Filter>
     </ClCompile>
@@ -1014,12 +1005,6 @@
       <Filter>Source Files\Sfx</Filter>
     </ClCompile>
     <ClCompile Include="Sfx\SFXManager.cpp">
-      <Filter>Source Files\Sfx</Filter>
-    </ClCompile>
-    <ClCompile Include="Sfx\SFXWideScreen.cpp">
-      <Filter>Source Files\Sfx</Filter>
-    </ClCompile>
-    <ClCompile Include="Sfx\SmoothVisibility.cpp">
       <Filter>Source Files\Sfx</Filter>
     </ClCompile>
     <ClCompile Include="Sound\CMusic.cpp">
@@ -1142,9 +1127,6 @@
     <ClCompile Include="Util\CDSound.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
-    <ClCompile Include="Util\Cencryptdecrypt.cpp">
-      <Filter>Source Files\Util</Filter>
-    </ClCompile>
     <ClCompile Include="Util\CFileSystemNormal.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
@@ -1152,9 +1134,6 @@
       <Filter>Source Files\Util</Filter>
     </ClCompile>
     <ClCompile Include="Util\CGameStr.cpp">
-      <Filter>Source Files\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="Util\CheckHack.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
     <ClCompile Include="Util\classHTTP.cpp">
@@ -1205,9 +1184,6 @@
     <ClCompile Include="Util\ResourceCache.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
-    <ClCompile Include="Util\SystemInfo.cpp">
-      <Filter>Source Files\Util</Filter>
-    </ClCompile>
     <ClCompile Include="Util\SystemUtil.cpp">
       <Filter>Source Files\Util</Filter>
     </ClCompile>
@@ -1233,9 +1209,6 @@
       <Filter>Source Files\Server\Util</Filter>
     </ClCompile>
     <ClCompile Include="Server\Util\classHASH.cpp">
-      <Filter>Source Files\Server\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="Server\Util\classIME.cpp">
       <Filter>Source Files\Server\Util</Filter>
     </ClCompile>
     <ClCompile Include="Server\Util\classLOG.cpp">
@@ -1285,6 +1258,9 @@
     </ClCompile>
     <ClCompile Include="Server\Util\PacketHEADER.cpp">
       <Filter>Source Files\Server\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Sfx\SFXWideScreen.cpp">
+      <Filter>Source Files\Sfx</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1369,9 +1345,6 @@
     <ClInclude Include="CViewMSG.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Debug.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -1414,9 +1387,6 @@
     <ClInclude Include="LUA_Func.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="MiniDumper.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="ObjCastleGear.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -1427,9 +1397,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="ObjFixedEvent.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="onigurama.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
@@ -2179,9 +2146,6 @@
     <ClInclude Include="Interface\SlotContainer\HotIconSlot.h">
       <Filter>Source Files\Interface\SlotContainer</Filter>
     </ClInclude>
-    <ClInclude Include="Misc\DropItemManager.h">
-      <Filter>Source Files\Misc</Filter>
-    </ClInclude>
     <ClInclude Include="Misc\GameUtil.h">
       <Filter>Source Files\Misc</Filter>
     </ClInclude>
@@ -2207,12 +2171,6 @@
       <Filter>Source Files\Sfx</Filter>
     </ClInclude>
     <ClInclude Include="Sfx\SFXManager.h">
-      <Filter>Source Files\Sfx</Filter>
-    </ClInclude>
-    <ClInclude Include="Sfx\SFXWideScreen.h">
-      <Filter>Source Files\Sfx</Filter>
-    </ClInclude>
-    <ClInclude Include="Sfx\SmoothVisibility.h">
       <Filter>Source Files\Sfx</Filter>
     </ClInclude>
     <ClInclude Include="Sound\CMusic.h">
@@ -2329,9 +2287,6 @@
     <ClInclude Include="Util\ADSStream.h">
       <Filter>Source Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Util\BugGUARD.h">
-      <Filter>Source Files\Util</Filter>
-    </ClInclude>
     <ClInclude Include="Util\CBITArray.h">
       <Filter>Source Files\Util</Filter>
     </ClInclude>
@@ -2345,9 +2300,6 @@
       <Filter>Source Files\Util</Filter>
     </ClInclude>
     <ClInclude Include="Util\CDSound.h">
-      <Filter>Source Files\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="Util\Cencryptdecrypt.h">
       <Filter>Source Files\Util</Filter>
     </ClInclude>
     <ClInclude Include="Util\CFileLIST.h">
@@ -2365,16 +2317,10 @@
     <ClInclude Include="Util\CGameStr.h">
       <Filter>Source Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Util\CheckHack.h">
-      <Filter>Source Files\Util</Filter>
-    </ClInclude>
     <ClInclude Include="Util\classHASH.h">
       <Filter>Source Files\Util</Filter>
     </ClInclude>
     <ClInclude Include="Util\classHTTP.h">
-      <Filter>Source Files\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="Util\classIME.h">
       <Filter>Source Files\Util</Filter>
     </ClInclude>
     <ClInclude Include="Util\classLOG.h">
@@ -2467,9 +2413,6 @@
     <ClInclude Include="Util\SLLIST.h">
       <Filter>Source Files\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Util\SystemInfo.h">
-      <Filter>Source Files\Util</Filter>
-    </ClInclude>
     <ClInclude Include="Util\SystemUtil.h">
       <Filter>Source Files\Util</Filter>
     </ClInclude>
@@ -2507,9 +2450,6 @@
       <Filter>Source Files\Server\Util</Filter>
     </ClInclude>
     <ClInclude Include="Server\Util\classHASH.h">
-      <Filter>Source Files\Server\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="Server\Util\classIME.h">
       <Filter>Source Files\Server\Util</Filter>
     </ClInclude>
     <ClInclude Include="Server\Util\classLOG.h">
@@ -2592,6 +2532,9 @@
     </ClInclude>
     <ClInclude Include="Server\Util\SLLIST.h">
       <Filter>Source Files\Server\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Sfx\SFXWideScreen.h">
+      <Filter>Source Files\Sfx</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -20,15 +20,11 @@
 
 #include "Network\\CNetwork.h"
 #include "util/cfilesystemnormal.h"
-#include "Util\\SystemInfo.h"
 #include "CClientStorage.h"
 #include "System/CGame.h"
 #include "Interface/ExternalUI/CLogin.h"
-#include "Debug.h"
 #include "TriggerInfo.h"
 
-#include "MiniDumper.h"
-#include "Util/Cencryptdecrypt.h"
 #include "Hasher.h"
 
 
@@ -127,74 +123,9 @@ void Free_DEVICE (void)
 	::destZnzin();
 }
 
-#ifdef __ARCFOUR
-
-bool	g_bArcfourSucessed = false;
-
-// Load Arcfour Key.
-DWORD WINAPI MyThreadProc( LPVOID param )
-{
-
-	g_bArcfourSucessed = false;
-
-#ifdef _DEBUG
-
-	// Read the key from the key file.
-
-	int			nKeyLen = 0;
-	Crypt		crypt;
-
-	// Read and write the key file on the server.
-	crypt = g_EncryptDecrypt.EncryptDataLoad_Server( "key.txt" );
-	if( crypt.bKeyJudgment )
-	{
-		g_pCApp->SetArcfourKey( crypt.sCyrptKey.c_str(), crypt.size );
-		g_bArcfourSucessed = true;
-		return 0;
-	}
-
-	// Read the release of a key in the executable file.
-	crypt = g_EncryptDecrypt.EncryptDataLoad( "TRose.exe" );
-
-	if( crypt.bKeyJudgment )
-	{
-		g_pCApp->SetArcfourKey( crypt.sCyrptKey.c_str(), crypt.size );
-		g_bArcfourSucessed = true;
-		return 0;
-	}
-
-#else
-	//07. 01. 17 - 
-    //Kim, Joo - Hyun: Do not use for the time being po arc (packet headers are different, the server
-	//If you cut off until modified by the frequent occurrence do not use it. Packet headers are used. However, as packets are not encrypted.)
-	g_bArcfourSucessed = true;
-
-#ifdef __RELEASE_TEST
-	crypt = g_EncryptDecrypt.EncryptDataLoad_Server( "key.txt" );
-	if( crypt.bKeyJudgment )
-	{
-		g_pCApp->SetArcfourKey( crypt.sCyrptKey.c_str(), crypt.size );
-		g_bArcfourSucessed = true;
-		return 0;
-	}
-#endif
-
-#endif
-
-	// Failed to read key.
-	return 0;
-}
-
-#endif
-
 //-------------------------------------------------------------------------------------------------
 int APIENTRY WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
 {
-#ifdef _USE_BG
-	//	SetExceptionReport();
-#endif
-
-
 #ifndef _DEBUG
 	// *-------------------------------------------------------------------* //
 	// 2005. 5. 6. Joe Ho-dong
@@ -210,90 +141,10 @@ int APIENTRY WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmd
 	}
 #endif
 
-	// TSVFS.dll The CRC is checked hajang!
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-#ifdef __TEST
-#else
-#ifndef _DEBUG
-	classCRC crc;
-	std::string	m_csFileName;
-
-	TCHAR tstrFileName[255];
-
-	DWORD dwSize = 0;
-
-	uHash hashOut;
-	unsigned int hashlength = 0;
-
-
-	GetModuleFileName(NULL, tstrFileName, 255);
-	m_csFileName = tstrFileName;
-
-///////////////<crc check tsvfs.dll> 
-	// Garnet: it check TSVFS crc and i don't want it or runtime error happen on release configuration
-	/**
-	char TSVFSDLL[1024];
-
-	GetModuleFileName( GetModuleHandle("TSVFS.dll"), TSVFSDLL, 1024);
-
-	dwSize = crc.FileCRC32(TSVFSDLL);
-	if(dwSize != 0x2F6AA378)
-	{
-		MessageBox( NULL, "Runtime 2 error!", "TRose", MB_OK | MB_ICONERROR);
-		return 0;
-	}
-	**/
-///////////////<\crc check tsvfs.dll>
-#endif  //_DEBUG
-
-#endif	//__TEST
-
-
 	//-------------------------------------------------------------------------------
 	/// Init System object
 	//-------------------------------------------------------------------------------
 	g_pCApp		= CApplication::Instance ();
-
-
-
-
-#ifdef __ARCFOUR
-
-#ifdef __ARCFOURLOG
-	FILE * pFile = fopen("ArcfourLog.txt", "wt");
-	if(pFile)	fprintf( pFile, "Start Log\n" );
-	fclose(pFile);
-#endif
-
-
-	DWORD IDThread;
-	HANDLE hThread;
-	//Arcfour thread start.
-	hThread = CreateThread( NULL,
-		0,
-		(LPTHREAD_START_ROUTINE)MyThreadProc,
-		NULL,
-		0,
-		&IDThread );
-#endif
-	// *-------------------------------------------------------------------* //
-
-
-	/*_CrtSetDbgFlag (
-	_CRTDBG_ALLOC_MEM_DF |
-	_CRTDBG_LEAK_CHECK_DF);
-	_CrtSetReportMode ( _CRT_ERROR,
-	_CRTDBG_MODE_DEBUG);*/
-
-	//KeyCrypt Execution
-	//if( !m_npKeyCrypt.InitKeyCrypt() )
-	//	return 0;
-	///m_npKeyCrypt.IsGetUse() = FALSE;
-
-
-	g_SystemInfo.CollectingSystemInfo();
-	int iWindowVersion = g_SystemInfo.GetWindowsVersion();
 
 	CGame::GetInstance().SetCurVersion("0.0");
 	GetLocalTime(	&g_GameDATA.m_SystemTime );
@@ -303,29 +154,8 @@ int APIENTRY WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmd
 	//-------------------------------------------------------------------------------
 	//	g_pCApp		= CApplication::Instance ();
 
-#ifdef __ARCFOUR
-
-	//Raeds Arcfour Key before creating CNetwork
-	WaitForSingleObject( hThread, INFINITE );
-	CloseHandle( hThread );
-
-	//Arcfour key 
-	//If reading from the end client.
-	if( g_bArcfourSucessed == false )
-	{
-		g_pCApp->Destroy ();
-
-		MessageBox(NULL, "Fail - 1004", "TRose", MB_OK | MB_ICONERROR);
-
-		return 0;
-	}
-
-#endif
 	g_pNet		= CNetwork::Instance (hInstance);
-
-
 	g_pCRange	= CRangeTBL::Instance ();
-
 
 	//-------------------------------------------------------------------------------
 	/// Load Range table
@@ -335,7 +165,6 @@ int APIENTRY WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmd
 		g_pCApp->ErrorBOX ( "3DDATA\\TERRAIN\\O_Range.TBL file open error", CUtil::GetCurrentDir (), MB_OK);
 		return 0;
 	}
-
 
 	//-------------------------------------------------------------------------------
 	/// IP/Port Setting
@@ -385,11 +214,9 @@ int APIENTRY WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmd
 	}
 
 
-
 #ifndef _DEBUG
 	// Information collection system
 	TI_ReadSysInfoFile ();
-
 #endif
 
 
@@ -408,37 +235,16 @@ int APIENTRY WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmd
 	else
 	{
 		MessageBox( NULL, "Device error!", "TRose", MB_OK | MB_ICONERROR);
-#ifdef _USE_BG
-		ReportZnzinLog( "Failed to initialize. Do you want to transfer the cause?", 10 );
-#endif
 	}
-
-
-
-	// *-------------------------------------------------------------------* //
 
 	Free_DEVICE ();
 
-
-	// *-------------------------------------------------------------------* //
 	g_TblCamera.Free();
 	g_TblResolution.Free();
-	// *-------------------------------------------------------------------* //
 
 	g_pCApp->Destroy ();
 	g_pNet->Destroy ();
-
-	//-------------------------------------------------------------------------------
-	///2004/3/26/nAvy:Release Configuration Debug Mode(F5 Run)If you cancel at the login screen when running
-	///Error Flies. Do not know why, but I just run, the (bat Or file ctrl+f5) Error The annanda.
-	//-------------------------------------------------------------------------------
 	g_pCRange->Destroy ();
-
-	/*if( g_hUnicows )
-	{
-	FreeLibrary( g_hUnicows );
-	g_hUnicows = NULL;
-	}*/
 
 #ifndef _DEBUG
 	if (AppMutex)
@@ -452,14 +258,4 @@ int APIENTRY WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmd
 }
 
 
-
 extern std::string sCurVersion;
-
-
-
-
-
-
-
-
-//-------------------------------------------------------------------------------------------------

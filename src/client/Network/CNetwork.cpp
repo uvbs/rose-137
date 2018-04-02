@@ -10,7 +10,6 @@
 #include "System/CGame.h"
 #include "Util/CSocketWND.h"
 #include "GameProc/LiveCheck.h"
-#include "Debug.h"
 
 
 CNetwork *g_pNet;
